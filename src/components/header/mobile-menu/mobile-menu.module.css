@@ -1,0 +1,29 @@
+.content{
+    position: relative;
+}
+
+.menuButton {
+    margin-left: 19px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+}
+.menuButton img{
+    width: 32px;
+    height: 32px;
+}
+.menuItems{
+    left: 25px;
+    top: 8vh;
+    position: absolute;
+    background-color: green;
+    width: 100px;
+    height: 200px;
+    z-index: 999;
+}
+@media screen and (max-width: 950px) {
+    .menuButton {
+        display: block;
+    }
+}

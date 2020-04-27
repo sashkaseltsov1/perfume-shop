@@ -1,0 +1,31 @@
+
+.content{
+    text-align: center;
+    justify-content: center;
+}
+.content p{
+    font-weight: bold;
+    color: white;
+    margin: 5px 0 20px 0;
+    font-size: 14px;
+}
+.content h1{
+    color: white;
+    font-size: 64px;
+    margin: 0;
+}
+
+@media screen and (max-width: 950px) {
+
+    .content{
+        height: 70px;
+        line-height: 67px;
+    }
+    .content h1{
+        font-size: 32px;
+    }
+    .content p{
+        display: none;
+    }
+}
+

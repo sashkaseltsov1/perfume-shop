@@ -1,7 +1,25 @@
 
-main{
-    width: 100px;
-    height: 100px;
-    background-color: black;
+.back {
+    background-color: #161515;
+}
+.main{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
 
+.main div:nth-child(2){
+    //background-color: red;
+}
+.main div:nth-child(1){
+
+}
+.main div:nth-child(3){
+
+
+}
+
+@media screen and (max-width: 950px) {
+    .main{
+        height: 70px;
+    }
 }
