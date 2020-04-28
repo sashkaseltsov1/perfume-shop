@@ -11,6 +11,7 @@ const MobileMenu = () => {
     return (
         <div className={styles.content}>
             <div className={cn(styles.menuButton, menuItemsState && styles.buttonHovered)}
+                 onTouchStart={()=>setMenuItemsState(!menuItemsState)}
                  onMouseEnter={() => setMenuItemsState(true)}
                  onMouseLeave={() => setMenuItemsState(false)}>
                 <img src={image} alt=''/>
