@@ -3,6 +3,7 @@
 }
 
 .menuButton {
+    cursor: pointer;
     margin-left: 19px;
     display: none;
     position: absolute;
@@ -10,8 +11,7 @@
     margin-top: -16px;
 }
 
-.buttonHovered {
-    cursor: pointer;
+.rotateButton {
     animation-name: rotation;
     animation-duration: 0.1s;
     animation-iteration-count: 1;
@@ -19,6 +19,12 @@
     animation-fill-mode: forwards;
 }
 
+
+
+.menuButton img {
+    width: 32px;
+    height: 32px;
+}
 @keyframes rotation {
     0% {
         transform: rotate(0deg);
@@ -27,25 +33,21 @@
         transform: rotate(90deg);
     }
 }
-
-.menuButton img {
-    width: 32px;
-    height: 32px;
+@keyframes motionMenu {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
 }
 
-.menuItems {
-    left: 25px;
-    top: 8vh;
-    position: absolute;
-    background-color: #2d2d2d;
-    width: 200px;
-    height: auto;
-    z-index: 999;
-}
+
 
 .hideMenuItems {
     display: none;
 }
+
 
 .menuItems a:hover {
     background: #595959;
@@ -60,22 +62,42 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+
+
+.menuItems {
+    top: 70px;
+    position: fixed;
+    background-color: #2d2d2d;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    animation-name: motionMenu;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
 .menuItems ul {
     list-style: none;
+    height: 75%;
     margin: 0;
     padding: 0;
+    overflow-y: auto;
 }
+
 
 .menuItems a {
     display: block;
     text-decoration: none;
     height: 30px;
-    padding: 10px;
+    padding: 10px 10px 10px 25px;
     color: white;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width:950px) {
     .menuButton {
         display: block;
     }
+
 }

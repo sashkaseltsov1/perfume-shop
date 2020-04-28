@@ -15,6 +15,7 @@ const MenuItems=[
     {
         name: 'Контакты', url: '/contacts'
     },
+
 ]
 
 export default MenuItems

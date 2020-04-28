@@ -4,15 +4,17 @@ import wrap from '../wrapper.module.css'
 import cn from 'classnames'
 import HeaderDescription from "./header-description/headerDescription";
 import MobileMenu from "./mobile-menu/mobile-menu";
-const Header = ()=>{
+const Header = (props)=>{
     return(
-    <div className={styles.back}>
-        <div className={cn(wrap.wrapper, styles.main)}>
-            <MobileMenu/>
-            <HeaderDescription />
-            <div>sasa3</div>
-        </div>
-    </div>
+
+            <div className={styles.back}>
+                <div className={cn(wrap.wrapper, styles.main)}>
+                    <MobileMenu />
+                    <HeaderDescription />
+                    <div>sasa3</div>
+                </div>
+            </div>
+
     )
 }
 
