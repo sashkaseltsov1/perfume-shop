@@ -1,0 +1,37 @@
+.navWrapper{
+    height: 50px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    line-height: 50px;
+}
+.navWrapper a{
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: background-size .3s;
+}
+.navWrapper a:hover{
+    background-size: 100% 2px;
+}
+hr {
+    border: none;
+    background-color: #9a9a9a;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width:950px) {
+    .navWrapper {
+        display: none;
+    }
+}

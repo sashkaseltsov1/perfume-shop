@@ -6,17 +6,11 @@
 .main{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+
 }
 
 .main div:nth-child(2){
-    //background-color: red;
-}
-.main div:nth-child(1){
-
-}
-.main div:nth-child(3){
-
-
+    justify-self: center;
 }
 
 @media screen and (max-width: 950px) {

@@ -13,11 +13,7 @@
 
 .menu a:hover {
     background: #595959;
-    cursor: pointer;
-}
 
-.menu li{
-    list-style: none;
 }
 
 .menu>li>div{

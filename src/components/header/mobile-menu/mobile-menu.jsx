@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './mobile-menu.module.css'
-import image from '../../../images/mobile-menu.png'
+import image from '../../../images/bars.svg'
 import cn from 'classnames'
 import MenuItemsContainer from "./menu-items-container";
 
