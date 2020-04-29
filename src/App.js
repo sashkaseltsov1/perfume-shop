@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react'
 import styles from './App.module.css'
 import Header from "./components/header/header";
 import Navbar from "./components/navbar/navbar";

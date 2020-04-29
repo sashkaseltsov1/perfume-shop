@@ -2,18 +2,20 @@
 .content{
     text-align: center;
     justify-content: center;
+    user-select: none;
 }
 .content p{
     font-weight: bold;
     color: white;
     margin: 5px 0 20px 0;
-    font-size: 14px;
+    font-size: 18px;
 }
 .content h1{
     color: white;
     font-size: 64px;
     margin: 0;
 }
+
 .content a{
     display: block;
     text-decoration: none;

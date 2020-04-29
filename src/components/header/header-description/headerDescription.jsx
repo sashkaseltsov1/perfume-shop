@@ -5,7 +5,7 @@ const HeaderDescription = ()=>{
     return (
         <div className={styles.content}>
             <h1><NavLink to={'/'}>spirit</NavLink></h1>
-            <p>Магазин мужской парфюмерии</p>
+            <p>Магазин парфюмерии</p>
         </div>
     )
 }

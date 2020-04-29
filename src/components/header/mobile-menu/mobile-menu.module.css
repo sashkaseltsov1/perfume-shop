@@ -1,5 +1,6 @@
 .content {
     position: relative;
+    user-select: none;
 }
 
 .menuButton {
@@ -11,6 +12,11 @@
     margin-top: -16px;
 }
 
+.menuButton img {
+    width: 32px;
+    height: 32px;
+}
+
 .rotateButton {
     animation-name: rotation;
     animation-duration: 0.1s;
@@ -19,12 +25,6 @@
     animation-fill-mode: forwards;
 }
 
-
-
-.menuButton img {
-    width: 32px;
-    height: 32px;
-}
 @keyframes rotation {
     0% {
         transform: rotate(0deg);
@@ -33,36 +33,6 @@
         transform: rotate(90deg);
     }
 }
-@keyframes motionMenu {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 0;
-    }
-}
-
-
-
-.hideMenuItems {
-    display: none;
-}
-
-
-.menuItems a:hover {
-    background: #595959;
-    cursor: pointer;
-}
-
-.menuItems a:focus {
-    outline: none;
-}
-
-* {
-    -webkit-tap-highlight-color: transparent;
-}
-
-
 
 .menuItems {
     top: 70px;
@@ -77,27 +47,21 @@
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
-
-.menuItems ul {
-    list-style: none;
-    height: 75%;
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
+.hideMenuItems {
+    display: none;
 }
 
-
-.menuItems a {
-    display: block;
-    text-decoration: none;
-    height: 30px;
-    padding: 10px 10px 10px 25px;
-    color: white;
+@keyframes motionMenu {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
 }
 
 @media screen and (max-width:950px) {
     .menuButton {
         display: block;
     }
-
 }
