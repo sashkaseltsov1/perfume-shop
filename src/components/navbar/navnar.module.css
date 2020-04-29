@@ -22,7 +22,7 @@
 .navWrapper a:hover{
     background-size: 100% 2px;
 }
-hr {
+.line hr {
     border: none;
     background-color: #9a9a9a;
     height: 1px;
@@ -34,4 +34,8 @@ hr {
     .navWrapper {
         display: none;
     }
+    .line{
+        display: none;
+    }
+
 }
