@@ -1,0 +1,24 @@
+.hr{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    user-select: none;
+}
+.hr:before,
+.hr:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    background-color: #9a9a9a;
+}
+.hr:before {
+    right: 15px;
+    margin: 0 0 0 -100%;
+}
+.hr:after {
+    left: 15px;
+    margin: 0 -100% 0 0;
+}

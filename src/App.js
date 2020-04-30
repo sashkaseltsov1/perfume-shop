@@ -9,7 +9,8 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className={styles.App}>
-                <Header/>
+
+                <Header />
                 <Navbar/>
                 <Content/>
             </div>

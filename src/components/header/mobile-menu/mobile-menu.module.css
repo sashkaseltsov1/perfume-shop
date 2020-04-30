@@ -43,7 +43,7 @@
     position: fixed;
     opacity: 0.95;
     background-color: #2d2d2d;
-
+    z-index: 999;
     height: 100%;
     animation-name: motionMenu;
     animation-duration: 0.3s;
