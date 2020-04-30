@@ -22,7 +22,7 @@
 .navWrapper a:hover{
     background-size: 100% 2px;
 }
-.line hr {
+.line {
     border: none;
     background-color: #9a9a9a;
     height: 1px;
@@ -30,12 +30,12 @@
     padding: 0;
 }
 
-@media screen and (max-width:950px) {
+@media screen and (max-width:1120px) {
     .navWrapper {
         display: none;
     }
     .line{
-        display: none;
+        height: 0;
     }
 
 }

@@ -12,9 +12,7 @@ const Navbar = ()=>{
                         <li><NavLink to={'help'}>Помощь</NavLink></li>
                         <li><NavLink to={'contacts'}>Контакты</NavLink></li>
                 </ul>
-            <div className={styles.line}>
-                <hr/>
-            </div>
+                <hr className={styles.line}/>
         </div>
         )
 }

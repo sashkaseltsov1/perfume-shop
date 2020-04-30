@@ -1,0 +1,23 @@
+.button{
+    border: 1px solid #d4d4d4;
+}
+.button:hover{
+    cursor: pointer;
+    border: 1px solid #6495ed;
+}
+.button > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.button> div {
+    height: 30px;
+    color: #fff;
+    right: 0;
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+    user-select: none;
+    --bg-color:rgba(22,22,22,1);
+    background-color:var(--bg-color);
+}

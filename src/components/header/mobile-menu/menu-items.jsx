@@ -5,14 +5,14 @@ import image from '../../../images/arrow.png'
 
 const MenuItems=(props)=>{
     return (
-        <ul className={styles.menu} >
+        <ul className={styles.menu} ref={props.targetRef}>
             <li >
-                <div onClick={()=>props.setCatalogState(!props.catalogState)}><div>Каталог</div><img src={image} /></div>
+                <div onClick={()=>props.setCatalogState(!props.catalogState)}><div>Каталог</div><img src={image} alt='arrow' /></div>
                 <ul className={props.catalogState && styles.hideCatalog}>
-                    <li><NavLink to={'/shop/all'}>Все</NavLink></li>
-                    <li><NavLink to={'/shop/women'}>Женские ароматы</NavLink></li>
-                    <li><NavLink to={'/shop/men'}>Мужские ароматы</NavLink></li>
-                    <li><NavLink to={'/shop/niche'}>Нишевая парфюмерия</NavLink></li>
+                    <li><NavLink to={'/shop/'}>Все</NavLink></li>
+                    <li><NavLink to={'/shop/'}>Для женщин</NavLink></li>
+                    <li><NavLink to={'/shop/'}>Для мужчин</NavLink></li>
+                    <li><NavLink to={'/shop/'}>Нишевая парфюмерия</NavLink></li>
                 </ul>
             </li>
             <li><NavLink to={'/delivery'}>Доставка</NavLink></li>

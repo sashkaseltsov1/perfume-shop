@@ -1,20 +1,29 @@
 .gridContainer{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
     margin: 20px 0;
     grid-gap: 20px;
-    grid-column-end: 3;
-}
-.gridContainer>div{
-    border: 1px solid #9a9a9a;
-
 }
 
-.gridContainer > div > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
+.line>hr {
+    border: none;
+    background-color: #9a9a9a;
+    height: 1px;
+    margin: 0;
+    padding: 0;
 }
-
-
+.line{
+    display: none;
+}
+@media screen and (max-width:1120px) {
+    .line{
+        display: block;
+    }
+}
+@media screen and (max-width: 750px) {
+    .gridContainer{
+        grid-template-rows:repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

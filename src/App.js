@@ -5,17 +5,16 @@ import Navbar from "./components/navbar/navbar";
 import Content from "./components/content/content";
 import {BrowserRouter} from "react-router-dom";
 
-const App= ()=> {
-  return (
-      <BrowserRouter>
-          <div className={styles.App}>
-              <Header/>
-              <Navbar/>
-              <Content />
-          </div>
-      </BrowserRouter>
-
-  );
+const App = () => {
+    return (
+        <BrowserRouter>
+            <div className={styles.App}>
+                <Header/>
+                <Navbar/>
+                <Content/>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
