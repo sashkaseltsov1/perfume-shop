@@ -1,0 +1,21 @@
+.back{
+    width: 100%;
+    height: auto;
+    background-color: #161515;
+    margin-top: 20px;
+    color: white;
+}
+.footer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.footer a{
+    text-decoration: none;
+    color: white;
+    line-height: 30px;
+}
+.footer a:hover{
+    color: cornflowerblue;
+}

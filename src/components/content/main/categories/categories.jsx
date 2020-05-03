@@ -6,13 +6,7 @@ import womenImg from '../../../../images/women-perfume.jpg'
 import allImg from '../../../../images/all.jpg'
 import CategoryButton from "./categoryButton";
 import TextWithLine from "../../../templates/text-width-line/text-with-line";
-import alive from '../../../../images/items/alive.jpg'
-import amber from '../../../../images/items/amber.jpg'
-import lacoste from '../../../../images/items/lacoste.jpg'
-import varvatos from '../../../../images/items/varvatos.jpg'
 
-import ItemSliderContainer from "../../../templates/item-slider/itemSliderContainer";
-import Item from "../../../templates/item-slider/item/item";
 const Categories = ()=>{
     return(
         <div>
@@ -25,6 +19,7 @@ const Categories = ()=>{
                 <CategoryButton image={womenImg} name={'Для женщин'} bgColor={'#e7a9bc'} />
                 <CategoryButton image={nicheImg} name={'Ниша'} bgColor={'#9593d9'} />
             </div>
+
 
 
 

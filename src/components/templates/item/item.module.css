@@ -1,0 +1,148 @@
+.offers{
+    width: 96%;
+    height: 32px;
+    margin: 1px auto;
+
+}
+.offers>img{
+    width: 32px;
+    height: 32px;
+    margin-right: 2%;
+    margin-top: 2%;
+    user-select: none;
+}
+.itemImg{
+    width: 50%;
+    margin: 4% auto;
+}
+.itemImg:hover{
+    cursor: pointer;
+}
+.itemImg>img{
+    width: 100%;
+    object-fit: cover;
+    user-select: none;
+}
+.itemTitle{
+
+    text-overflow: clip;
+    overflow: hidden;
+    height: 63px;
+    color: #2c2c2c;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 600;
+}
+.itemTitle:hover{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+.itemDescription{
+    text-align: center;
+    width: calc(100% - 20px);
+    margin: 6px auto;
+    font-size: small;
+    color: #c7c7c7;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.itemCost{
+    text-align: center;
+    width: calc(100% - 20px);
+    margin:1px auto;
+    padding-bottom: 10px;
+    font-size: large;
+    color: #2c2c2c;
+    font-weight: 600;
+
+}
+.item{
+    width: calc(100% - 4px);
+    border: 1px solid #d4d4d4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.offers{
+    width: 96%;
+    height: 32px;
+    margin: 1px auto;
+
+}
+.offers>img{
+    width: 32px;
+    height: 32px;
+    margin-right: 2%;
+    margin-top: 2%;
+    user-select: none;
+}
+.itemImg{
+    width: 50%;
+    margin: 4% auto;
+}
+.itemImg:hover{
+    cursor: pointer;
+}
+.itemImg>img{
+    width: 100%;
+    object-fit: cover;
+    user-select: none;
+}
+.itemTitle{
+
+    text-overflow: clip;
+    overflow: hidden;
+    height: 63px;
+    color: #2c2c2c;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 600;
+}
+.itemTitle:hover{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+.itemDescription{
+    text-align: center;
+    width: calc(100% - 20px);
+    margin: 6px auto;
+    font-size: small;
+    color: #c7c7c7;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.itemCost{
+    text-align: center;
+    width: calc(100% - 20px);
+    margin:1px auto;
+    padding-bottom: 10px;
+    font-size: large;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+.item{
+    background-color: #d4d4d4;
+}
+
+.item>div{
+    width: calc(100% - 2px);
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+}*/
+
+

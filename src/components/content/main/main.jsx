@@ -4,8 +4,13 @@ import alive from "../../../images/items/alive.jpg";
 import lacoste from "../../../images/items/lacoste.jpg";
 import amber from "../../../images/items/amber.jpg";
 import varvatos from "../../../images/items/varvatos.jpg";
-import ItemSliderContainer from "../../templates/item-slider/itemSliderContainer";
 import TextWithLine from "../../templates/text-width-line/text-with-line";
+import styles from './main.module.css'
+import Item from "../../templates/item/item";
+import SimpleSwiper from "../../templates/swiper/swiper";
+
+
+
 
 const arr=[
     {
@@ -91,15 +96,18 @@ const Main = ()=>{
             <Categories />
             <br/>
             <TextWithLine name={'Новинки'} />
-            <ItemSliderContainer items={arr}/>
+            <SimpleSwiper items={arr}/>
             <br/>
             <TextWithLine name={'Скидки'} />
-            <ItemSliderContainer items={arr}/>
+            <SimpleSwiper items={arr}/>
             <br/>
             <TextWithLine name={'Популярные'} />
-            <ItemSliderContainer items={arr}/>
-
+            <SimpleSwiper items={arr}/>
+            <div className={styles.grid}>
+                {arr.map(item=>(<Item item={item}/>))}
+            </div>
         </div>
+
     )
 };
 

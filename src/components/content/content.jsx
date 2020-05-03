@@ -7,34 +7,7 @@ const Content = ()=>{
     return <div className={wrap.wrapper}>
 
         <Main />
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
-        <p>sasas</p>
+
     </div>
 }
 
