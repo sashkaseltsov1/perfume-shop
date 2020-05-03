@@ -3,6 +3,7 @@
     overflow: hidden;
     text-align: center;
     user-select: none;
+    color: #2c2c2c;
 }
 .hr:before,
 .hr:after {
@@ -12,7 +13,7 @@
     height: 1px;
     position: relative;
     vertical-align: middle;
-    background-color: #9a9a9a;
+    background-color: #c7c7c7;
 }
 .hr:before {
     right: 15px;

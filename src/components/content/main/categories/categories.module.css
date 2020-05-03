@@ -1,0 +1,26 @@
+.gridContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    margin: 20px 0;
+    grid-gap: 20px;
+}
+
+.title{
+    display: none;
+}
+
+@media screen and (max-width:1120px) {
+    .title{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .gridContainer{
+        grid-template-rows:repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+

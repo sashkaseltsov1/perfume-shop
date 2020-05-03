@@ -1,11 +1,12 @@
 import React from 'react'
 import wrap from '../wrapper.module.css'
-import Categories from "./categories/categories";
+import Categories from "./main/categories/categories";
+import Main from "./main/main";
 
 const Content = ()=>{
     return <div className={wrap.wrapper}>
 
-        <Categories/>
+        <Main />
         <p>sasas</p>
         <p>sasas</p>
         <p>sasas</p>

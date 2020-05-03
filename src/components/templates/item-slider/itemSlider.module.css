@@ -1,39 +1,11 @@
-.gridContainer{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    margin: 20px 0;
-    grid-gap: 20px;
-}
-
-
-.title{
-    display: none;
-}
-
-@media screen and (max-width:1120px) {
-    .title{
-        display: block;
-    }
-}
-@media screen and (max-width: 750px) {
-    .gridContainer{
-        grid-template-rows:repeat(2, 1fr);
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
 .wrapper{
     width: 100%;
     height: auto;
     position: relative;
     overflow-x: auto;
     -ms-overflow-style: none;
+    overflow-y: hidden;
 }
-
-
-
 
 .items{
     --item-count:4;
@@ -49,19 +21,14 @@
     height: auto;
     display:inline-block;
     margin-right: 20px;
-
-
+    background-color: #d4d4d4;
 }
 .items>div>div{
-    width: calc(100% - 4px);
+    width: calc(100% - 2px);
     height: auto;
-    border: 1px solid #d4d4d4;
     margin: 0 auto;
-
-
+    background-color: white;
 }
-
-
 
 .items{
     width: calc(((100% + 20px) / 4) * var(--item-count) - 20px);
@@ -88,7 +55,6 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-
 }
 .hideScroll{
     --scroll-bar-width:0;
@@ -115,66 +81,10 @@
     margin-left:calc(100% - 32px);
 }
 
-.offers{
-    width: 96%;
-    height: 32px;
-    margin: 2% auto;
-
-}
-.offers>img{
-    width: 32px;
-    height: 32px;
-    margin-right: 2%;
-    user-select: none;
-}
-.itemImg{
-    width: 50%;
-    margin: 0 auto;
-}
-.itemImg>img{
-    width: 100%;
-    object-fit: cover;
-    user-select: none;
-}
-.itemTitle{
-    text-overflow: clip;
-    overflow: hidden;
-    height: 63px;
-    color: #2c2c2c;
-    width: calc(100% - 20px);
-    margin: 0 auto;
-    text-align: center;
-    font-weight: 600;
-}
-.itemDescription{
-    text-align: center;
-    width: calc(100% - 20px);
-    margin: 0 auto;
-    font-size: small;
-    color: #c7c7c7;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.itemCost{
-    text-align: center;
-    width: calc(100% - 20px);
-    margin:10px auto;
-    font-size: large;
-    color: #2c2c2c;
-    font-weight: 600;
-}
-.undefinedArr{
-    width: 100%;
-    height: 300px;
-}
 @media screen and (max-width: 750px) {
-
-
     .items{
         width: calc(((100% + 20px) / 2) * var(--item-count));
     }
-
     .items{
         width: calc(((100% + 20px) / 2) * var(--item-count) - 20px);
     }
