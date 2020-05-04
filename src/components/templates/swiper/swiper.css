@@ -2,7 +2,6 @@
 .swiper-button-next, .swiper-button-prev{
     width: 24px;
     height: 24px;
-    user-select: none;
 }
 .swiper-button-next:focus, .swiper-button-prev:focus{
     outline: none;

@@ -59,7 +59,7 @@
 
 }
 .item{
-    width: calc(100% - 4px);
+    width: calc(100% - 3px);
     border: 1px solid #d4d4d4;
 }
 

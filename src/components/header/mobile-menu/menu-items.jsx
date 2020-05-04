@@ -9,16 +9,16 @@ const MenuItems=(props)=>{
             <li >
                 <div onClick={()=>props.setCatalogState(!props.catalogState)}><div>Каталог</div><img src={image} alt='arrow' /></div>
                 <ul className={props.catalogState && styles.hideCatalog}>
-                    <li><NavLink to={'/shop/'}>Все</NavLink></li>
-                    <li><NavLink to={'/shop/'}>Для женщин</NavLink></li>
-                    <li><NavLink to={'/shop/'}>Для мужчин</NavLink></li>
-                    <li><NavLink to={'/shop/'}>Нишевая парфюмерия</NavLink></li>
+                    <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/shop/catalog'}>Все</NavLink></li>
+                    <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/shop/catalog'}>Для женщин</NavLink></li>
+                    <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/shop/catalog'}>Для мужчин</NavLink></li>
+                    <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/shop/catalog'}>Нишевая парфюмерия</NavLink></li>
                 </ul>
             </li>
-            <li><NavLink to={'/delivery'}>Доставка</NavLink></li>
-            <li><NavLink to={'/payment'}>Оплата</NavLink></li>
-            <li><NavLink to={'/help'}>Помощь</NavLink></li>
-            <li><NavLink to={'/contacts'}>Контакты</NavLink></li>
+            <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/delivery'}>Доставка</NavLink></li>
+            <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/payment'}>Оплата</NavLink></li>
+            <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/help'}>Помощь</NavLink></li>
+            <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/contacts'}>Контакты</NavLink></li>
         </ul>
     )
 }

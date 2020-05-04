@@ -3,6 +3,7 @@ import {useMediaQuery} from "react-responsive";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import MobileMenu from "./mobile-menu";
 
+
 const MobileMenuContainer=()=>{
     const getScrollbarWidth = ()=> {
         return window.innerWidth - document.documentElement.clientWidth;
@@ -27,7 +28,7 @@ const MobileMenuContainer=()=>{
         window.scroll(0,0);
         setMenuItemsState(!menuItemsState);
         menuItemsState? enableBodyScroll(targetElement):disableBodyScroll(targetElement, {reserveScrollBarGap: true})
-    }
+    };
 
     return <MobileMenu menuItemsState={menuItemsState}
                        menuButtonClickHandler={menuButtonClickHandler}

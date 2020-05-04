@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Swiper from 'react-id-swiper';
 import './swiper.css';
 import 'swiper/css/swiper.css';
@@ -24,16 +24,10 @@ const SimpleSwiper = (props) => {
         renderNextButton: () => <img src={arrow} alt={arrow} className="swiper-button-next"/>,
     };
 
-    return(
-
-            <Swiper {...params} >
-                {props.items.map(item=>(<div><Item item={item}/></div>))}
-            </Swiper >
-
-
-
-
-
+    return (
+        <Swiper {...params} >
+            {props.items.map(item => (<div><Item item={item}/></div>))}
+        </Swiper>
     )
 };
 

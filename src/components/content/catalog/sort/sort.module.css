@@ -1,0 +1,50 @@
+.sort{
+
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.sort>div{
+    font-size: small;
+
+}
+
+.costSort{
+    justify-self: right;
+    color: #2c2c2c;
+}
+.filters{
+    display: none;
+    position: relative;
+    color: #2c2c2c;
+ }
+.count{
+    color: #2c2c2c;
+}
+.count>span:nth-child(2){
+    font-weight: bolder;
+}
+.filters>span:hover, .costSort>span:hover{
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+.filters>img{
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+}
+
+
+@media screen and (max-width:750px) {
+    .filters{
+        display: block;
+    }
+    .count{
+        display: none;
+    }
+
+
+}
+
+
