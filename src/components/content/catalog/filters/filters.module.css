@@ -1,10 +1,10 @@
 .filters{
-    height: 100%;
-    border: 1px solid #d4d4d4;
+    height: auto;
     width: 100%;
     background-color: white;
-
-
+}
+.padding{
+    height: 0;
 }
 .filters>div>img{
     width: 16px;
@@ -19,19 +19,42 @@
     margin-left: calc(100% - 21px);
     display: none;
 }
-
+.filterButton{
+    background-color: cornflowerblue;
+    height: 38px;
+    line-height: 38px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+.filterButton:hover{
+    cursor: pointer;
+}
 @media screen and (max-width:750px) {
     .filters{
         --scroll-bar-width:22px;
         width: calc(100% - var(--scroll-bar-width));
         position: fixed;
+        height:100%;
         left: 0;
         top: 0;
-        opacity: 0.9;
+        background-color: rgba(45,45,45,0.95);
         box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        overflow-y: auto;
+
+    }
+    .padding{
+        height: 20px;
+    }
+    .filterButton{
+        margin: 0 auto;
+        width: 96%;
     }
     .filters>div:nth-child(1){
         display: block;
+    }
+    .filters>div>img{
+        filter: invert(1);
     }
 }
 .hideFilters{

@@ -19,9 +19,10 @@ const MenuItems=(props)=>{
             <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/payment'}>Оплата</NavLink></li>
             <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/help'}>Помощь</NavLink></li>
             <li onClick={()=>props.menuButtonClickHandler()}><NavLink to={'/contacts'}>Контакты</NavLink></li>
+            <div className={styles.padding} />
         </ul>
     )
-}
+};
 
 export default MenuItems
 

@@ -8,7 +8,10 @@ const MenuItemsContainer = (props)=>{
 
     const [catalogState, setCatalogState] = useState(true)
 
-    return <MenuItems menuButtonClickHandler={props.menuButtonClickHandler} setCatalogState={setCatalogState} catalogState={catalogState} targetRef={props.targetRef} />
-}
+    return <MenuItems menuButtonClickHandler={props.menuButtonClickHandler}
+                      setCatalogState={setCatalogState}
+                      catalogState={catalogState}
+                      targetRef={props.targetRef} />
+};
 
 export default MenuItemsContainer

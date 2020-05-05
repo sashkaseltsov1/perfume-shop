@@ -71,7 +71,9 @@
     background: #595959;
     cursor: pointer;
 }
-
+.padding{
+    height: 20px;
+}
 * {
     -webkit-tap-highlight-color: transparent;
 }
