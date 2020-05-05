@@ -18,7 +18,7 @@ const Footer = ()=>{
     return(
         <div className={styles.back}>
             <div className={cn(wrap.wrapper, styles.footer)}>
-                {links.map(link=><div><NavLink to={link.path}>{link.title}</NavLink></div>)}
+                {links.map(link=><div key={link.title}><NavLink to={link.path}>{link.title}</NavLink></div>)}
             </div>
         </div>
     )

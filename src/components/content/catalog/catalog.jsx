@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import styles from './catalog.module.css'
 import Filters from "./filters/filters";
 import Sort from "./sort/sort";
@@ -8,10 +8,12 @@ import arr from "../../templates/array/arr";
 
 
 const Catalog = ()=>{
+    const [filterState, setFilterState] = useState(true);
+
     return (
         <div className={styles.catalog}>
-            <div className={styles.sort}><Sort/></div>
-            <div className={styles.filters}><Filters/></div>
+            <div className={styles.sort}><Sort setFilterState={setFilterState}/></div>
+            <div className={styles.filters}><Filters filterState={filterState} setFilterState={setFilterState} /></div>
             <div className={styles.products}>
                 <Products items={arr}/>
             </div>
