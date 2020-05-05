@@ -4,7 +4,7 @@ import close from '../../../../images/close.svg'
 import cn from 'classnames'
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useMediaQuery} from "react-responsive";
-import Filter from "./filter/filter";
+import SimpleFilter, {CostRangeFilter, WithVisibility} from "./filter/filter";
 const arr=[
     {
         title:'Особые предложения',
@@ -149,10 +149,14 @@ const Filters = (props)=>{
              ref={targetRef}
              style={{'--scroll-bar-width': getScrollbarWidth()+'px'}}>
             <div ><img src={close} alt={close} onClick={()=>props.setFilterState(true)}/></div>
-            {
-                arr.map(item=><Filter item={item} key={item.title}/>)
-            }
+
+            {arr.map(item=>{
+                    let Filter = WithVisibility(SimpleFilter);
+                    return <Filter item={item} key={item.title}/>
+                })}
             <div className={styles.filterButton} onClick={()=>{}}>Фильтровать</div>
+            <h1>sss</h1>
+            <CostRangeFilter/>
             <div className={styles.padding}/>
         </div>
     )
