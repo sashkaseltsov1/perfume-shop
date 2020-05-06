@@ -26,7 +26,7 @@ const SimpleSwiper = (props) => {
 
     return (
         <Swiper {...params} >
-            {props.items.map(item => (<div><Item item={item}/></div>))}
+            {props.items.map(item => (<div className={'slide'}><Item item={item}/></div>))}
         </Swiper>
     )
 };

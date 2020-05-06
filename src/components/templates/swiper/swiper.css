@@ -10,3 +10,6 @@
 .swiper-button-next{
     transform: rotate(180deg);
 }
+.slide{
+    margin: 1px 0 1px 0;
+}

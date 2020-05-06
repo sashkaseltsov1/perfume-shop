@@ -56,6 +56,7 @@
     }
     .filters>div>img{
         filter: invert(1);
+        margin-bottom: 45px;
     }
 }
 .hideFilters{

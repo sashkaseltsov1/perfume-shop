@@ -10,7 +10,6 @@ import arr from "../../templates/array/arr";
 
 
 
-
 const Main = ()=>{
     return(
         <div>
@@ -18,6 +17,8 @@ const Main = ()=>{
             <br/>
             <TextWithLine name={'Новинки'} />
             <SimpleSwiper items={arr}/>
+
+
             <br/>
             <TextWithLine name={'Скидки'} />
             <SimpleSwiper items={arr}/>
