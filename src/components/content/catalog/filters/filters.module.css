@@ -41,6 +41,7 @@
         background-color: rgba(45,45,45,0.95);
         box-shadow: 0 0 10px rgba(0,0,0,0.5);
         overflow-y: auto;
+        overflow-x: hidden;
 
     }
     .padding{

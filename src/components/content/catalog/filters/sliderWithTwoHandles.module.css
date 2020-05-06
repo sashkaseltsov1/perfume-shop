@@ -1,0 +1,44 @@
+.cost>span{
+    font-size: small;
+    display: inline;
+    margin-left: 10px;
+    line-height: 20px;
+    color: #b8b6b6;
+}
+.cost{
+    border: 1px solid #d4d4d4;
+    display: flex;
+    height: 20px;
+    background-color: white;
+}
+.cost>input{
+    outline: none;
+    border: 0;
+    width: 50%;
+    display: inline;
+    margin: 0 auto;
+
+}
+.minmax{
+    font-size: small;
+    color: #b8b6b6;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: 0 auto 10px;
+}
+.minmax>span:nth-child(2){
+    justify-self: right;
+}
+.fields{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    width: 90%;
+    margin: 10px auto;
+}
+@media screen and (max-width:750px) {
+    .minmax{
+        color: white;
+    }
+}

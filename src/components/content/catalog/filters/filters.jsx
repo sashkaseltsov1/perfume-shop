@@ -4,7 +4,14 @@ import close from '../../../../images/close.svg'
 import cn from 'classnames'
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useMediaQuery} from "react-responsive";
-import SimpleFilter, {CostRangeFilter, WithVisibility} from "./filter/filter";
+import SimpleFilter, { WithVisibility} from "./filter/filter";
+import SliderWithTwoHandles from "./sliderWithTwoHandles";
+const costRangeFilter = {
+    title:'Цена, руб.',
+    domain:[200, 18000],
+    default:[200, 18000]
+};
+
 const arr=[
     {
         title:'Особые предложения',
@@ -144,19 +151,21 @@ const Filters = (props)=>{
         else enableBodyScroll(targetRef.current);
     }, [props.filterState]);
 
+    const Slider = WithVisibility(SliderWithTwoHandles)
+
     return (
         <div className={cn(styles.filters, (isTabletOrMobile && props.filterState &&  styles.hideFilters))}
              ref={targetRef}
              style={{'--scroll-bar-width': getScrollbarWidth()+'px'}}>
             <div ><img src={close} alt={close} onClick={()=>props.setFilterState(true)}/></div>
-
+            <Slider item={costRangeFilter} />
             {arr.map(item=>{
                     let Filter = WithVisibility(SimpleFilter);
                     return <Filter item={item} key={item.title}/>
                 })}
             <div className={styles.filterButton} onClick={()=>{}}>Фильтровать</div>
-            <h1>sss</h1>
-            <CostRangeFilter/>
+
+
             <div className={styles.padding}/>
         </div>
     )
