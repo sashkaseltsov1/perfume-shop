@@ -5,6 +5,8 @@ import TextWithLine from "../../templates/text-width-line/text-with-line";
 
 import SimpleSwiper from "../../templates/swiper/swiper";
 import arr from "../../templates/array/arr";
+import Filters from "../catalog/filters/filters";
+import Test from "./test";
 
 
 
@@ -13,6 +15,7 @@ import arr from "../../templates/array/arr";
 const Main = ()=>{
     return(
         <div>
+            <Test/>
             <Categories />
             <br/>
             <TextWithLine name={'Новинки'} />

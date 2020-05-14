@@ -1,11 +1,20 @@
-import React, {useEffect, useRef} from "react";
+import React, {forwardRef, Suspense, useEffect, useRef} from "react";
 import styles from './filters.module.css'
 import close from '../../../../images/close.svg'
 import cn from 'classnames'
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useMediaQuery} from "react-responsive";
-import SimpleFilter, { WithVisibility} from "./filter/filter";
-import SliderWithTwoHandles from "./sliderWithTwoHandles";
+import { WithVisibility} from "./wrappers/with-visibility";
+import {connect} from "react-redux";
+
+import {
+    getFiltersThunkCreator,
+} from "../../../../store/reducers/filter-reducer";
+import SimpleFilter from "../../../templates/simpleFilter/simple-filter";
+import WithConnection from "./wrappers/with-connection";
+
+
+
 const costRangeFilter = {
     title:'Цена, руб.',
     domain:[200, 18000],
@@ -26,115 +35,9 @@ const arr=[
             },
         ]
     },
-    {
-        title:'Наличие товаров',
-        options:[
-            {
-                title:'Доставка',
-                state:true
-            },
-            {
-                title:'Самовывоз',
-                state:false
-            },
-        ]
-    },
-    {
-        title:'Аромат',
-        options:[
-            {
-                title:'Цветочные фруктовые',
-                state:false
-            },
-            {
-                title:'Древесные пряные',
-                state:false
-            },
-            {
-                title:'Пудровые',
-                state:false
-            },
-            {
-                title:'Восточные',
-                state:false
-            },
-            {
-                title:'Удовые',
-                state:false
-            },
-            {
-                title:'Кожанные',
-                state:false
-            },
-            {
-                title:'Амбровые',
-                state:true
-            },
-        ]
-    },
-    {
-        title:'Для кого',
-        options:[
-            {
-                title:'Мужские',
-                state:false
-            },
-            {
-                title:'Женские',
-                state:false
-            },
-            {
-                title:'Нишевые',
-                state:false
-            },
-        ]
-    },
-    {
-        title:'Тип парфюма',
-        options:[
-            {
-                title:'Парфюмерная вода',
-                state:false
-            },
-            {
-                title:'Туалетная вода',
-                state:false
-            },
-            {
-                title:'Духи',
-                state:false
-            },
-            {
-                title:'Одеколон',
-                state:false
-            },
-        ]
-    },
-    {
-        title:'Бренды',
-        options:[
-            {
-                title:'Channel',
-                state:false
-            },
-            {
-                title:'Armani',
-                state:false
-            },
-            {
-                title:'Tom ford',
-                state:false
-            },
-            {
-                title:'Iv sent Lourent',
-                state:true
-            },
-        ]
-    },
 ];
 
 const Filters = (props)=>{
-
 
     const  handleMediaQueryChange  = () => {!isTabletOrMobile && props.setFilterState(true)};
 
@@ -151,18 +54,20 @@ const Filters = (props)=>{
         else enableBodyScroll(targetRef.current);
     }, [props.filterState]);
 
-    const Slider = WithVisibility(SliderWithTwoHandles)
+    /*const Slider = WithVisibility(SliderWithTwoHandles);*/
+    useEffect(() => {
+        props.getFiltersThunkCreator();
+    },[]);
 
     return (
         <div className={cn(styles.filters, (isTabletOrMobile && props.filterState &&  styles.hideFilters))}
              ref={targetRef}
              style={{'--scroll-bar-width': getScrollbarWidth()+'px'}}>
             <div ><img src={close} alt={close} onClick={()=>props.setFilterState(true)}/></div>
-            <Slider item={costRangeFilter} />
-            {arr.map(item=>{
-                    let Filter = WithVisibility(SimpleFilter);
-                    return <Filter item={item} key={item.title}/>
-                })}
+            {[0,1,2,3,4].map(index=>{
+                    let Filter = WithConnection(WithVisibility(SimpleFilter), index);
+                    return <Filter/>})}
+            {/*<Slider item={costRangeFilter} />*/}
             <div className={styles.filterButton} onClick={()=>{}}>Фильтровать</div>
 
 
@@ -171,4 +76,5 @@ const Filters = (props)=>{
     )
 };
 
-export default Filters;
+export default connect(null,
+    {getFiltersThunkCreator})(Filters);

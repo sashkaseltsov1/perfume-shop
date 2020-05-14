@@ -5,6 +5,28 @@ import discount from "../../../images/offer-items/discount.svg";
 
 const Item = (props)=>{
     return(
+        <div key={props.item._id} className={styles.item}>
+            <div className={styles.offers}>
+                {!props.item.new && <img src={newItem} alt={newItem}/>}
+                {!props.item.isDiscount && <img src={discount} alt={discount}/>}
+            </div>
+            <div className={styles.itemImg}>
+                <img src={props.item.image} alt={props.item.img}/>
+            </div>
+            <div className={styles.itemTitle}>
+                <span>{props.item.name}</span>
+            </div>
+            <div className={styles.itemDescription}>
+                {props.item.perfumeType.type}
+            </div>
+            <div className={styles.itemCost}>
+                {props.item.fullPrise} руб
+            </div>
+        </div>
+    )
+};
+export const Item2 = (props)=>{
+    return(
         <div key={props.item.id} className={styles.item}>
             <div className={styles.offers}>
                 {props.item.isNew && <img src={newItem} alt={newItem}/>}
@@ -25,5 +47,4 @@ const Item = (props)=>{
         </div>
     )
 };
-
 export default Item;

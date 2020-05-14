@@ -1,13 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from './products.module.css'
 import Item from "../../../templates/item/item";
+import {connect} from "react-redux";
+import {getProductsThunkCreator} from "../../../../store/reducers/product-reducer";
 
 const Products = (props)=>{
+    useEffect(()=>{
+        props.getProductsThunkCreator(props.location.search);
+    },[]);
     return (
         <div className={styles.products}>
-            {props.items.map(item => (<div key={item.id}><Item item={item}/></div>))}
+            {props.products.products && props.products.products.map(item => (<div key={item._id}><Item item={item}/></div>))}
         </div>
     )
 };
 
-export default Products;
+export default connect((state)=>({products:state.products}),
+    {getProductsThunkCreator}
+    )(Products);

@@ -2,8 +2,8 @@ import React from 'react';
 import Swiper from 'react-id-swiper';
 import './swiper.css';
 import 'swiper/css/swiper.css';
-import Item from "../item/item";
 import arrow from "../../../images/slider-arrow.svg";
+import {Item2} from "../item/item";
 
 const SimpleSwiper = (props) => {
 
@@ -26,7 +26,7 @@ const SimpleSwiper = (props) => {
 
     return (
         <Swiper {...params} >
-            {props.items.map(item => (<div className={'slide'}><Item item={item}/></div>))}
+            {props.items.map(item => (<div key={item.id} className={'slide'}><Item2 item={item}/></div>))}
         </Swiper>
     )
 };

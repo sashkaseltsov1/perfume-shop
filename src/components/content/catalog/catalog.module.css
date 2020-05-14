@@ -10,7 +10,7 @@
 
 .filters{
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 5;
 
 }
 .sort{
@@ -18,15 +18,30 @@
     grid-column-end: 5;
 }
 .products{
-
     grid-column-start: 2;
     grid-column-end: 5;
 }
+/*.filters{
+    grid-row-start: 1;
+    grid-row-end: 3;
 
+}
+.sort{
+
+    background-color: #595959;
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+.products{
+
+    background-color: cornflowerblue;
+    grid-column-start: 2;
+    grid-column-end: 5;
+}*/
 @media screen and (max-width:750px) {
     .filters{
         width: calc(100% - 2px);
-        /*position: absolute;*/
+        position: absolute;
 
 
     }

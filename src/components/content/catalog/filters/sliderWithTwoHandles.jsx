@@ -1,6 +1,6 @@
 import Slider from "react-compound-slider/Slider";
 import Handles from "react-compound-slider/Handles";
-import React, {useRef, useState} from "react";
+import React, { useState} from "react";
 import {Rail, Tracks} from "react-compound-slider";
 import styles from './sliderWithTwoHandles.module.css'
 
