@@ -1,5 +1,5 @@
 const axios = require('axios');
-const fetchPosts = ()=>{
+export const fetchPosts = ()=>{
     return axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
 }
 export function useResource() {
@@ -44,7 +44,7 @@ const wrapPromise = (promise)=>{
         read(){
             if(status==='pending') throw suspender; else
                 if(status==='error') throw result; else
-                    if(status==='success') get(result)
+                    if(status==='success') return result
         }
     }
 }

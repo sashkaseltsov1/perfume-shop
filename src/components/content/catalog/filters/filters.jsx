@@ -8,6 +8,7 @@ import { WithVisibility} from "./wrappers/with-visibility";
 import {connect} from "react-redux";
 
 import {
+    filterThunkCreator,
     getFiltersThunkCreator,
 } from "../../../../store/reducers/filter-reducer";
 import SimpleFilter from "../../../templates/simpleFilter/simple-filter";
@@ -68,7 +69,7 @@ const Filters = (props)=>{
                     let Filter = WithConnection(WithVisibility(SimpleFilter), index);
                     return <Filter/>})}
             {/*<Slider item={costRangeFilter} />*/}
-            <div className={styles.filterButton} onClick={()=>{}}>Фильтровать</div>
+            <div className={styles.filterButton} onClick={()=>{props.filterThunkCreator()}}>Фильтровать</div>
 
 
             <div className={styles.padding}/>
@@ -77,4 +78,4 @@ const Filters = (props)=>{
 };
 
 export default connect(null,
-    {getFiltersThunkCreator})(Filters);
+    {getFiltersThunkCreator, filterThunkCreator})(Filters);

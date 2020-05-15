@@ -1,19 +1,17 @@
 import styles from './simple-filter.module.css';
 import React from "react";
-
+import check from '../../../images/check.svg'
+import cn from 'classnames'
 const SimpleFilter = (props)=>{
-    const handleCheckbox = (item, option, state)=>{
-        props.setOptionThunkCreator &&
-        props.setOptionThunkCreator(item, option, !state)
-    }
+
     return(
         <div >
             {props.item && props.item.items.map(option=>(
-                <div className={styles.option} key={option._id}>
-                    <div><input type="checkbox" value={option.state} onChange={
-                        ()=>{handleCheckbox(props.item, option, option.state)}} />
+                <div className={styles.option} key={option._id} onClick={()=>{props.setOptionThunkCreator(props.item, option, !option.state)}}>
+                    <div >
+                         <img src={check} alt={check} className={cn(!option.state && styles.checked)}/>
                     </div>
-                    <div ><span onClick={()=>{handleCheckbox(props.item, option, option.state)}}>{option.type}</span></div>
+                    <div ><span >{option.type}</span></div>
                 </div>))}
         </div>
     )

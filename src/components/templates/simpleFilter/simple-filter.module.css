@@ -6,15 +6,28 @@
     line-height: 15px;
     font-size: small;
     display: flex;
+
 }
+
 .option>div:nth-child(1) {
-    line-height: 36px;
+    line-height: 32px;
+    margin-right: 5px;
+
+
+}
+.option>div:nth-child(1)>img {
+    width: 12px;
+    height: 12px;
+    transition: opacity .3s;
 }
 .option>div:nth-child(2){
+    width: 100%;
     line-height: 32px;
-
 }
+.checked{
 
+    opacity: 0;
+}
 .option:hover, .option>input:hover{
     cursor: pointer;
 }
@@ -22,5 +35,8 @@
 @media screen and (max-width:750px) {
     .option{
         color: white;
+    }
+    .option>div:nth-child(1)>img {
+        filter: invert(1);
     }
 }

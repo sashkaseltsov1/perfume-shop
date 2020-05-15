@@ -3,31 +3,25 @@ import styles from './filter.module.css'
 import arrow from '../../../../../images/slider-arrow.svg'
 import cn from 'classnames'
 
-
 export const WithVisibility = (Component)=>{
 
     const WithVisibilityComponent = (props)=>{
 
-        const targetRef = useRef()
-        const [visibility, setVisibility] = useState({state:false, style:{}});
-
-        const clickHandler = ()=>{
-            if(visibility.state)
-                setVisibility({state:false, style:{}});
-            else
-                setVisibility({state:true, style:{height:targetRef.current?.children[0].clientHeight}})
-        }
-
-
+        const targetRef = useRef();
+        const [visibility, setVisibility] = useState(false);
+        /*useEffect(()=>{if (props.item) setVisibility(true)},[props.item])*/
+        const style = {
+            '--height': targetRef.current? targetRef.current.children[0].clientHeight+'px': 0
+        };
 
         return(
             <div className={styles.main}>
-                <div className={cn(styles.title, visibility.state && styles.titleColor)} onClick={()=>clickHandler()}>
+                <div className={cn(styles.title, visibility && styles.titleColor)} onClick={()=>setVisibility(!visibility)}>
                     <span>{props.item && props.item.name}</span>
-                    <div className={styles.imgWrapper}><img src={arrow} alt={arrow} className={cn(visibility.state && styles.rotateArrow )}/></div>
+                    <div className={styles.imgWrapper}><img src={arrow} alt={arrow} className={cn(visibility && styles.rotateArrow )}/></div>
                 </div>
 
-                <div ref={targetRef} className={cn(styles.component)} style={visibility.style}>
+                <div ref={targetRef} className={cn(styles.component, visibility && styles.show)} style={style}>
                     <Component {...props} />
                 </div>
             </div>
@@ -35,7 +29,6 @@ export const WithVisibility = (Component)=>{
     };
     return WithVisibilityComponent;
 };
-
 /*useEffect(() => {
     console.log('mount vis')
 },[]);

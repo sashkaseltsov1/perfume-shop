@@ -1,3 +1,5 @@
+import {getProductsThunkCreator} from "./product-reducer";
+
 const axios = require('axios');
 
 const SET_OPTION = 'SET_OPTION';
@@ -11,6 +13,7 @@ const FilterReducer = (state={filters:[]}, action)=>{
             newState.filters[i]={...action.item, items:[...action.item.items]};
             let k = newState.filters[i].items.indexOf(action.option);
             newState.filters[i].items[k]={...action.option, state:action.state};
+
             return newState;
         case GET_FILTERS:
             return action.data;
@@ -34,12 +37,35 @@ const getFiltersActionCreator = (data)=>{
     }
 };
 
-export const setOptionThunkCreator = (item, option)=>{
-    console.log('changed')
+export const setOptionThunkCreator = (item, option, state)=>{
+
     return (dispatch)=>{
-        dispatch(setOptionActionCreator(item, option));
+        dispatch(setOptionActionCreator(item, option, state));
     }
 };
+const joinStateToQueryString = (state)=>{
+    let newState = state.map(prm=>
+        ({category:prm.category, params:prm.items.filter(p=>
+                p.state).map(p=>
+                p._id)})).filter(arr=>arr.params.length>0);
+    let offers = newState.find(item=>item.category==='specialOffers')?.params.map(offer=>({category:offer, params:[true]}));
+    if(offers){
+        newState =  newState.filter(item=>item.category!=='specialOffers');
+        newState = [...offers, ...newState];
+    }
+    newState = newState.map(item=>(item.category+'='+item.params.join('|')));
+
+    return '?'+newState.join('&');
+}
+export const filterThunkCreator = ()=>{
+    return (dispatch, getState) =>{
+        let state = getState().filters.filters;
+        let queryString = joinStateToQueryString(state);
+        console.log(queryString)
+        dispatch(getProductsThunkCreator(queryString))
+
+    }
+}
 export const getFiltersThunkCreator = ()=>{
     return (dispatch)=>{
         axios.get('http://176.197.36.4:8000/filters')
@@ -56,7 +82,7 @@ export const getFiltersThunkCreator = ()=>{
                 console.log(error);
             })
             .then(function () {
-                console.log('always')
+
             });
     }
 };
