@@ -43,8 +43,10 @@
 .component{
     transition: height .3s ease;
     height: 0;
+
 }
 .show{
+
     --height: 0;
     height: var(--height);
 }

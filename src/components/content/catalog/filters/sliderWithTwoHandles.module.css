@@ -10,6 +10,7 @@
     display: flex;
     height: 20px;
     background-color: white;
+
 }
 .cost>input{
     outline: none;
@@ -26,6 +27,8 @@
     grid-template-columns: 1fr 1fr;
     width: 90%;
     margin: 0 auto 10px;
+    padding-bottom: 10px;
+
 }
 .minmax>span:nth-child(2){
     justify-self: right;
@@ -35,7 +38,9 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     width: 90%;
-    margin: 10px auto;
+    margin: 0 auto;
+    padding-top: 10px;
+
 }
 @media screen and (max-width:750px) {
     .minmax{

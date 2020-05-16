@@ -1,6 +1,5 @@
-const axios = require('axios');
+import axios from 'axios';
 
-const UPDATE_PRODUCTS = 'UPDATE_PRODUCTS';
 const GET_PRODUCTS = 'GET_PRODUCTS';
 const ProductReducer = (state={}, action)=>{
     switch (action.type) {
@@ -30,7 +29,7 @@ export const getProductsThunkCreator = (queries)=>{
                 console.log(error);
             })
             .then(function () {
-                console.log('always')
+
             });
     }
 };

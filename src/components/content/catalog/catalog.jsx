@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
 import styles from './catalog.module.css'
 import Filters from "./filters/filters";
 import Sort from "./sort/sort";

@@ -1,66 +1,68 @@
 import Slider from "react-compound-slider/Slider";
 import Handles from "react-compound-slider/Handles";
-import React, { useState} from "react";
+import React from "react";
 import {Rail, Tracks} from "react-compound-slider";
 import styles from './sliderWithTwoHandles.module.css'
 
-
 const SliderWithTwoHandles = (props)=>{
-    const sliderStyle = {  // Give the slider some width
+    const sliderStyle = {
         position: 'relative',
         width: 'calc(90% - 20px)',
         height: 30,
-
         margin:'0 auto'
-    }
+    };
     const railStyle = {
         position: 'absolute',
         width: '100%',
         height: 2,
         marginTop: 14,
         backgroundColor: '#d4d4d4',
-    }
-    const [sliderState, setSliderState] = useState(props.item.default);
-    const [fieldState, setFieldState] = useState(props.item.default);
+    };
+
     return(
         <div>
             <div>
                 <div className={styles.fields}>
                     <div className={styles.cost}>
                         <span>от </span>
-                        <input type={'text'} value={fieldState[0]}
+                        <input type={'text'} value={props.item.fieldState[0]}
                                onBlur={(event)=>{
-                                   setSliderState([event.target.value, fieldState[1]])}}
+                                   props.setRangeOptionThunkCreator({...props.item, sliderState:[event.target.value, props.item.fieldState[1]]})
+                               }}
                                onChange={(event)=>{
                                    /^([0-9]*)$/.test(event.target.value) &&
-                                   setFieldState([event.target.value, fieldState[1]])}} />
+                                       props.setRangeOptionThunkCreator({...props.item, fieldState:[event.target.value, props.item.fieldState[1]]})
+                                  }} />
                     </div>
                     <div className={styles.cost}>
                         <span>до </span>
-                        <input type={'text'} value={fieldState[1]}
-                               onBlur={(event)=>{ setSliderState([fieldState[0], event.target.value])}}
+                        <input type={'text'} value={props.item.fieldState[1]}
+                               onBlur={(event)=>{
+                                   props.setRangeOptionThunkCreator({...props.item, sliderState:[props.item.fieldState[0],event.target.value]})
+                               }}
                                onChange={(event)=>{
                                    /^([0-9]*)$/.test(event.target.value) &&
-                                   setFieldState([fieldState[0], event.target.value])}
+                                   props.setRangeOptionThunkCreator({...props.item, fieldState:[props.item.fieldState[0],event.target.value]})
+                                   }
                                }/>
                     </div>
 
                 </div>
             </div>
             <Slider
-                onUpdate={(event)=>setFieldState(event)}
+                onUpdate={(event)=>props.setRangeOptionThunkCreator({...props.item, fieldState:event})}
                 rootStyle={sliderStyle}
-                domain={props.item.domain}
+                domain={props.item?.domain}
                 step={1}
                 mode={2}
-                values={sliderState }
+                values={props.item.sliderState }
             >
                 <Rail>
                     {({ getRailProps }) => (
                         <div style={railStyle} {...getRailProps()} />
                     )}
                 </Rail>
-                <Handles>
+                <Handles >
                     {({ handles, getHandleProps }) => (
                         <div className="slider-handles">
                             {handles.map(handle => (
@@ -137,5 +139,6 @@ const Handle=({handle: { id, value, percent },getHandleProps}) =>{
 
         </div>
     )
-}
-export default SliderWithTwoHandles;
+};
+
+export default React.memo(SliderWithTwoHandles);

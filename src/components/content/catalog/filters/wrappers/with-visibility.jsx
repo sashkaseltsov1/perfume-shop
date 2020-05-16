@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useRef, useState} from "react";
 import styles from './filter.module.css'
 import arrow from '../../../../../images/slider-arrow.svg'
 import cn from 'classnames'
@@ -9,7 +9,6 @@ export const WithVisibility = (Component)=>{
 
         const targetRef = useRef();
         const [visibility, setVisibility] = useState(false);
-        /*useEffect(()=>{if (props.item) setVisibility(true)},[props.item])*/
         const style = {
             '--height': targetRef.current? targetRef.current.children[0].clientHeight+'px': 0
         };

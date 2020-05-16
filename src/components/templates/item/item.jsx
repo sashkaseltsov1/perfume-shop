@@ -7,7 +7,7 @@ const Item = (props)=>{
     return(
         <div key={props.item._id} className={styles.item}>
             <div className={styles.offers}>
-                {props.item.new && <img src={newItem} alt={newItem}/>}
+                {props.item.isNovelty && <img src={newItem} alt={newItem}/>}
                 {props.item.isDiscount && <img src={discount} alt={discount}/>}
             </div>
             <div className={styles.itemImg}>
