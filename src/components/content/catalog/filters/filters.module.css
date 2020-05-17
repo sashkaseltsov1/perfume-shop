@@ -29,6 +29,7 @@
 }
 .filterButton:hover{
     cursor: pointer;
+    background-color: royalblue;
 }
 @media screen and (max-width:750px) {
     .filters{
@@ -56,8 +57,11 @@
         display: block;
     }
     .filters>div>img{
-        filter: invert(1);
         margin-bottom: 45px;
+    }
+    .filterButton:hover{
+        cursor: pointer;
+        background-color: cornflowerblue;
     }
 }
 .hideFilters{

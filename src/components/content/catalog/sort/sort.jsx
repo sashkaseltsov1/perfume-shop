@@ -8,7 +8,6 @@ const Sort = (props)=>{
         <div className={styles.sort}>
         <div className={styles.count}><span>Найдено товаров: </span><span>1273</span></div>
             <div className={styles.filters}><span onClick={()=>props.setFilterState(false)}>Фильтры</span><img src={equa} alt={equa}/></div>
-            <div className={styles.costSort}><span >↑ Цена по возрастанию</span></div>
         </div>
     )
 };

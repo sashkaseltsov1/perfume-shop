@@ -1,0 +1,31 @@
+.activeFilters{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.option{
+    line-height: 30px;
+    height: 30px;
+    font-size: small;
+    padding: 0 10px;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 2px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.option>img{
+    height: 8px;
+    width: 8px;
+    margin-left: 5px;
+}
+.option:hover{
+    cursor: pointer;
+    background-color: royalblue;
+}
+@media screen and (max-width:750px) {
+    .option:hover{
+        cursor: pointer;
+        background-color: cornflowerblue;
+    }
+}

@@ -52,7 +52,7 @@ const SliderWithTwoHandles = (props)=>{
             <Slider
                 onUpdate={(event)=>props.setRangeOptionThunkCreator({...props.item, fieldState:event})}
                 rootStyle={sliderStyle}
-                domain={props.item?.domain}
+                domain={props.item.domain}
                 step={1}
                 mode={2}
                 values={props.item.sliderState }
@@ -141,4 +141,4 @@ const Handle=({handle: { id, value, percent },getHandleProps}) =>{
     )
 };
 
-export default React.memo(SliderWithTwoHandles);
+export default SliderWithTwoHandles;

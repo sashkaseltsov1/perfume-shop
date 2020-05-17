@@ -18,9 +18,11 @@ const Item = (props)=>{
             </div>
             <div className={styles.itemDescription}>
                 {props.item.perfumeType.type}
+                {props.item.isInitial && <span style={{'color':'white'}}>init</span>}
             </div>
             <div className={styles.itemCost}>
-                {props.item.fullPrise} руб
+                {props.item.fullPrise} {props.item.isInitial && <span style={{'color':'white'}}>руб</span>}
+                {!props.item.isInitial && <span >руб</span>}
             </div>
         </div>
     )

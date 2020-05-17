@@ -1,37 +1,40 @@
-import axios from 'axios';
+import {GET_PRODUCTS, SET_LOADER} from "../actions/product-actions";
+import initialImage from '../../images/loading-image.jpg'
+const getInitialItems = ()=>{
+    let items=[];
+    for (let i=0;i<24;i++){
+        items.push({
+            isInitial:true,
+            fullPrise:'',
+            image:initialImage,
+            isDiscount:false,
+            isNovelty:false,
+            name:'',
+            perfumeType:{type:''},
+            _id:i })}
+    return items;
+};
+const initialState = {
+    isLoading:true,
+    count:24,
+    error:null,
+    page:1,
+    pageCount:1,
+    products:getInitialItems(),
 
-const GET_PRODUCTS = 'GET_PRODUCTS';
-const ProductReducer = (state={}, action)=>{
+};
+
+const ProductReducer = (state=initialState, action)=>{
     switch (action.type) {
+        case SET_LOADER:
+            return {...state, isLoading: true};
         case GET_PRODUCTS:
-            return action.data;
+            return {...action.data, isLoading:false};
         default:
             return state;
     }
 };
 
-const getProductsActionCreator = (data)=>{
-    return {
-        type:GET_PRODUCTS,
-        data:data
-    }
-};
 
-export const getProductsThunkCreator = (queries)=>{
-    return (dispatch)=>{
-
-        axios.get('http://176.197.36.4:8000/products'+queries)
-            .then(function (response) {
-                dispatch(getProductsActionCreator(response.data))
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-
-            });
-    }
-};
 
 export default ProductReducer;
