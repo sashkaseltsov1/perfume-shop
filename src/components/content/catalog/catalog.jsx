@@ -4,6 +4,7 @@ import Sort from "./sort/sort";
 import Products from "./products/products";
 import FiltersContainer from "./filters/filtersContainer";
 import ActiveFilters from "./active-filters/active-filters";
+import PagesContainer from "./pages/pages-container";
 
 
 
@@ -25,6 +26,7 @@ const Catalog = (props)=>{
             <div className={styles.products}>
                 <ActiveFilters/>
                 <Products location={props.location}/>
+                <PagesContainer/>
             </div>
         </div>
     )

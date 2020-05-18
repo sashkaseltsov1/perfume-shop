@@ -1,0 +1,54 @@
+.main{
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    margin-top: 20px;
+}
+.pages{
+    display: flex;
+
+}
+
+.page, .arrow, .etc{
+    border-radius: 2px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    margin: auto 2px;
+    border: 1px solid lightgray;
+
+}
+
+.arrow{
+    color:white;
+}
+
+.arrow:hover,.page:hover{
+    cursor: pointer;
+    border: 1px solid cornflowerblue;
+}
+.activePage{
+    border: 1px solid cornflowerblue;
+}
+.activePage:hover{
+    cursor: auto;
+}
+.arrow>img{
+    width: 12px;
+    height: 12px;
+}
+.pages div:nth-last-child(1)>img{
+    transform: rotate(180deg);
+}
+@media screen and (max-width:750px) {
+    .page, .etc{
+        display: none;
+    }
+    .arrow{
+        margin: 0;
+        width: 100px;
+    }
+
+}
+

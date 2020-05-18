@@ -49,9 +49,7 @@ export const setRangeOptionThunkCreator = (values) =>{
 export const resetFiltersThunkCreator = () =>{
     return (dispatch)=>{
         dispatch(resetFiltersActionCreator());
-        let history = createBrowserHistory();
-        history.push('?');
-        dispatch(getProductsThunkCreator('?'));
+        dispatch(getProductsThunkCreator());
     }
 }
 export const setOptionThunkCreator = (category, optionId, state)=>{
@@ -64,15 +62,18 @@ const joinStateToQueryString = (state)=>{
         ({category:prm.category, params:prm.items.filter(p=>
                 p.state).map(p=>
                 p._id)})).filter(arr=>arr.params.length>0);
-    let offers = newState.find(item=>item.category==='specialOffers')?.params.map(offer=>({category:offer, params:[true]}));
+    let offers = newState.find(item=>item.category==='specialOffers')?.
+    params.map(offer=>({category:offer, params:[true]}));
     if(offers){
         newState =  newState.filter(item=>item.category!=='specialOffers');
         newState = [...offers, ...newState];
     }
     newState = newState.map(item=>(item.category+'='+item.params.join('%7C')));
     let rangeFilterState = state.rangeFilter;
-    if(rangeFilterState.fieldState[0]!==rangeFilterState.domain[0]) newState.push('min='+rangeFilterState.fieldState[0]);
-    if(rangeFilterState.fieldState[1]!==rangeFilterState.domain[1]) newState.push('max='+rangeFilterState.fieldState[1]);
+    if(rangeFilterState.fieldState[0]!==rangeFilterState.domain[0])
+        newState.push('min='+rangeFilterState.fieldState[0]);
+    if(rangeFilterState.fieldState[1]!==rangeFilterState.domain[1])
+        newState.push('max='+rangeFilterState.fieldState[1]);
     return '?'+newState.join('&');
 };
 const initializeActiveFilters = (filters)=>{
@@ -101,8 +102,6 @@ export const filterThunkCreator = ()=>{
             let queryString = joinStateToQueryString(state);
             let activeFilters = initializeActiveFilters(state.filters);
             dispatch(setActiveFiltersActionCreator(activeFilters));
-            let history = createBrowserHistory();
-            history.push(queryString);
             dispatch(getProductsThunkCreator(queryString))
         }
 
@@ -141,8 +140,7 @@ export const getFiltersThunkCreator = ()=>{
                         let newOption = {...option,state:optionState};
                         if(optionState) activeFilters.push({category:item.category, optionId:newOption._id, type:option.type});
                         return newOption});
-                    let newItem={...item,items:items};
-                    return newItem;
+                    return {...item,items:items};
                 });
                 if(ranges[0]===undefined) ranges[0]=0;
                 if(ranges[1]===undefined) ranges[1]=50000;
@@ -152,7 +150,6 @@ export const getFiltersThunkCreator = ()=>{
                     sliderState:ranges,
                     fieldState:ranges
                 };
-
                 dispatch(getFiltersActionCreator({filters:data, rangeFilter:rangeFilter, activeFilters:activeFilters}))
             })
             .catch(function (error) {

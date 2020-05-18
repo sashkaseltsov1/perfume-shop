@@ -27,7 +27,7 @@ const initialState = {
 const ProductReducer = (state=initialState, action)=>{
     switch (action.type) {
         case SET_LOADER:
-            return {...state, isLoading: true};
+            return {...state, isLoading: action.state};
         case GET_PRODUCTS:
             return {...action.data, isLoading:false};
         default:
