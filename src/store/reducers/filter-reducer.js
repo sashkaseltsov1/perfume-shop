@@ -1,4 +1,11 @@
-import {GET_FILTERS, RESET_FILTERS, SET_ACTIVE_FILTERS, SET_OPTION, SET_RANGE} from "../actions/filter-actions";
+import {
+    GET_FILTERS,
+    RESET_FILTERS,
+    SET_ACTIVE_FILTERS,
+    SET_OPTION,
+    SET_RANGE,
+    SET_SORT
+} from "../actions/filter-actions";
 
 
 const initialState = {
@@ -10,11 +17,14 @@ const initialState = {
         sliderState:[0, 50000],
         fieldState:[0,50000],
     },
+    sortFilter:null,
     activeFilters:[]
 };
 
 const FilterReducer = (state=initialState, action)=>{
     switch (action.type) {
+        case SET_SORT:
+            return {...state, sortFilter: action.value};
         case SET_ACTIVE_FILTERS:
             return {...state, activeFilters:action.activeFilters};
         case RESET_FILTERS:
@@ -26,6 +36,7 @@ const FilterReducer = (state=initialState, action)=>{
                     item={...item,items:items};
                     return item;
                 }),
+                sortFilter:null,
                 activeFilters:[]
             };
         case SET_RANGE:

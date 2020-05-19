@@ -1,8 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import Categories from "./categories/categories";
 import TextWithLine from "../../templates/text-width-line/text-with-line";
-import SimpleSwiper from "../../templates/swiper/swiper";
-
 
 
 

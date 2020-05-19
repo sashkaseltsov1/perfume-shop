@@ -3,9 +3,16 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
-
 }
-
+.nothingFounded{
+    height: 400px;
+    text-align: center;
+   font-size: large;
+    color: #2c2c2c;
+}
+.error{
+    color: red;
+}
 @media screen and (max-width:750px) {
     .products{
         grid-template-columns: repeat(2, 1fr);

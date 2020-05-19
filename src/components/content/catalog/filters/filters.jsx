@@ -16,7 +16,8 @@ const Filters = (props)=>{
     const getScrollbarWidth = ()=> {
         return window.innerWidth - document.documentElement.clientWidth;
     };
-    const Slider = connect((state)=>({item:state.filters.rangeFilter}), {setRangeOptionThunkCreator})(WithVisibility(SliderWithTwoHandles));
+    const Slider = connect((state)=>({item:state.filters.rangeFilter}),
+        {setRangeOptionThunkCreator})(WithVisibility(SliderWithTwoHandles));
     return (
         <div className={cn(styles.filters, (props.isTabletOrMobile && props.filterState &&  styles.hideFilters))}
              ref={props.targetRef}
@@ -27,8 +28,17 @@ const Filters = (props)=>{
                     let Filter = WithConnection(WithVisibility(SimpleFilter), index);
                     return <Filter key={index}/>})}
 
-            <div className={styles.filterButton} onClick={()=>{props.filterThunkCreator()}}>Фильтровать</div>
-            <div onClick={()=>{props.resetFiltersThunkCreator()}}>Reset</div>
+            <div className={styles.filterButton}
+                 onClick={()=>{
+                     props.isTabletOrMobile && props.setFilterState(true);
+                     props.filterThunkCreator()}}>
+                Фильтровать
+            </div>
+            <div className={styles.reset} onClick={()=>{
+                props.isTabletOrMobile && props.setFilterState(true);
+                props.resetFiltersThunkCreator()}}>
+                Сбросить фильтры
+            </div>
 
             <div className={styles.padding}/>
         </div>

@@ -22,7 +22,7 @@ const getPages = (page, count)=>{
 
 const getQueryWithPage = (pageNumber) =>{
     let search = createBrowserHistory().location.search;
-    let result = search.match(/page=((\d+)|(\w+))/);
+    let result = search.match(/page=[0-9]+/);
     if(result) {
         let [left, right] = search.split(result[0]);
         return left+'page='+pageNumber+right;
@@ -62,8 +62,8 @@ const Pages = (props)=>{
                                                        value={item}
                                                        isActive={item===props.page}
                                                        callback ={props.getProductsThunkCreator}/>)}
-                {props.count>5 && props.page+2<props.pageCount && <div className={styles.etc}>...</div>}
-                {props.count>5 && props.page+2<props.pageCount && <Page value={props.pageCount}
+                {props.pageCount>5 && props.page+2<props.pageCount && <div className={styles.etc}>...</div>}
+                {props.pageCount>5 && props.page+2<props.pageCount && <Page value={props.pageCount}
                                                                         isActive={false}
                                                                         callback ={props.getProductsThunkCreator}/>}
                 {props.page+1<=props.pageCount && <Arrow value={props.page+1}

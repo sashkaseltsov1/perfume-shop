@@ -1,8 +1,8 @@
-import {GET_PRODUCTS, SET_LOADER} from "../actions/product-actions";
+import {GET_PRODUCTS, SET_ERROR, SET_LOADER} from "../actions/product-actions";
 import initialImage from '../../images/loading-image.jpg'
 const getInitialItems = ()=>{
     let items=[];
-    for (let i=0;i<24;i++){
+    for (let i=0;i<12;i++){
         items.push({
             isInitial:true,
             fullPrise:'',
@@ -16,7 +16,7 @@ const getInitialItems = ()=>{
 };
 const initialState = {
     isLoading:true,
-    count:24,
+    count:'',
     error:null,
     page:1,
     pageCount:1,
@@ -26,6 +26,8 @@ const initialState = {
 
 const ProductReducer = (state=initialState, action)=>{
     switch (action.type) {
+        case SET_ERROR:
+            return {...initialState,products:[], error:'some error', isLoading: false};
         case SET_LOADER:
             return {...state, isLoading: action.state};
         case GET_PRODUCTS:

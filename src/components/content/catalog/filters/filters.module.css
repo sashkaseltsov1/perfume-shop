@@ -11,6 +11,20 @@
     height: 16px;
     user-select: none;
 }
+.reset{
+    height: 38px;
+    line-height: 38px;
+    font-size: small;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    color: #999999;
+}
+.reset:hover{
+    cursor: pointer;
+    color: royalblue;
+
+}
 .filters>div>img:hover{
     cursor: pointer;
 }

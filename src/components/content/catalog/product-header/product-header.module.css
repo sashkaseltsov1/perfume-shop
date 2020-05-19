@@ -9,7 +9,7 @@
 
 .costSort{
     justify-self: right;
-    color: #2c2c2c;
+    user-select: none;
 }
 .filters{
     display: none;
