@@ -2,7 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import styles from './active-filters.module.css'
 import close from '../../../../images/close-white.svg'
-import {abortActiveFilterThunkCreator} from "../../../../store/actions/filter-actions";
+import {abortActiveFilterThunkCreator} from "../../../../store/thunks/filter-thunks";
+
 
 
 const ActiveFilters = (props)=>{

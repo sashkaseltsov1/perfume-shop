@@ -1,7 +1,8 @@
 import styles from "./product-header.module.css";
 import {connect} from "react-redux";
 import React from "react";
-import {setSortFilterThunkCreator} from "../../../../store/actions/filter-actions";
+import {setSortFilterThunkCreator} from "../../../../store/thunks/filter-thunks";
+
 
 const SortByPrise = ({state, setSortFilterThunkCreator})=>{
     const clickHandler = ()=>{

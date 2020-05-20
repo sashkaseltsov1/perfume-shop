@@ -1,11 +1,9 @@
-import {
-    GET_FILTERS,
-    RESET_FILTERS,
-    SET_ACTIVE_FILTERS,
-    SET_OPTION,
-    SET_RANGE,
-    SET_SORT
-} from "../actions/filter-actions";
+export const SET_OPTION = 'filters/SET_OPTION';
+export const GET_FILTERS = 'filters/GET_FILTERS';
+export const SET_RANGE = 'filters/SET_SLIDER_RANGE';
+export const RESET_FILTERS = 'filters/RESET_FILTERS';
+export const SET_ACTIVE_FILTERS='filters/SET_ACTIVE_FILTERS';
+export const SET_SORT='filters/SET_SORT';
 
 
 const initialState = {

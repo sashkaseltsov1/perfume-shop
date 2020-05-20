@@ -1,7 +1,8 @@
 import React from "react";
 import Pages from "./pages";
 import {connect} from "react-redux";
-import {getProductsThunkCreator} from "../../../../store/actions/product-actions";
+import {getProductsThunkCreator} from "../../../../store/thunks/product-thunks";
+
 
 
 const PagesContainer = (props)=>{

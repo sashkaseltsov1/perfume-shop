@@ -1,15 +1,16 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {getProductsThunkCreator} from "../../../../store/actions/product-actions";
+
 import Products from "./products";
+import {getProductsThunkCreator} from "../../../../store/thunks/product-thunks";
 
 
 const ProductsContainer = (props)=>{
     useEffect(()=>{
-        props.getProductsThunkCreator(props.location.search);
+
+        props.getProductsThunkCreator(props.location.search, false);
         return props.history.listen((location) => {
-            location.pathname==='/shop/catalog' &&
-            props.getProductsThunkCreator(location.search, true);
+            location.pathname==='/shop/catalog' && props.getProductsThunkCreator(location.search, false);
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);

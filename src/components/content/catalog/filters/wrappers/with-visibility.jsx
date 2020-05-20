@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useRef, useState} from "react";
 import styles from './filter.module.css'
 import arrow from '../../../../../images/slider-arrow.svg'
 import cn from 'classnames'

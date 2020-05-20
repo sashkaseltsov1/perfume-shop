@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from './App.module.css'
 import Header from "./components/header/header";
-import Navbar from "./components/navbar/navbar";
+
 import Content from "./components/content/content";
 import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/footer/footer";
+import AdaptiveNavbar from "./components/navbar/adaptive-navbar";
 
 const App = () => {
     return (
@@ -12,7 +13,7 @@ const App = () => {
             <div className={styles.App}>
 
                 <Header />
-                <Navbar/>
+                <AdaptiveNavbar />
                 <Content/>
                 <Footer/>
             </div>

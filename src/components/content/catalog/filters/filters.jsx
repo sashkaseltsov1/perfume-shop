@@ -9,8 +9,9 @@ import { WithVisibility} from "./wrappers/with-visibility";
 import SimpleFilter from "./items/simple-filter";
 import WithConnection from "./wrappers/with-connection";
 import {connect} from "react-redux";
-import {setRangeOptionThunkCreator} from "../../../../store/actions/filter-actions";
+
 import SliderWithTwoHandles from "./items/sliderWithTwoHandles";
+import {setRangeOptionThunkCreator} from "../../../../store/thunks/filter-thunks";
 
 const Filters = (props)=>{
     const getScrollbarWidth = ()=> {

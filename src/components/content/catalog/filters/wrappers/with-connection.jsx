@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setOptionThunkCreator} from "../../../../../store/actions/filter-actions";
+import {setOptionThunkCreator} from "../../../../../store/thunks/filter-thunks";
+
 
 
 

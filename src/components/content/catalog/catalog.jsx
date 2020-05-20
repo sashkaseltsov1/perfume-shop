@@ -21,7 +21,7 @@ const Catalog = (props)=>{
             </div>
 
             <div className={styles.filters}>
-                <FiltersContainer filterState={filterState} setFilterState={setFilterState} />
+                <FiltersContainer filterState={filterState} setFilterState={setFilterState} location={props.location} history={props.history} />
             </div>
             <div className={styles.products}>
                 <ActiveFilters/>

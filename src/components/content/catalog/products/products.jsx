@@ -3,6 +3,7 @@ import styles from './products.module.css'
 import Item from "../../../templates/item/item";
 import Loader from "../../../templates/loader/loader";
 const Products = (props)=>{
+
     return (
         <div>
             {props.products.products.length>0 && <div className={styles.products}>

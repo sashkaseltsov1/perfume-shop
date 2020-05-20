@@ -1,5 +1,8 @@
-import {GET_PRODUCTS, SET_ERROR, SET_LOADER} from "../actions/product-actions";
 import initialImage from '../../images/loading-image.jpg'
+
+export const GET_PRODUCTS = 'products/GET_PRODUCTS';
+export const SET_LOADER = 'products/SET_LOADER';
+export const SET_ERROR = 'products/SET_ERROR';
 const getInitialItems = ()=>{
     let items=[];
     for (let i=0;i<12;i++){

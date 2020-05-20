@@ -3,10 +3,14 @@ import React, {useEffect, useRef} from "react";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {connect} from "react-redux";
 import {
-    filterThunkCreator,
-    getFiltersThunkCreator, resetFiltersThunkCreator,
+
 } from "../../../../store/actions/filter-actions";
 import Filters from "./filters";
+import {
+    filterThunkCreator,
+    getFiltersThunkCreator,
+    resetFiltersThunkCreator
+} from "../../../../store/thunks/filter-thunks";
 
 const FiltersContainer = (props)=>{
     const  handleMediaQueryChange  = () => {!isTabletOrMobile && props.setFilterState(true)};
@@ -22,6 +26,9 @@ const FiltersContainer = (props)=>{
 
     useEffect(() => {
         props.getFiltersThunkCreator();
+        return props.history.listen((location) => {
+            location.pathname==='/shop/catalog' && props.getFiltersThunkCreator();
+        })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 

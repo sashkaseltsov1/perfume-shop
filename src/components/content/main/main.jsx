@@ -1,6 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import Categories from "./categories/categories";
 import TextWithLine from "../../templates/text-width-line/text-with-line";
+import {connect} from "react-redux";
+import SwiperContainer from "../../templates/swiper/swiper-container";
+import {getDiscountProductsThunkCreator, getNoveltyProductsThunkCreator} from "../../../store/thunks/main-page-thunks";
 
 
 
@@ -8,20 +11,22 @@ import TextWithLine from "../../templates/text-width-line/text-with-line";
 
 
 const Main = ()=>{
+    let Novelty = connect((state)=>({items:state.mainPage.noveltyProducts}),
+        {getItems:getNoveltyProductsThunkCreator})(SwiperContainer);
+    let Discount = connect((state)=>({items:state.mainPage.discountProducts}),
+        {getItems:getDiscountProductsThunkCreator})(SwiperContainer);
     return(
         <div>
             <Categories />
             <br/>
             <TextWithLine name={'Новинки'} />
-            {/*<SimpleSwiper items={arr}/>*/}
+            <Novelty/>
 
 
             <br/>
             <TextWithLine name={'Скидки'} />
-            {/*<SimpleSwiper items={arr}/>*/}
+            <Discount />
             <br/>
-            <TextWithLine name={'Популярные'} />
-            {/*<SimpleSwiper items={arr}/>*/}
         </div>
 
     )

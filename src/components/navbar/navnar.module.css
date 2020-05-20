@@ -8,6 +8,14 @@
     justify-items: center;
     line-height: 50px;
 }
+
+
+.navWrapper a>img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
 .navWrapper a{
     user-select: none;
     font-weight: 600;
@@ -18,6 +26,7 @@
     background-repeat: no-repeat;
     background-size: 0 1px;
     transition: background-size .3s;
+
 }
 .navWrapper a:hover{
     background-size: 100% 2px;
@@ -29,13 +38,67 @@
     margin: 0;
     padding: 0;
 }
+.menuButton{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    margin-top: -48px;
+    display: none;
+    transition: transform .3s;
+}
+.menuButton:hover{
+    cursor: pointer;
+}
 
+.menuButton img {
+
+    width: 24px;
+    height: 24px;
+}
+.rotateButton {
+    transform: rotate(90deg);
+}
+.back{
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 1;
+}
 @media screen and (max-width:1120px) {
+
     .navWrapper {
-        display: none;
+        background-color: rgba(45,45,45,0.95);
+        display: block;
+        width: 0;
+        position: fixed;
+        height: 100%;
+        transition: width .3s;
+        left: 0;
+        z-index:999;
+        overflow: hidden;
+    }
+    .menuButton{
+        z-index: 2;
+        display: block;
+    }
+    .navWrapper>li{
+        margin-left: 20px;
+    }
+    .navWrapper a{
+        white-space: nowrap;
+        display: block;
+        overflow: hidden;
+        color: white;
+        font-weight: normal;
     }
     .line{
         height: 0;
     }
+    .show{
+        width: 250px;
+    }
 
 }
+
