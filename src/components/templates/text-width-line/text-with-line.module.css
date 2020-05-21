@@ -4,6 +4,8 @@
     text-align: center;
     user-select: none;
     color: #2c2c2c;
+    font-size: large;
+    font-stretch: ultra-expanded;
 }
 .hr:before,
 .hr:after {

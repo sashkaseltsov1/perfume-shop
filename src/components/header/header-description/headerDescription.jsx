@@ -8,5 +8,5 @@ const HeaderDescription = ()=>{
             <p>Магазин парфюмерии</p>
         </div>
     )
-}
+};
 export default HeaderDescription

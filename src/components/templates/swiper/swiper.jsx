@@ -7,8 +7,6 @@ import Item from "../item/item";
 
 
 const SimpleSwiper = (props) => {
-
-    console.log(props)
     const params = {
 
         spaceBetween: 20,

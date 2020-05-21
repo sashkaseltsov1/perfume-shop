@@ -5,7 +5,6 @@ const SwiperContainer = (props)=>{
 
     useEffect(()=>{
         props.getItems();
-        console.log('ssss')
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return(

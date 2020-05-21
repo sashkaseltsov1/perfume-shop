@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "body-scroll-lock": "^3.0.2",
     "classnames": "^2.2.6",
+    "history": "latest",
     "react": "^16.13.1",
     "react-compound-slider": "^2.5.0",
     "react-dom": "^16.13.1",
@@ -19,10 +20,10 @@
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
+    "redux-form": "^8.3.5",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "swiper": "^5.3.8",
-    "history": "latest"
+    "swiper": "^5.3.8"
   },
   "scripts": {
     "start": "react-scripts start",

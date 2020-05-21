@@ -36,7 +36,6 @@
     text-overflow: clip;
     overflow: hidden;
     height: 63px;
-    color: #2c2c2c;
     width: calc(100% - 20px);
     margin: 0 auto;
     text-align: center;
@@ -62,7 +61,6 @@
     margin:1px auto;
     padding-bottom: 10px;
     font-size: large;
-    color: #2c2c2c;
     font-weight: 600;
 
 }

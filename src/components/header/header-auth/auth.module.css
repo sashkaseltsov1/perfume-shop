@@ -1,0 +1,20 @@
+.auth{
+    display: grid;
+}
+.auth>a>img{
+    width: 24px;
+    height: 24px;
+}
+.auth>a:hover{
+    color: cornflowerblue;
+}
+.auth> a{
+    grid-gap: 5px;
+    display: grid;
+    grid-template-columns: 24px auto;
+    justify-self: right;
+    margin: auto 0;
+    color: white;
+    user-select: none;
+    text-decoration: none;
+}

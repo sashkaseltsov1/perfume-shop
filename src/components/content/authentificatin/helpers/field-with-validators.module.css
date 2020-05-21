@@ -1,0 +1,26 @@
+.errorSpan{
+    color: #c12020;
+    font-size: small;
+    margin: 0 auto;
+}
+.sector{
+    line-height: 30px;
+    margin-bottom: 20px;
+    display: grid;
+
+}
+.field{
+    outline: 0;
+    border: 1px solid #d4d4d4;
+    border-radius: 0;
+    text-align: center;
+    min-width: 0;
+    height: 30px;
+}
+.field:focus{
+
+    border: 1px solid cornflowerblue;
+}
+.errorField{
+    border: 1px solid #c12020;
+}
