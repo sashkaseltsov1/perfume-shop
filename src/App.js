@@ -1,17 +1,17 @@
-import React from 'react'
-import styles from './App.module.css'
+import React, {useEffect} from 'react'
 import Header from "./components/header/header";
-
 import Content from "./components/content/content";
 import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/footer/footer";
 import AdaptiveNavbar from "./components/navbar/adaptive-navbar";
+import {connect} from "react-redux";
+import {withAuthThunk} from "./store/thunks/auth-thunks";
 
-const App = () => {
+const App = (props) => {
+    useEffect(()=>props.withAuthThunk(),[]);
     return (
         <BrowserRouter>
-            <div className={styles.App}>
-
+            <div>
                 <Header />
                 <AdaptiveNavbar />
                 <Content/>
@@ -19,6 +19,6 @@ const App = () => {
             </div>
         </BrowserRouter>
     );
-}
+};
 
-export default App;
+export default connect(null, {withAuthThunk})(App);

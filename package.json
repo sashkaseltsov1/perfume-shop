@@ -10,6 +10,7 @@
     "body-scroll-lock": "^3.0.2",
     "classnames": "^2.2.6",
     "history": "latest",
+    "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
     "react-compound-slider": "^2.5.0",
     "react-dom": "^16.13.1",

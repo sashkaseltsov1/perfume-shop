@@ -4,13 +4,16 @@ import thunk from "redux-thunk";
 import FilterReducer from "./reducers/filter-reducer";
 import MainPageReducer from "./reducers/main-page-reducer";
 import { reducer as formReducer } from 'redux-form'
+import AuthReducer from "./reducers/auth-reducer";
 
 
 const reducers = {
     products: ProductReducer,
     filters:FilterReducer,
     mainPage:MainPageReducer,
-    form:formReducer
+    auth:AuthReducer,
+    form:formReducer,
+
 };
 
 const combinedReducers = combineReducers(reducers);

@@ -83,7 +83,7 @@ export const filterThunkCreator = ()=>{
         }
 
     }
-}
+};
 const parseQueryString = (queryString)=>{
     const getIds = (string, array)=>{
         let arr=[];
@@ -114,10 +114,9 @@ const parseQueryString = (queryString)=>{
 };
 
 export const getFiltersThunkCreator = ()=>{
-
     return (dispatch)=>{
         instance.getFilters()
-            .then(function (response) {
+            .then( (response) =>{
                 let history = createBrowserHistory();
                 let [categories, ranges, sort] = parseQueryString(history.location.search);
                 let activeFilters = [];

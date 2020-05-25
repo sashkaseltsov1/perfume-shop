@@ -3,7 +3,8 @@ import styles from './header.module.css'
 import wrap from '../wrapper.module.css'
 import cn from 'classnames'
 import HeaderDescription from "./header-description/headerDescription";
-import Auth from "./header-auth/auth";
+import AuthContainer from "./header-auth/auth-container";
+
 const Header = (props)=>{
     return(
 
@@ -11,7 +12,7 @@ const Header = (props)=>{
                 <div className={cn(wrap.wrapper, styles.main)}>
                     <div/>
                     <HeaderDescription />
-                    <Auth status={false}/>
+                    <AuthContainer/>
                 </div>
             </div>
 
