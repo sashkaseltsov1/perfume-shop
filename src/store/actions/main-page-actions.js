@@ -1,4 +1,4 @@
-import {SET_DISCOUNT_PRODUCTS, SET_NOVELTY_PRODUCTS} from "../reducers/main-page-reducer";
+import {SET_DISCOUNT_PRODUCTS, SET_INITIAL_MAIN_PAGE, SET_NOVELTY_PRODUCTS} from "../reducers/main-page-reducer";
 
 
 export const setNoveltyProductsActionCreator = (products)=>{

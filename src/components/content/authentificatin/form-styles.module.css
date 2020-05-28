@@ -23,6 +23,27 @@
     border: 0;
     background-color: #161515;
     color: white;
+    position: relative;
+}
+
+.loader{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    top: 0;
+}
+.loader>img{
+    width: 25px;
+    height: 25px;
+}
+.error{
+    color: #c12020;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: small;
+    text-align: center;
 }
 
 @media screen and (max-width:750px) {

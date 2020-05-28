@@ -1,4 +1,4 @@
-import {GET_PRODUCTS, SET_ERROR, SET_LOADER} from "../reducers/product-reducer";
+import {GET_PRODUCTS, SET_ERROR, SET_INITIAL_PRODUCTS, SET_LOADER} from "../reducers/product-reducer";
 
 export const getProductsActionCreator = (data)=>{
     return {
@@ -15,5 +15,10 @@ export const setLoaderActionCreator = (state)=>{
 export const setErrorActionCreator = ()=>{
     return {
         type:SET_ERROR
+    }
+};
+export const setInitialProductsActionCreator = ()=>{
+    return {
+        type:SET_INITIAL_PRODUCTS
     }
 };

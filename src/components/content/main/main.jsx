@@ -1,14 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Categories from "./categories/categories";
 import TextWithLine from "../../templates/text-width-line/text-with-line";
 import {connect} from "react-redux";
 import SwiperContainer from "../../templates/swiper/swiper-container";
-import {getDiscountProductsThunkCreator, getNoveltyProductsThunkCreator} from "../../../store/thunks/main-page-thunks";
-
-
-
-
-
+import {
+    getDiscountProductsThunkCreator,
+    getNoveltyProductsThunkCreator
+} from "../../../store/thunks/main-page-thunks";
 
 const Main = ()=>{
     let Novelty = connect((state)=>({items:state.mainPage.noveltyProducts}),
@@ -21,8 +19,6 @@ const Main = ()=>{
             <br/>
             <TextWithLine name={'Новинки'} />
             <Novelty/>
-
-
             <br/>
             <TextWithLine name={'Скидки'} />
             <Discount />

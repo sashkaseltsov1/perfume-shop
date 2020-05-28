@@ -22,8 +22,9 @@ const Item = (props)=>{
                 {props.item.isInitial && <span style={{'color':'white'}}>init</span>}
             </div>
             <div className={styles.itemCost}>
-                {parseInt(props.item.fullPrise).toLocaleString('ru-RU')} {props.item.isInitial && <span style={{'color':'white'}}>руб</span>}
-                {!props.item.isInitial && <span >руб</span>}
+                {!props.item.isInitial && parseInt(props.item.fullPrise).toLocaleString('ru-RU')}
+                {props.item.isInitial && <span style={{'color':'white'}}>руб</span>}
+                {!props.item.isInitial && <span > руб</span>}
             </div>
         </div>
     )

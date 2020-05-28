@@ -1,9 +1,11 @@
 import instance from "../../api/products-api";
-import {setDiscountProductsActionCreator, setNoveltyProductsActionCreator} from "../actions/main-page-actions";
+import {
+    setDiscountProductsActionCreator,
+    setNoveltyProductsActionCreator
+} from "../actions/main-page-actions";
 
 
 export const getNoveltyProductsThunkCreator = ()=>{
-
     return (dispatch)=>{
         instance.getProducts('?isNovelty=true&portion=9')
             .then( (response)=> {
