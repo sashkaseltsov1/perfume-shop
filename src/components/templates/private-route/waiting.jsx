@@ -3,7 +3,6 @@ import styles from './waiting.module.css'
 const Waiting = ()=>{
   return(
       <div className={styles.waiting}>
-sasa
       </div>
   )
 };

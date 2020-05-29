@@ -3,23 +3,18 @@ import {Redirect, Route} from "react-router-dom";
 import Waiting from "./waiting";
 import {connect} from "react-redux";
 
-const PrivateRoute = ({ component: Component,isInvert=false, ...rest }) => {
-
+const PrivateRoute = ({ component: Component, ...rest }) => {
     return(
     <Route {...rest} render={(props) => {
-        console.log(rest)
-        if(rest.isAuthorized===!isInvert) {
+        if(rest.isAuthorized===!rest.isInvert) {
             return <Component {...props} />}
         else
-        if(rest.isAuthorized===isInvert) {
-
+        if(rest.isAuthorized===rest.isInvert) {
             return (<Redirect to={{
-            pathname: '/',
+            pathname: rest.isInvert? '/':'/auth',
             state: { from: props.location }
         }}/>
         )}else{
-            console.log('sasa'+rest.isAuthorized)
-            console.log('kaka'+isInvert)
             return <Waiting/>
         }
     }} />

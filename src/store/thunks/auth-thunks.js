@@ -31,7 +31,7 @@ export const withAuthThunk = (thunkCreator)=>{
             let tokens = response.data;
             let decodedToken = jwtDecode(tokens.token);
             isAuthorized!==true && dispatch(signinActionCreator(decodedToken));
-            thunkCreator && dispatch(thunkCreator());
+            thunkCreator && dispatch(thunkCreator);
         }).catch(err=>{
             isAuthorized!==false && dispatch(signoutActionCreator());
             console.log(err);

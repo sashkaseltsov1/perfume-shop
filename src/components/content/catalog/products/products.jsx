@@ -14,7 +14,6 @@ const Products = (props)=>{
                 {props.products.error && <span className={styles.error}>Произошла ошибка!</span>}
                 {!props.products.error && <span>Ничего не найдено</span>}
             </div>}
-
         </div>
     )
 };

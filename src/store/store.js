@@ -5,6 +5,7 @@ import FilterReducer from "./reducers/filter-reducer";
 import MainPageReducer from "./reducers/main-page-reducer";
 import { reducer as formReducer } from 'redux-form'
 import AuthReducer from "./reducers/auth-reducer";
+import UserReducer from "./reducers/user-reducer";
 
 
 const reducers = {
@@ -12,8 +13,8 @@ const reducers = {
     filters:FilterReducer,
     mainPage:MainPageReducer,
     auth:AuthReducer,
+    profile:UserReducer,
     form:formReducer,
-
 };
 
 const combinedReducers = combineReducers(reducers);

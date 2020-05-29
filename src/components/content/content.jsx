@@ -5,6 +5,7 @@ import {Route, Switch} from "react-router-dom";
 import Catalog from "./catalog/catalog";
 import Authentication from "./authentificatin/authentication";
 import PrivateRoute from "../templates/private-route/private-route";
+import ProfileContainer from "./profile/profile-container";
 
 
 const Content = ()=>{
@@ -14,11 +15,12 @@ const Content = ()=>{
             <Route path='/' component={Main} exact />
             <Route path='/shop' component={Main} exact />
             <Route path={'/shop/catalog/:id?'} component={Catalog} exact/>
-            {/*<Route path={'/auth'} component={Authentication} exact/>*/}
             <PrivateRoute path='/auth' component={Authentication} isInvert={true} exact/>
+            <PrivateRoute path='/profile' component={ProfileContainer} isInvert={false} exact/>
+            {/*<Route path='/profile' component={ProfileContainer} exact/>*/}
         </Switch>
 
     </div>
 };
 
-export default Content
+export default Content;

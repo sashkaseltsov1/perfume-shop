@@ -1,9 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 import SignIn from "./sign-in/sign-in";
 import SignUp from "./sign-up/sign-up";
 
 const Authentication = ()=>{
-    useEffect(()=>{console.log('mounted')},[])
     return(
         <div>
             <SignIn />
