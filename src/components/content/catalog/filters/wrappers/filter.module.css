@@ -18,8 +18,8 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
 .title:hover{
-    color: cornflowerblue;
     cursor: pointer;
 }
 .titleColor{
@@ -43,7 +43,6 @@
 .component{
     transition: height .3s ease;
     height: 0;
-
 }
 .show{
 
@@ -66,12 +65,10 @@
         height: 50px;
         color: white;
         line-height: 50px;
+        outline: none;
     }
     .title>span{
         margin-top: 0;
-    }
-    .title:hover{
-        color: white;
     }
     .titleColor{
         background-color: rgba(89,89,89,0.5);

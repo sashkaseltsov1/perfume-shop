@@ -1,0 +1,30 @@
+.profile{
+    margin: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 20px;
+    grid-template-rows: repeat(6, 40px);
+}
+.edit{
+    grid-row-start: 1;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    justify-self: right;
+    height: 20px;
+}
+.edit:hover{
+    cursor: pointer;
+}
+.edit>img{
+    width: 20px;
+    height: 20px;
+}
+.profile>span{
+    color: #4949e7;
+}
+.error{
+    color: #c12020;
+    margin-bottom: 20px;
+    font-size: small;
+    text-align: center;
+}

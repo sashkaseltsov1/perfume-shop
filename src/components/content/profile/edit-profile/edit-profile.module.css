@@ -1,0 +1,27 @@
+.profile{
+    margin: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 20px;
+    grid-template-rows: repeat(6, 40px);
+}
+.close{
+    grid-row-start: 1;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    justify-self: right;
+    height: 20px;
+}
+.close>img{
+    width: 20px;
+    height: 20px;
+}
+.button{
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    border: 0;
+    background-color: #161515;
+    color: white;
+    position: relative;
+}

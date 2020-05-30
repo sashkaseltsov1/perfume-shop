@@ -6,7 +6,7 @@ export const getUserThunkCreator = ()=>{
         userApi.getUser().then(response=>{
             dispatch(setUserActionCreator(response.data.user));
         }).catch(err=>{
-            dispatch(setErrorActionCreator());
+            dispatch(setErrorActionCreator(err));
             console.log(err)
         })
     }

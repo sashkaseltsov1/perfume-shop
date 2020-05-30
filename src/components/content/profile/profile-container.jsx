@@ -5,6 +5,7 @@ import {withAuthThunk} from "../../../store/thunks/auth-thunks";
 import {getUserThunkCreator, setInitialThunkCreator} from "../../../store/thunks/user-thunks";
 
 const ProfileContainer = (props)=>{
+    
     useEffect(()=>{
         props.withAuthThunk(getUserThunkCreator());
         return ()=>props.setInitialThunkCreator();

@@ -4,8 +4,9 @@ import Main from "./main/main";
 import {Route, Switch} from "react-router-dom";
 import Catalog from "./catalog/catalog";
 import Authentication from "./authentificatin/authentication";
-import PrivateRoute from "../templates/private-route/private-route";
+import PrivateRouteWithRedirect from "../templates/private-routes/route-with-redirect";
 import ProfileContainer from "./profile/profile-container";
+import RouteWithAccessError from "../templates/private-routes/route-with-access-error";
 
 
 const Content = ()=>{
@@ -15,9 +16,9 @@ const Content = ()=>{
             <Route path='/' component={Main} exact />
             <Route path='/shop' component={Main} exact />
             <Route path={'/shop/catalog/:id?'} component={Catalog} exact/>
-            <PrivateRoute path='/auth' component={Authentication} isInvert={true} exact/>
-            <PrivateRoute path='/profile' component={ProfileContainer} isInvert={false} exact/>
-            {/*<Route path='/profile' component={ProfileContainer} exact/>*/}
+            <PrivateRouteWithRedirect path='/auth' component={Authentication} isInvert={true} exact/>
+            <PrivateRouteWithRedirect path='/profile' component={ProfileContainer} isInvert={false} exact/>
+            <RouteWithAccessError path='/orders/:id' component={ProfileContainer} isInvert={false} exact/>
         </Switch>
 
     </div>
