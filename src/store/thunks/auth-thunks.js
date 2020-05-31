@@ -13,25 +13,27 @@ export const signinThunkCreator = (values)=>{
     return (dispatch) =>{
         return authApi.signin(values).then((response)=>{
             saveTokens(response.data);
-            dispatch(withAuthThunk());
+            dispatch(authenticate());
             }).catch((err)=>{throw new SubmissionError({_error:err.response.data.message})});
     }
 };
 export const signupThunkCreator = (values)=>{
     return () =>{
+        if(values.password!==values.confirmPassword) {
+            return new Promise(()=>{throw new SubmissionError({_error:'Пароли не совпадают!'})});
+        }
         return authApi.signup(values).then(()=>{
 
         }).catch((err)=>{throw new SubmissionError({_error:err.response.data.message})});
     }
 };
-export const withAuthThunk = (thunkCreator)=>{
+export const authenticate = ()=>{
     return (dispatch, getState)=>{
         let isAuthorized = getState().auth.isAuthorized;
-        authApi.auth().then(response=>{
+        return authApi.auth().then(response=>{
             let tokens = response.data;
             let decodedToken = jwtDecode(tokens.token);
             isAuthorized!==true && dispatch(signinActionCreator(decodedToken));
-            thunkCreator && dispatch(thunkCreator);
         }).catch(err=>{
             isAuthorized!==false && dispatch(signoutActionCreator());
             console.log(err);

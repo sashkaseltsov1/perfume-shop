@@ -5,12 +5,12 @@ import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/footer/footer";
 import AdaptiveNavbar from "./components/navbar/adaptive-navbar";
 import {useDispatch} from "react-redux";
-import {withAuthThunk} from "./store/thunks/auth-thunks";
+import {authenticate} from "./store/thunks/auth-thunks";
 
 const App = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch(withAuthThunk());
+        dispatch(authenticate());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     return (

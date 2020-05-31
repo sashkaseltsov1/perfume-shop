@@ -12,9 +12,9 @@ const UserReducer = (state=initialState, action)=>{
         case SET_INITIAL:
             return {};
         case SET_ERROR:
-            return {...initialState, error:action.error};
+            return {...state, error:action.error};
         case SET_USER:
-            return {...initialState, user:action.user};
+            return {...state, user:action.user};
         default:
             return state;
     }

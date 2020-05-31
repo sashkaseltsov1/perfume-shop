@@ -1,16 +1,19 @@
 .profile{
     margin: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 20px;
-    grid-template-rows: repeat(6, 40px);
+    grid-template-columns: 1fr 20px;
+    grid-template-rows: repeat(8, auto);
 }
 .close{
     grid-row-start: 1;
-    grid-row-end: 6;
-    grid-column-start: 3;
-    grid-column-end: 3;
+    grid-row-end: 9;
+    grid-column-start: 2;
+    grid-column-end: 2;
     justify-self: right;
     height: 20px;
+}
+.close:hover, .button:hover{
+    cursor: pointer;
 }
 .close>img{
     width: 20px;
@@ -19,9 +22,38 @@
 .button{
     outline: 0;
     height: 40px;
-    width: 100%;
+    width: 50%;
+    margin: 0 auto 20px auto;
     border: 0;
     background-color: #161515;
     color: white;
     position: relative;
+}
+.field{
+    width: 50%;
+    margin: 0 auto;
+}
+.loader{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    top: 0;
+}
+.loader>img{
+    width: 25px;
+    height: 25px;
+}
+.error{
+    color: #c12020;
+    margin-bottom: 20px;
+    font-size: small;
+    text-align: center;
+}
+@media screen and (max-width:750px) {
+    .field, .button{
+        width: calc(100% - 20px);
+        margin-right: 20px;
+    }
 }

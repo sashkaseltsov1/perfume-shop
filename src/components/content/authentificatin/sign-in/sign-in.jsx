@@ -5,14 +5,15 @@ import {Field, reduxForm} from "redux-form";
 import renderField from "../helpers/field-with-validators";
 import {email, min6max20, required} from "../helpers/validators";
 import loader from '../../../../images/loader.svg'
-import {connect} from "react-redux";
+import {useDispatch} from "react-redux";
 import {signinThunkCreator} from "../../../../store/thunks/auth-thunks";
 
 const SignIn = (props)=>{
+    const dispatch = useDispatch();
     return(
         <fieldset className={formStyles.form}>
             <legend className={styles.legend}><h3>Войти</h3></legend>
-            <form onSubmit={props.handleSubmit(values => props.signinThunkCreator(values)
+            <form onSubmit={props.handleSubmit(values => dispatch(signinThunkCreator(values))
             )} className={formStyles.body}>
                 <div >
                     <Field name="email" component={renderField} type="email"
@@ -31,4 +32,4 @@ const SignIn = (props)=>{
         </fieldset>
     )
 };
-export default connect(null, {signinThunkCreator})(reduxForm({form: 'signIn'})(SignIn))
+export default reduxForm({form: 'signIn'})(SignIn)
