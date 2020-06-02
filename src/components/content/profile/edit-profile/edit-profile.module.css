@@ -30,6 +30,7 @@
     position: relative;
 }
 .field{
+    position: relative;
     width: 50%;
     margin: 0 auto;
 }
@@ -45,6 +46,7 @@
     width: 25px;
     height: 25px;
 }
+
 .error{
     color: #c12020;
     margin-bottom: 20px;

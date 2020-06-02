@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Categories from "./categories/categories";
 import TextWithLine from "../../templates/text-width-line/text-with-line";
 import {connect} from "react-redux";

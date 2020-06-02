@@ -1,0 +1,21 @@
+.addresses{
+    margin-top: -15px;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+    display: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* Параметры тени */
+}
+.address:hover{
+    background-color: #c7c7c7;
+    cursor: pointer;
+}
+.address{
+    line-height: 30px;
+    padding: 0 5px;
+}
+.show{
+    display: block;
+}
