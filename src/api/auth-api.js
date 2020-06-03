@@ -10,12 +10,8 @@ export const saveTokens = (tokens)=>{
 };
 
 const authApi = {
-    signup: (data) =>instance.post('/signup',data, { withCredentials: true , headers:{
-            "Content-Type": "application/json"
-        }}),
-    signin: (data) =>instance.post('/signin',data, { withCredentials: true , headers:{
-            "Content-Type": "application/json"
-        }}),
+    signup: (data) =>instance.post('/signup',data),
+    signin: (data) =>instance.post('/signin',data),
     auth:async () =>{
         let token = localStorage.token;
         let refreshToken = localStorage.refreshToken;

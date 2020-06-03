@@ -1,0 +1,43 @@
+.history{
+
+
+
+}
+.timePoint{
+    display: grid;
+    grid-template-columns: 10px auto;
+    grid-gap: 5px;
+}
+.graph{
+    height: 100%;
+
+    position: relative;
+
+}
+.state{
+    color: cadetblue;
+    /*color: darkolivegreen;*/
+}
+.date{
+    font-size: small;
+    color: #9a9a9a;
+}
+.circle::after{
+    content: '';
+    display: block;
+    background-color: green;
+    width: 2px;
+    margin: 0 auto;
+    height: 20px;
+}
+.circle{
+    position: absolute;
+    margin: auto 0;
+    bottom: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+}
+

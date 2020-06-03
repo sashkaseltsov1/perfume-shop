@@ -12,11 +12,11 @@ const RouteWithAccessError = ({ component: Component, ...rest }) => {
             if(rest.isAuthorized===rest.isInvert) {
                 return (<div style={{
                         width:'100%',
-                        height:'400px',
+                        height:'600px',
                         'text-align':'center',
                         color:'#c12020',
                         'margin-top':'20px'
-                    }}>Доступ запрещен!</div>
+                    }}>Доступ к данному ресурсу запрещен!</div>
                 )}else{
                 return <Waiting/>
             }

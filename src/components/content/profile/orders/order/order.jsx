@@ -6,16 +6,16 @@ const Order = ({order})=>{
     let date = new Date(order.createdAt)
     return (
         <div className={styles.order}>
-            <span className={styles.title}>Номер заказа: </span>
-            <span className={styles.prm}>{order._id}</span>
-            <span className={styles.title}>Адрес:</span>
-            <span className={styles.prm}>{order.address}</span>
-            <span className={styles.title}>Стоимость:</span>
-            <span className={styles.prm}>{parseInt(order.totalPrise).toLocaleString('ru-RU')} руб.</span>
-            <span className={styles.title}>Статус:</span>
-            <span className={styles.prm}>{order.state}</span>
-            <span className={styles.title}>Дата заказа: </span>
-            <span className={styles.prm}>{date.toLocaleString()}</span>
+            <span >Номер заказа: </span>
+            <span className={styles.id}>{order._id}</span>
+            <span >Адрес:</span>
+            <span >{order.address}</span>
+            <span >Стоимость:</span>
+            <span className={styles.prise}>{parseInt(order.totalPrise).toLocaleString('ru-RU')} руб.</span>
+            <span >Статус:</span>
+            <span >{order.state}</span>
+            <span >Дата заказа: </span>
+            <span className={styles.date}>{date.toLocaleString()}</span>
             <div className={styles.button}><NavLink to={'/orders/'+order._id}>Перейти к заказу</NavLink></div>
         </div>
     )

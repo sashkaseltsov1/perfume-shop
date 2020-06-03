@@ -12,5 +12,6 @@ export default {
     },
     editUser: (data) =>instance.put('/',data, { withCredentials: true , headers:{
             'Authorization': localStorage.token
-        }})
+        }}),
+
 }

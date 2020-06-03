@@ -32,3 +32,10 @@
     font-size: small;
     text-align: center;
 }
+.boldText{
+    font-size: large;
+    font-weight: 600;
+}
+.email{
+    color: lightcoral;
+}

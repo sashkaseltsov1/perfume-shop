@@ -6,6 +6,7 @@ import MainPageReducer from "./reducers/main-page-reducer";
 import { reducer as formReducer } from 'redux-form'
 import AuthReducer from "./reducers/auth-reducer";
 import UserReducer from "./reducers/user-reducer";
+import OrderReducer from "./reducers/order-reducer";
 
 
 const reducers = {
@@ -14,6 +15,7 @@ const reducers = {
     mainPage:MainPageReducer,
     auth:AuthReducer,
     profile:UserReducer,
+    orderPage:OrderReducer,
     form:formReducer,
 };
 

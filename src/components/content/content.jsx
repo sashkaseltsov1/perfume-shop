@@ -7,7 +7,7 @@ import Authentication from "./authentificatin/authentication";
 import PrivateRouteWithRedirect from "../templates/private-routes/route-with-redirect";
 import ProfileContainer from "./profile/profile-container";
 import RouteWithAccessError from "../templates/private-routes/route-with-access-error";
-
+import OrderContainer from "./order/order-container";
 
 const Content = ()=>{
 
@@ -18,9 +18,8 @@ const Content = ()=>{
             <Route path={'/shop/catalog/:id?'} component={Catalog} exact/>
             <PrivateRouteWithRedirect path='/auth' component={Authentication} isInvert={true} exact/>
             <PrivateRouteWithRedirect path='/profile' component={ProfileContainer} isInvert={false} exact/>
-            <RouteWithAccessError path='/orders/:id' component={ProfileContainer} isInvert={false} exact/>
+            <RouteWithAccessError path='/orders/:id' component={OrderContainer} isInvert={false} exact/>
         </Switch>
-
     </div>
 };
 

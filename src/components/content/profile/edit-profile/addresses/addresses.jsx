@@ -36,7 +36,14 @@ const AddressField = ({dispatch})=>{
                 {suggestions.map(item=><div key={item} className={styles.address} onMouseDown={()=>{
                     dispatch(change('EditProfile', 'address', item))
                 }}
-                >{item}</div>)}
+                >
+                    <div>
+
+                    </div>
+                    <div>
+                        {item}
+                    </div>
+                </div>)}
             </div>
         </div>
     )

@@ -12,9 +12,19 @@
     background-color: #c7c7c7;
     cursor: pointer;
 }
+.address>div:nth-child(1){
+    width: 10px;
+    height: 10px;
+    background-color: darkolivegreen;
+    border-radius: 50%;
+    margin: auto 0;
+}
 .address{
     line-height: 30px;
     padding: 0 5px;
+    display: grid;
+    grid-template-columns: 10px auto;
+    grid-gap: 5px;
 }
 .show{
     display: block;

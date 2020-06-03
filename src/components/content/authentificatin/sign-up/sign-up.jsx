@@ -7,7 +7,7 @@ import renderField from "../helpers/field-with-validators";
 import loader from "../../../../images/loader.svg";
 import {useDispatch} from "react-redux";
 import {signupThunkCreator} from "../../../../store/thunks/auth-thunks";
-
+import cn from 'classnames';
 const SignUp = (props)=>{
     const dispatch = useDispatch();
     return(
@@ -35,7 +35,7 @@ const SignUp = (props)=>{
                     <Field name="confirmPassword" component={renderField} type="password"
                            placeholder={'Повторите пароль...'} validate={[required, min6max20]}/>
                 </div>
-                <button type="submit" className={formStyles.button}>
+                <button type="submit" className={cn(formStyles.button, styles.button)}>
                     {props.submitting &&<div className={formStyles.loader}><img src={loader} alt={loader}/></div>}
                     <span>Зарегистрироваться</span>
                 </button>

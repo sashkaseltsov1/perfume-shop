@@ -1,11 +1,30 @@
-.main{
-    width: 100%;
+
+.profile{
+    margin-left: 0;
+    width: calc(100% - 2px);
     border: 1px solid #d4d4d4;
-    margin: 20px 0;
+    margin-bottom: 20px;
     padding: 0;
 }
 .legend{
     padding: 0 1em;
     margin-left: 20px;
 
+}
+.button:hover{
+    background-color: #e12020;
+    cursor: pointer;
+}
+.button{
+    text-align: center;
+    line-height: 40px;
+    outline: 0;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: auto;
+    width: 100px;
+    border-radius: 2px;
+    border: 0;
+    background-color: #c12020;
+    color: white;
 }

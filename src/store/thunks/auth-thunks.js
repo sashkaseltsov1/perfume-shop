@@ -17,6 +17,13 @@ export const signinThunkCreator = (values)=>{
             }).catch((err)=>{throw new SubmissionError({_error:err.response.data.message})});
     }
 };
+export const signoutThunkCreator = ()=>{
+    return (dispatch) =>{
+        localStorage.removeItem('token');
+        localStorage.removeItem('refreshToken');
+        dispatch(signoutActionCreator());
+    }
+};
 export const signupThunkCreator = (values)=>{
     return () =>{
         if(values.password!==values.confirmPassword) {

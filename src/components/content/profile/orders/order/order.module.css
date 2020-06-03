@@ -19,13 +19,25 @@
     color: #9a9a9a;
     text-decoration: none;
 }
-.title, .prm{
+.order>span:nth-child(even),
+.order>span:nth-child(odd){
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.title{
+.order>span:nth-child(odd){
     color: cornflowerblue;
 }
+.id{
+    color: rebeccapurple;
+}
+.date{
+    color: olivedrab;
+}
+.prise{
+    font-size: large;
+    font-weight: 600;
+}
+
 
 
 

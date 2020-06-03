@@ -4,17 +4,6 @@ const instance = axios.create({
 });
 
 const filtersApi= {
-    getFilters: () =>{
-       /* try {
-            await authApi.auth();
-        }catch (e) {
-            return new Promise(()=>{
-                throw Error(e);
-            });
-        }*/
-        /*return instance.get(null,{withCredentials:true, headers:{
-            'Authorization': localStorage.token}
-        })},*/
-        return instance.get()},
+    getFilters: () =>instance.get(),
 };
 export default filtersApi;

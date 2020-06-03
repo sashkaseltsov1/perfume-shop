@@ -5,6 +5,6 @@ const instance = axios.create({
 });
 
 export default {
-    getProducts: (params) =>instance.get(params),
+    getProducts: params =>instance.get(params),
 
 }

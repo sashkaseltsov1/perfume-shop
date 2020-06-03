@@ -1,0 +1,40 @@
+
+.error{
+    color: #c12020;
+    margin: 20px auto;
+    font-size: small;
+    text-align: center;
+}
+
+.order{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, auto);
+    margin: 0 20px 20px 20px;
+}
+.order>div{
+    line-height: 30px;
+}
+.date{
+    color: olivedrab;
+}
+.prise{
+    font-size: large;
+    font-weight: 600;
+}
+.order>div:nth-child(odd){
+    color: cornflowerblue;
+}
+
+.fieldset{
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    margin: 20px 0;
+    padding: 0;
+}
+.legend{
+    padding: 0 1em;
+    margin-left: 20px;
+    font-size: small;
+    color: #9a9a9a;
+}
