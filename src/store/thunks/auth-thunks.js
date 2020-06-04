@@ -2,13 +2,8 @@ import authApi, {saveTokens} from "../../api/auth-api";
 import jwtDecode from "jwt-decode";
 import {signinActionCreator, signoutActionCreator} from "../actions/auth-actions";
 import {SubmissionError} from "redux-form";
-import {setInitialProductsActionCreator} from "../actions/product-actions";
 
-export const setInitialProductsThunkCreator = ()=>{
-    return (dispatch) =>{
-        dispatch(setInitialProductsActionCreator());
-    }
-};
+
 export const signinThunkCreator = (values)=>{
     return (dispatch) =>{
         return authApi.signin(values).then((response)=>{

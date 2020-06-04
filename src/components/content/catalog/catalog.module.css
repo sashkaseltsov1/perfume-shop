@@ -22,23 +22,7 @@
     grid-column-start: 2;
     grid-column-end: 5;
 }
-/*.filters{
-    grid-row-start: 1;
-    grid-row-end: 3;
 
-}
-.product-header{
-
-    background-color: #595959;
-    grid-column-start: 2;
-    grid-column-end: 5;
-}
-.products{
-
-    background-color: cornflowerblue;
-    grid-column-start: 2;
-    grid-column-end: 5;
-}*/
 @media screen and (max-width:750px) {
     .filters{
         width: calc(100% - 2px);

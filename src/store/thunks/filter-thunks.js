@@ -1,13 +1,13 @@
-
 import instance from "../../api/filters-api";
 import { createBrowserHistory } from "history";
 import {
     getFiltersActionCreator,
-    resetFiltersActionCreator, setActiveFiltersActionCreator, setOptionActionCreator,
+    resetFiltersActionCreator, setActiveFiltersActionCreator, setInitialActionCreator, setOptionActionCreator,
     setRangeOptionActionCreator,
     setSortFilterActionCreator
 } from "../actions/filter-actions";
-import {getProductsThunkCreator} from "./product-thunks";
+import {getProductsThunkCreator} from "./catalog-thunks";
+
 
 export const setRangeOptionThunkCreator = (values) =>{
     return (dispatch)=>{
@@ -20,7 +20,11 @@ export const setSortFilterThunkCreator = (value) =>{
         dispatch(filterThunkCreator());
     }
 };
-
+export const setInitialThunkCreator = ()=>{
+    return (dispatch)=>{
+        dispatch(setInitialActionCreator());
+    }
+};
 export const resetFiltersThunkCreator = () =>{
     return (dispatch)=>{
         dispatch(resetFiltersActionCreator());

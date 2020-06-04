@@ -4,7 +4,7 @@ export const SET_RANGE = 'filters/SET_SLIDER_RANGE';
 export const RESET_FILTERS = 'filters/RESET_FILTERS';
 export const SET_ACTIVE_FILTERS='filters/SET_ACTIVE_FILTERS';
 export const SET_SORT='filters/SET_SORT';
-
+export const SET_INITIAL='filters/SET_INITIAL';
 
 const initialState = {
     isInitial:true,
@@ -21,6 +21,8 @@ const initialState = {
 
 const FilterReducer = (state=initialState, action)=>{
     switch (action.type) {
+        case SET_INITIAL:
+            return {...initialState};
         case SET_SORT:
             return {...state, sortFilter: action.value};
         case SET_ACTIVE_FILTERS:

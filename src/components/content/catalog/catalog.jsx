@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import styles from './catalog.module.css'
 import ProductHeader from "./product-header/product-header";
-import FiltersContainer from "./filters/filtersContainer";
+import FiltersContainer from "./filters/filters-container";
 import ActiveFilters from "./active-filters/active-filters";
 import PagesContainer from "./pages/pages-container";
-import ProductsContainer from "./products/productsContainer";
+import ProductsContainer from "./products/products-container";
 
 
 

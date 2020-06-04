@@ -13,4 +13,4 @@ const OrderContainer = (props)=>{
     return <Order {...props}/>
 };
 
-export default connect((state)=>state.orderPage, {getOrderThunkCreator, setInitialThunkCreator})(OrderContainer);
+export default connect(state=>state.orderPage, {getOrderThunkCreator, setInitialThunkCreator})(OrderContainer);

@@ -1,0 +1,104 @@
+.product{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    margin-top: 20px;
+    grid-gap: 20px;
+}
+
+.legend{
+    padding: 0 1em;
+    text-align: center;
+    font-size: small;
+    color: #9a9a9a;
+}
+
+.leftArea>div:nth-child(2){
+    max-width: 360px;
+    margin: 0 auto;
+}
+.leftArea{
+}
+
+.rightArea{
+    border: 1px solid #d4d4d4;
+    margin: 0;
+    left: 0;
+}
+.params{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(10, auto);
+    height: calc(100% - 5px);
+
+}
+.name{
+    font-size: large;
+    font-weight: 600;
+}
+.params>div{
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: clip;
+}
+.perfumeType{
+    font-size: small;
+    color: #9a9a9a;
+}
+.id{
+    font-size: small;
+    color: rebeccapurple;
+}
+.star{
+    width: 15px;
+    height: 15px;
+}
+.button{
+    background-color: cornflowerblue;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    border: 0;
+    color: white;
+    left: 0;
+    margin-top: 10px;
+    grid-row-start: 10;
+    grid-row-end: 10;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.button:hover{
+    cursor: pointer;
+}
+
+.bottomArea{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.additions{
+    width: 96%;
+    height: 32px;
+    margin-bottom: 5px;
+}
+.additions>img{
+    width: 32px;
+    height: 32px;
+    margin-right: 2%;
+    user-select: none;
+}
+@media screen and (max-width:750px) {
+    .product{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+    }
+    .bottomArea{
+        grid-row-start: 3;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+
+}

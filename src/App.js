@@ -6,6 +6,7 @@ import Footer from "./components/footer/footer";
 import AdaptiveNavbar from "./components/navbar/adaptive-navbar";
 import {useDispatch} from "react-redux";
 import {authenticate} from "./store/thunks/auth-thunks";
+import ScrollToTop from "./components/content/helpers/scroll-to-top";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,8 @@ const App = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     return (
-        <BrowserRouter>
+        <BrowserRouter >
+            <ScrollToTop/>
             <div>
                 <Header />
                 <AdaptiveNavbar />

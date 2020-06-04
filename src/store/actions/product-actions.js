@@ -1,24 +1,26 @@
-import {GET_PRODUCTS, SET_ERROR, SET_INITIAL_PRODUCTS, SET_LOADER} from "../reducers/product-reducer";
+import {ADD_COMMENT, SET_ERROR, SET_INITIAL, SET_PRODUCT} from "../reducers/product-reducer";
 
-export const getProductsActionCreator = (data)=>{
+
+export const setProductActionCreator = (product)=>{
     return {
-        type:GET_PRODUCTS,
-        data:data
+        type:SET_PRODUCT,
+        product:product
     }
 };
-export const setLoaderActionCreator = (state)=>{
+export const setInitialActionCreator = ()=>{
     return {
-        type:SET_LOADER,
-        state:state
+        type:SET_INITIAL,
     }
 };
-export const setErrorActionCreator = ()=>{
+export const addCommentActionCreator = (comment)=>{
     return {
-        type:SET_ERROR
+        type:ADD_COMMENT,
+        comment:comment
     }
 };
-export const setInitialProductsActionCreator = ()=>{
+export const setErrorActionCreator = (error)=>{
     return {
-        type:SET_INITIAL_PRODUCTS
+        type:SET_ERROR,
+        error:error
     }
 };

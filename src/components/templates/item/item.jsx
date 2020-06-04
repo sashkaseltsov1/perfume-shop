@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./item.module.css";
 import newItem from "../../../images/offer-items/new.svg";
 import discount from "../../../images/offer-items/discount.svg";
+import {NavLink} from "react-router-dom";
 
 
 const Item = (props)=>{
@@ -11,11 +12,13 @@ const Item = (props)=>{
                 {props.item.isNovelty && <img src={newItem} alt={newItem}/>}
                 {props.item.isDiscount && <img src={discount} alt={discount}/>}
             </div>
-            <div className={styles.itemImg}>
-                <img src={props.item.image} alt={props.item.img}/>
+            <div className={styles.itemImg} >
+                <NavLink to={'/shop/catalog/'+props.item._id}>
+                    <img src={props.item.image} alt={props.item.img}/>
+                </NavLink>
             </div>
             <div className={styles.itemTitle}>
-                <span>{props.item.name}</span>
+                <NavLink to={'/shop/catalog/'+props.item._id}>{props.item.name}</NavLink>
             </div>
             <div className={styles.itemDescription}>
                 {props.item.perfumeType.type}

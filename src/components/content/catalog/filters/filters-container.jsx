@@ -2,14 +2,11 @@ import {useMediaQuery} from "react-responsive";
 import React, {useEffect, useRef} from "react";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {connect} from "react-redux";
-import {
-
-} from "../../../../store/actions/filter-actions";
 import Filters from "./filters";
 import {
     filterThunkCreator,
     getFiltersThunkCreator,
-    resetFiltersThunkCreator
+    resetFiltersThunkCreator, setInitialThunkCreator
 } from "../../../../store/thunks/filter-thunks";
 
 const FiltersContainer = (props)=>{
@@ -27,6 +24,7 @@ const FiltersContainer = (props)=>{
     useEffect(() => {
         props.getFiltersThunkCreator();
         return props.history.listen((location) => {
+            props.setInitialThunkCreator();
             location.pathname==='/shop/catalog' && props.getFiltersThunkCreator();
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,4 +39,7 @@ const FiltersContainer = (props)=>{
     />)
 };
 
-export default connect(null,{getFiltersThunkCreator, filterThunkCreator, resetFiltersThunkCreator}) (FiltersContainer);
+export default connect(null,{getFiltersThunkCreator,
+    filterThunkCreator,
+    resetFiltersThunkCreator,
+    setInitialThunkCreator}) (FiltersContainer);

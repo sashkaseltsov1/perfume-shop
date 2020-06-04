@@ -1,7 +1,7 @@
 import {
     GET_FILTERS,
     RESET_FILTERS,
-    SET_ACTIVE_FILTERS,
+    SET_ACTIVE_FILTERS, SET_INITIAL,
     SET_OPTION,
     SET_RANGE,
     SET_SORT
@@ -9,6 +9,11 @@ import {
 
 
 
+export const setInitialActionCreator = ()=>{
+    return {
+        type:SET_INITIAL,
+    }
+};
 export const setOptionActionCreator = (category, optionId, state)=>{
     return {
         type:SET_OPTION,

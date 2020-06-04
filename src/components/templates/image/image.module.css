@@ -8,12 +8,10 @@
     max-width: 100%;
     height: auto;
 }
-.image:hover{
-    cursor: pointer;
-}
+
 .image{
     width: 100%;
-    margin: 4% auto;
+    margin: 0 auto;
     position: relative;
     height: 0;
     padding-top: calc(430 / 360 * 100%);

@@ -1,4 +1,4 @@
-import ProductReducer from "./reducers/product-reducer";
+import CatalogReducer from "./reducers/catalog-reducer";
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk";
 import FilterReducer from "./reducers/filter-reducer";
@@ -7,10 +7,11 @@ import { reducer as formReducer } from 'redux-form'
 import AuthReducer from "./reducers/auth-reducer";
 import UserReducer from "./reducers/user-reducer";
 import OrderReducer from "./reducers/order-reducer";
-
+import ProductReducer from "./reducers/product-reducer";
 
 const reducers = {
-    products: ProductReducer,
+    products: CatalogReducer,
+    product:ProductReducer,
     filters:FilterReducer,
     mainPage:MainPageReducer,
     auth:AuthReducer,

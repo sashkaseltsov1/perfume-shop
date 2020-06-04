@@ -4,7 +4,6 @@ import formStyles from '../form-styles.module.css'
 import {Field, reduxForm} from "redux-form";
 import renderField from "../helpers/field-with-validators";
 import {email, min6max20, required} from "../helpers/validators";
-import loader from '../../../../images/loader.svg'
 import {useDispatch} from "react-redux";
 import {signinThunkCreator} from "../../../../store/thunks/auth-thunks";
 import cn from 'classnames';
@@ -25,7 +24,6 @@ const SignIn = (props)=>{
                            placeholder={'Введите пароль...'} validate={[required, min6max20]}/>
                 </div>
                 <button type="submit" className={cn(formStyles.button, styles.button)} >
-                    {props.submitting &&<div className={formStyles.loader}><img src={loader} alt={loader}/></div>}
                     <span>Войти</span>
                 </button>
                 {props.error && <div className={formStyles.error}><span >{props.error}</span></div>}

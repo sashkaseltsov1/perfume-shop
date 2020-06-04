@@ -12,7 +12,7 @@ const Order = ({error, order})=>{
         {state:'Закрыт', date:'2020-05-30T17:05:17.538Z'},
     ];*/
     return (
-        <div>
+        <div className={styles.orderPage}>
             {error && <div className={styles.error}>{error}</div>}
             <fieldset className={styles.fieldset}>
                 <legend className={styles.legend}>Заказ № {order?._id}</legend>

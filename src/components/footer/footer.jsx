@@ -5,7 +5,7 @@ import cn from 'classnames'
 import {NavLink} from "react-router-dom";
 
 const links=[
-            {path:'./sss',title:'Самовывоз'},
+            {path:'/shop/',title:'Самовывоз'},
             {path:'./sss',title:'Оплата'},
             {path:'./sss',title:'Доставка'},
             {path:'./sss',title:'Регистрация'},

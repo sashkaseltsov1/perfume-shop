@@ -1,0 +1,34 @@
+.comments{
+
+}
+.noComments{
+    text-align: center;
+}
+.comment{
+    border: 1px solid #d4d4d4;
+    margin-bottom: 20px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+.description{
+    display: grid;
+    grid-template-columns: auto 100px;
+}
+.username{
+    color: cornflowerblue;
+    font-size: large;
+}
+.date{
+    font-size: small;
+    color: #9a9a9a;
+}
+.stars{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+.stars>img{
+    margin: auto 0;
+    width: 15px;
+    height: 15px;
+}

@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import Products from "./products";
-import {getProductsThunkCreator} from "../../../../store/thunks/product-thunks";
-import {setInitialProductsThunkCreator} from "../../../../store/thunks/auth-thunks";
+import {getProductsThunkCreator, setInitialProductsThunkCreator} from "../../../../store/thunks/catalog-thunks";
+
 
 const ProductsContainer = (props)=>{
     useEffect(()=>{

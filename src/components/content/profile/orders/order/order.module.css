@@ -6,6 +6,7 @@
     grid-template-columns: 110px auto;
     grid-gap: 10px;
     margin-bottom: 20px;
+    background-color: ghostwhite;
 }
 .button{
     grid-row-start: 6;

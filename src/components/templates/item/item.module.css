@@ -14,15 +14,14 @@
 .itemImg{
     width: 50%;
     margin: 4% auto;
-
     position: relative;
     height: 0;
     padding-top: calc(430 / 360 * 50%);
 }
 .itemImg:hover{
-    cursor: pointer;
+
 }
-.itemImg>img{
+.itemImg>a>img{
     width: 100%;
     object-fit: cover;
     user-select: none;
@@ -41,8 +40,11 @@
     text-align: center;
     font-weight: 600;
 }
-.itemTitle:hover{
-    cursor: pointer;
+.itemTitle>a{
+    text-decoration: none;
+    color: #161515;
+}
+.itemTitle>a:hover{
     color: cornflowerblue;
 }
 .itemDescription{

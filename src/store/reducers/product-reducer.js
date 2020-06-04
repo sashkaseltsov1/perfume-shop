@@ -1,48 +1,28 @@
-import initialImage from '../../images/loading-image.jpg'
-
-export const GET_PRODUCTS = 'products/GET_PRODUCTS';
-export const SET_LOADER = 'products/SET_LOADER';
-export const SET_ERROR = 'products/SET_ERROR';
-export const SET_INITIAL_PRODUCTS = 'products/SET_INITIAL';
-const getInitialItems = ()=>{
-    let items=[];
-    for (let i=0;i<12;i++){
-        items.push({
-            isInitial:true,
-            fullPrise:'',
-            image:initialImage,
-            isDiscount:false,
-            isNovelty:false,
-            name:'',
-            perfumeType:{type:''},
-            _id:i })}
-    return items;
-};
+export const SET_PRODUCT = 'product/SET_PRODUCT';
+export const SET_ERROR = 'product/SET_ERROR';
+export const SET_INITIAL = 'product/SET_INITIAL';
+export const ADD_COMMENT = 'product/ADD_COMMENT';
 const initialState = {
-    isLoading:true,
-    count:'',
-    error:null,
-    page:1,
-    pageCount:1,
-    products:getInitialItems(),
-
+    product:undefined,
+    error:undefined
 };
 
 const ProductReducer = (state=initialState, action)=>{
     switch (action.type) {
-        case SET_INITIAL_PRODUCTS:
-            return initialState;
+        case ADD_COMMENT:
+            let comments = [...state.product.comments];
+            comments.shift();
+            comments.push(action.comment);
+            return {...state, product: {...state.product, comments}};
+        case SET_INITIAL:
+            return {};
         case SET_ERROR:
-            return {...initialState,products:[], error:'some error', isLoading: false};
-        case SET_LOADER:
-            return {...state, isLoading: action.state};
-        case GET_PRODUCTS:
-            return {...action.data, isLoading:false};
+            return {...state, error:action.error};
+        case SET_PRODUCT:
+            return {...state, product:action.product};
         default:
             return state;
     }
 };
-
-
 
 export default ProductReducer;
