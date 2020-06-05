@@ -1,0 +1,57 @@
+
+.button:hover{
+    cursor: pointer;
+}
+.button{
+    background-color: cornflowerblue;
+    outline: 0;
+    height: 40px;
+    width: 200px;
+    border: 0;
+    color: white;
+    margin-left: auto;
+    display: block;
+
+
+}
+.body{
+    width: 100%;
+    margin: 20px 0;
+
+}
+.error{
+    color: #c12020;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: small;
+    text-align: center;
+}
+.star{
+    width: 15px;
+    height: 15px;
+}
+.stars>span{
+    color: orangered;
+}
+.stars{
+    text-align: right;
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+.stars select{
+    color: orangered;
+    border: 1px solid #d4d4d4;
+    outline:none;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+}
+
+
+
+@media screen and (max-width:550px) {
+    .button{
+        width: 100%;
+    }
+
+}

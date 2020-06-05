@@ -6,7 +6,6 @@ const Comments = ({comments})=>{
 
     return(
         <div className={styles.comments}>
-            {comments?.length<1 && <div className={styles.noComments}>Будьте первым кто оставит отзыв об этом товаре!</div>}
             {comments?.length>0 && comments.map(comment=>{
                 let stars=[];
                 if(comment){

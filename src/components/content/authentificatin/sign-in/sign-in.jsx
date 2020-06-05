@@ -23,7 +23,7 @@ const SignIn = (props)=>{
                     <Field name="password" component={renderField} type="password"
                            placeholder={'Введите пароль...'} validate={[required, min6max20]}/>
                 </div>
-                <button type="submit" className={cn(formStyles.button, styles.button)} >
+                <button type="submit" disabled={props.submitting} className={cn(formStyles.button, styles.button)} >
                     <span>Войти</span>
                 </button>
                 {props.error && <div className={formStyles.error}><span >{props.error}</span></div>}

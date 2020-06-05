@@ -89,6 +89,18 @@
     margin-right: 2%;
     user-select: none;
 }
+.next{
+    margin: 0 auto;
+    width: 50%;
+    height: 40px;
+    background-color: cornflowerblue;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+}
+.next:hover{
+    cursor: pointer;
+}
 @media screen and (max-width:750px) {
     .product{
         grid-template-columns: 1fr;
@@ -100,5 +112,7 @@
         grid-column-start: 1;
         grid-column-end: 1;
     }
-
+    .next{
+        width: 100%;
+    }
 }

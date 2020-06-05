@@ -7,7 +7,7 @@ const OrderContainer = (props)=>{
     useEffect(()=>{
         let id = props.match.params.id;
         props.getOrderThunkCreator(id);
-        return props.setInitialThunkCreator();
+        return ()=>props.setInitialThunkCreator();
         // eslint-disable-next-line
     },[]);
     return <Order {...props}/>

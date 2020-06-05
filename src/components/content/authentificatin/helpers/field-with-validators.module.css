@@ -9,6 +9,23 @@
     display: grid;
 
 }
+.textarea{
+    outline: 0;
+    border: 1px solid #d4d4d4;
+    border-radius: 0;
+    line-height: 30px;
+    padding: 0 10px;
+    min-width: 0;
+    height: 60px;
+    resize: none;
+}
+textarea{
+    font-size: inherit;
+    font-family: inherit;
+}
+.textarea:focus{
+    border: 1px solid cornflowerblue;
+}
 .field{
     outline: 0;
     border: 1px solid #d4d4d4;

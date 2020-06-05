@@ -1,4 +1,4 @@
-import {ADD_COMMENT, SET_ERROR, SET_INITIAL, SET_PRODUCT} from "../reducers/product-reducer";
+import {ADD_COMMENT, APPEND_COMMENTS, SET_ERROR, SET_INITIAL, SET_PRODUCT} from "../reducers/product-reducer";
 
 
 export const setProductActionCreator = (product)=>{
@@ -7,9 +7,17 @@ export const setProductActionCreator = (product)=>{
         product:product
     }
 };
+
 export const setInitialActionCreator = ()=>{
+
     return {
         type:SET_INITIAL,
+    }
+};
+export const appendCommentsActionCreator = (comments)=>{
+    return {
+        type:APPEND_COMMENTS,
+        comments:comments
     }
 };
 export const addCommentActionCreator = (comment)=>{

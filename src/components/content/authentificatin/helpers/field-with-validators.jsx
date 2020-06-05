@@ -18,5 +18,22 @@ const renderField = ({
         ((error && <span className={styles.errorSpan}>{error}</span>))}
     </div>
 );
+export const renderTextarea = ({
+                         input,
+                         placeholder,
+                         type,
+                         autoComplete,
+                         meta: { touched, error }
+                     }) => (
+    <div className={styles.sector}>
+        <textarea {...input}
+               placeholder={placeholder}
+               autoComplete={autoComplete? autoComplete:'on'}
+               type={type}
+               className={cn(styles.textarea, touched&&error&& styles.errorField)}/>
+        {touched &&
+        ((error && <span className={styles.errorSpan}>{error}</span>))}
+    </div>
+);
 
 export default renderField;

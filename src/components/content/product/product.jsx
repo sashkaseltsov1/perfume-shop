@@ -6,6 +6,7 @@ import discount from "../../../images/offer-items/discount.svg";
 import star from '../../../images/star.svg';
 import TextWithLine from "../../templates/text-width-line/text-with-line";
 import Comments from "./comments/comments";
+import AddComment from "./add-comment/add-comment";
 
 const comments = [
     {
@@ -37,8 +38,7 @@ const comments = [
         createdAt:'2020-05-30T17:05:17.538Z'
     },
 ];
-const Product = ({product})=>{
-    console.log(product)
+const Product = ({product, addCommentThunkCreator, match, appendCommentsThunkCreator})=>{
     return(
         <div className={styles.product}>
             <div className={styles.leftArea}>
@@ -74,18 +74,25 @@ const Product = ({product})=>{
                     <div>Объем:</div>
                     <div >{product?.amount} мл.</div>
                     <div>Рейтинг:</div>
-                    <div className={styles.name}>{product?.star|| 0} <img src={star} alt={star} className={styles.star}/></div>
+                    <div className={styles.name}>{product?.stars|| 0} <img src={star} alt={star} className={styles.star}/></div>
                     <div>Описание:</div>
                     <div >{product?.description}</div>
                     <button className={styles.button} >
                         <span>Добавить в корзину</span>
                     </button>
                 </div>
-
             </fieldset>
             <div className={styles.bottomArea}>
+                <AddComment match={match} addCommentThunkCreator={addCommentThunkCreator}/>
                 <TextWithLine name={'Отзывы'}/>
-                <Comments comments={comments}/>
+                <div style={{'margin-bottom':'20px'}}>Всего отзывов: {product?.commentsCount}</div>
+                <Comments comments={product?.comments}/>
+                {product?.comments.length<product?.commentsCount && <div className={styles.next}
+                onClick={()=>{
+                    appendCommentsThunkCreator(match.params.id);
+                }}>
+                    Показать ещё
+                </div>}
             </div>
         </div>
     )
