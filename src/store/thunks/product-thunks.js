@@ -2,7 +2,7 @@ import productsApi from '../../api/products-api';
 import {
     addCommentActionCreator, appendCommentsActionCreator,
     setErrorActionCreator,
-    setInitialActionCreator,
+    setInitialActionCreator, setIsFetchingActionCreator,
     setProductActionCreator
 } from "../actions/product-actions";
 import {SubmissionError} from "redux-form";
@@ -21,12 +21,13 @@ export const getProductThunkCreator = (id)=>{
 
 export const appendCommentsThunkCreator = (id)=>{
     return (dispatch, getState) =>{
+        dispatch(setIsFetchingActionCreator(true));
         let count = getState().product.product?.comments.length||0;
         productsApi.getProduct(id, count).then((res)=>{
             dispatch(appendCommentsActionCreator(res.data.product.comments))
         }).catch((err)=>{
             dispatch(setErrorActionCreator(err.message));
-        })
+        }).then(()=>dispatch(setIsFetchingActionCreator(false)))
     }
 };
 

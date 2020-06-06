@@ -9,6 +9,7 @@ import ProfileContainer from "./profile/profile-container";
 import RouteWithAccessError from "../templates/private-routes/route-with-access-error";
 import OrderContainer from "./order/order-container";
 import ProductContainer from "./product/product-container";
+import CartContainer from "./cart/cart-container";
 
 
 const Content = ()=>{
@@ -20,9 +21,9 @@ const Content = ()=>{
             <Route path='/shop' component={Main} exact />
             <Route path={'/shop/catalog/'} component={Catalog} exact/>
             <Route path={'/shop/catalog/:id'} component={ProductContainer} exact/>
+            <Route path={'/shop/cart'} component={CartContainer} exact/>
             <PrivateRouteWithRedirect path='/auth' component={Authentication} isInvert={true} exact/>
             <PrivateRouteWithRedirect path='/profile' component={ProfileContainer} isInvert={false} exact/>
-
             <RouteWithAccessError path='/orders/:id' component={OrderContainer} isInvert={false} exact/>
         </Switch>
     </div>

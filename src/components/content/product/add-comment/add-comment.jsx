@@ -2,6 +2,8 @@ import React from "react";
 import styles from './add-comment.module.css';
 import {Field, reduxForm} from "redux-form";
 import {renderTextarea} from "../../authentificatin/helpers/field-with-validators";
+import formStyles from "../../authentificatin/form-styles.module.css";
+import loader from "../../../../images/white-loader.svg";
 
 
 
@@ -29,6 +31,7 @@ const AddComment = (props)=>{
                            placeholder={'Введите комментарий...'} />
                 </div>
                 <button type="submit" disabled={props.submitting} className={styles.button} >
+                    {props.submitting &&<div className={formStyles.loader}><img src={loader} alt={loader}/></div>}
                     <span>Добавить комментарий</span>
                 </button>
                 {props.error && <div className={styles.error}><span >{props.error}</span></div>}

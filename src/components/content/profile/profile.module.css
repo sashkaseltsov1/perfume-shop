@@ -27,4 +27,5 @@
     border: 0;
     background-color: #c12020;
     color: white;
+    user-select: none;
 }

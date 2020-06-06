@@ -3,13 +3,18 @@ export const SET_ERROR = 'product/SET_ERROR';
 export const SET_INITIAL = 'product/SET_INITIAL';
 export const ADD_COMMENT = 'product/ADD_COMMENT';
 export const APPEND_COMMENTS = 'product/APPEND_COMMENTS';
+export const SET_IS_FETCHING = 'product/SET_IS_FETCHING';
+
 const initialState = {
     product:undefined,
-    error:undefined
+    error:undefined,
+    isFetching:false
 };
 
 const ProductReducer = (state=initialState, action)=>{
     switch (action.type) {
+        case SET_IS_FETCHING:
+            return {...state, isFetching:action.state};
         case APPEND_COMMENTS:
             let nextComments = [...state.product.comments, ...action.comments];
             return {...state, product: {...state.product,

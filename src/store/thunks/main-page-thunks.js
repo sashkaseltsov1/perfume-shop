@@ -1,8 +1,9 @@
 import instance from "../../api/products-api";
 import {
-    setDiscountProductsActionCreator,
+    setDiscountProductsActionCreator, setInitialActionCreator,
     setNoveltyProductsActionCreator
 } from "../actions/main-page-actions";
+
 
 
 export const getNoveltyProductsThunkCreator = ()=>{
@@ -26,5 +27,10 @@ export const getDiscountProductsThunkCreator = ()=>{
             .catch( (error) =>{
                 console.log(error);
             })
+    }
+};
+export const setInitialThunkCreator = ()=>{
+    return (dispatch)=>{
+        dispatch(setInitialActionCreator());
     }
 };

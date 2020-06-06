@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './product.module.css';
 import Image from "../../templates/image/image";
 import newItem from "../../../images/offer-items/new.svg";
@@ -7,38 +7,13 @@ import star from '../../../images/star.svg';
 import TextWithLine from "../../templates/text-width-line/text-with-line";
 import Comments from "./comments/comments";
 import AddComment from "./add-comment/add-comment";
+import formStyles from "../authentificatin/form-styles.module.css";
+import loader from "../../../images/white-loader.svg";
+import {CSSTransition} from "react-transition-group";
+import './product.css';
 
-const comments = [
-    {
-        _id:1,
-        username:'sasa',
-        message:'privet poka kyky kekeke!!!',
-        stars:5,
-        createdAt:'2020-05-30T17:05:17.538Z'
-    },
-    {
-        _id:2,
-        username:'sasa',
-        message:'privet poka kyky kekeke!!!',
-        stars:3.2,
-        createdAt:'2020-05-30T17:05:17.538Z'
-    },
-    {
-        _id:3,
-        username:'sasa',
-        message:'privet poka kyky kekeke!!!',
-        stars:4.5,
-        createdAt:'2020-05-30T17:05:17.538Z'
-    },
-    {
-        _id:4,
-        username:'sasa',
-        message:'privet poka kyky kekeke!!!',
-        stars:2.3,
-        createdAt:'2020-05-30T17:05:17.538Z'
-    },
-];
-const Product = ({product, addCommentThunkCreator, match, appendCommentsThunkCreator})=>{
+const Product = ({product, addCommentThunkCreator, match, appendCommentsThunkCreator, isFetching, appendProductThunkCreator})=>{
+    const [inProp, setInProp] = useState(true);
     return(
         <div className={styles.product}>
             <div className={styles.leftArea}>
@@ -77,20 +52,28 @@ const Product = ({product, addCommentThunkCreator, match, appendCommentsThunkCre
                     <div className={styles.name}>{product?.stars|| 0} <img src={star} alt={star} className={styles.star}/></div>
                     <div>Описание:</div>
                     <div >{product?.description}</div>
-                    <button className={styles.button} >
+                    <button className={styles.button} onClick={()=>{
+                        setInProp(!inProp);
+                        appendProductThunkCreator(product)
+                    }}>
                         <span>Добавить в корзину</span>
+                        <CSSTransition in={inProp} timeout={2000} classNames={'added'}>
+                            <div className={styles.append}>Продукт добавлен!</div>
+                        </CSSTransition>
+
                     </button>
                 </div>
             </fieldset>
             <div className={styles.bottomArea}>
                 <AddComment match={match} addCommentThunkCreator={addCommentThunkCreator}/>
                 <TextWithLine name={'Отзывы'}/>
-                <div style={{'margin-bottom':'20px'}}>Всего отзывов: {product?.commentsCount}</div>
+                <div style={{'marginBottom':'20px'}}>Всего отзывов: {product?.commentsCount}</div>
                 <Comments comments={product?.comments}/>
                 {product?.comments.length<product?.commentsCount && <div className={styles.next}
                 onClick={()=>{
-                    appendCommentsThunkCreator(match.params.id);
+                    !isFetching && appendCommentsThunkCreator(match.params.id);
                 }}>
+                    {isFetching && <div className={formStyles.loader}><img src={loader} alt={loader}/></div>}
                     Показать ещё
                 </div>}
             </div>

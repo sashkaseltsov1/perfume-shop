@@ -7,11 +7,14 @@ import AdaptiveNavbar from "./components/navbar/adaptive-navbar";
 import {useDispatch} from "react-redux";
 import {authenticate} from "./store/thunks/auth-thunks";
 import ScrollToTop from "./components/content/helpers/scroll-to-top";
+import Bar from "./components/bar/bar";
+import {setCartThunkCreator} from "./store/thunks/cart-thunks";
 
 const App = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(authenticate());
+        dispatch(setCartThunkCreator());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     return (
@@ -20,6 +23,7 @@ const App = () => {
             <div>
                 <Header />
                 <AdaptiveNavbar />
+                <Bar/>
                 <Content/>
                 <Footer/>
             </div>

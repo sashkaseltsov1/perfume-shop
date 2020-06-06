@@ -1,0 +1,71 @@
+.cart a{
+    color: #161515;
+    text-decoration: none;
+}
+.cart a:hover{
+    color: cornflowerblue;
+
+}
+.cart{
+    min-height: 600px;
+}
+.total{
+    line-height: 30px;
+}
+.total>span{
+    font-size: large;
+    font-weight: 600;
+}
+.clearButton{
+    border-radius: 3px;
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: #c12020;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+.clearButton:hover{
+    cursor: pointer;
+    background-color: #e12020;
+}
+.number{
+
+}
+.item{
+    display: grid;
+    grid-template-columns: 1fr 4fr 50px 25px;
+    border: 1px solid #c7c7c7;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.remove{
+    align-self: flex-start;
+}
+.name{
+    font-size: large;
+    font-weight: 600;
+    color: #161515;
+}
+.perfumeType{
+    color: #9a9a9a;
+}
+.fullPrise{
+    color: darkslategrey;
+}
+.description{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+
+}
+
+.remove>img{
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+}
+.remove>img:hover{
+    cursor: pointer;
+}

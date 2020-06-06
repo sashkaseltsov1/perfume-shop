@@ -8,6 +8,7 @@ import AuthReducer from "./reducers/auth-reducer";
 import UserReducer from "./reducers/user-reducer";
 import OrderReducer from "./reducers/order-reducer";
 import ProductReducer from "./reducers/product-reducer";
+import CartReducer from "./reducers/cart-reducer";
 
 const reducers = {
     products: CatalogReducer,
@@ -17,6 +18,7 @@ const reducers = {
     auth:AuthReducer,
     profile:UserReducer,
     orderPage:OrderReducer,
+    cart:CartReducer,
     form:formReducer,
 };
 

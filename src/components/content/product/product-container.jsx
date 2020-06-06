@@ -6,6 +6,7 @@ import {
     getProductThunkCreator,
     setInitialThunkCreator
 } from "../../../store/thunks/product-thunks";
+import {appendProductThunkCreator} from "../../../store/thunks/cart-thunks";
 
 const ProductContainer = (props)=>{
     useEffect(()=>{
@@ -21,4 +22,5 @@ export default connect(state=>state.product, {
     getProductThunkCreator,
     setInitialThunkCreator,
     addCommentThunkCreator,
-    appendCommentsThunkCreator})(ProductContainer);
+    appendCommentsThunkCreator,
+    appendProductThunkCreator})(ProductContainer);
