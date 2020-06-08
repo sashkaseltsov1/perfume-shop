@@ -11,7 +11,7 @@
 .order{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(7, auto);
+    grid-template-rows: repeat(8, auto);
     margin: 0 20px 20px 20px;
 }
 .order>div{

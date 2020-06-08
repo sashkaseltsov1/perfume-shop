@@ -4,6 +4,7 @@ import TextWithLine from "../../templates/text-width-line/text-with-line";
 import Image from "../../templates/image/image";
 import close from "../../../images/close.svg";
 import {NavLink} from "react-router-dom";
+import AddOrder from "./add-order/add-order";
 
 const Cart = (props)=>{
     return(
@@ -44,6 +45,7 @@ const Cart = (props)=>{
                     <span >{' '+parseInt(props.totalPrise).toLocaleString('ru-RU')} руб.</span>
                 </div>
             </div>}
+            {props.products && props.products.length>0 &&<AddOrder/>}
         </div>
     )
 };

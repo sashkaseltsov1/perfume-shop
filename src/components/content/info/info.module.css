@@ -1,0 +1,20 @@
+.block{
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+.block>span{
+    font-weight: 600;
+    color: cornflowerblue;
+}
+.title{
+    font-weight: 600;
+    font-size: large;
+    line-height: 40px;
+}
+.block>div{
+    display: inline-block;
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: seagreen;
+}

@@ -1,0 +1,42 @@
+.contacts>a{
+    text-decoration: none;
+    color: #161515;
+}
+
+.contact:hover{
+    border: 1px solid cornflowerblue;
+}
+.contact{
+    border: 1px solid #c7c7c7;
+    display: grid;
+    grid-template-columns: 50px auto;
+    padding: 20px;
+    align-items: center;
+    grid-gap: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.img{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.name{
+    font-size: large;
+    font-weight: 600;
+}
+.title{
+    text-align: center;
+}
+@media screen and (max-width:381px) {
+    .name{
+        font-size: medium;
+        font-weight: 600;
+    }
+}
+@media screen and (max-width:341px) {
+    .name{
+        font-size: small;
+        font-weight: 600;
+    }
+}

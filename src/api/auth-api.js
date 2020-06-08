@@ -1,7 +1,8 @@
-import axios from 'axios'
-import jwtDecode from 'jwt-decode'
+import axios from 'axios';
+import jwtDecode from 'jwt-decode';
+import config from '../config/config';
 const instance = axios.create({
-    baseURL: 'http://176.197.36.4:8000/api/auth',
+    baseURL: `${config.apiUrl}api/auth`,
 });
 
 export const saveTokens = (tokens)=>{

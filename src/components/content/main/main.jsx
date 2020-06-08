@@ -7,7 +7,28 @@ import {
     getDiscountProductsThunkCreator,
     getNoveltyProductsThunkCreator, setInitialThunkCreator
 } from "../../../store/thunks/main-page-thunks";
-
+import config from "../../../config/config";
+import MainBanner from "../../templates/main-banner/main-banner";
+import SimpleSwiper from "../../templates/swiper/swiper";
+const slides = [
+    {
+        image:`${config.apiUrl}banners/banner6.jpg`,
+        path:'../shop/catalog'
+    },
+    {
+        image:`${config.apiUrl}banners/banner7.jpg`,
+        path:'../shop/catalog'
+    },
+    {
+        image:`${config.apiUrl}banners/banner5.jpg`,
+        path:'../shop/catalog'
+    },
+    {
+        image:`${config.apiUrl}banners/banner3.jpg`,
+        path:'../shop/catalog'
+    }
+];
+const items = slides.map(item=><div key={item.image}><MainBanner image={item.image} path={item.path}/></div>);
 const Main = ()=>{
     let dispatch = useDispatch();
     useEffect(()=>{
@@ -20,7 +41,9 @@ const Main = ()=>{
         {getItems:getDiscountProductsThunkCreator})(SwiperContainer);
     return(
         <div>
+
             <Categories />
+            <SimpleSwiper slides={items} portion={1} space={1}/>
             <br/>
             <TextWithLine name={'Новинки'} />
             <Novelty/>
@@ -28,6 +51,7 @@ const Main = ()=>{
             <TextWithLine name={'Скидки'} />
             <Discount />
             <br/>
+
         </div>
     )
 };

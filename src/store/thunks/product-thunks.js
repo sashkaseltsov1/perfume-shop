@@ -39,6 +39,7 @@ export const setInitialThunkCreator = ()=>{
 export const addCommentThunkCreator = (productId, message, stars)=>{
     return (dispatch, getState)=>{
         let username = getState().auth?.name;
+        console.log(username)
         return productsApi.addComment(productId, {
             message,
             stars,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Pages from "./pages";
 import {connect} from "react-redux";
 import {getProductsThunkCreator} from "../../../../store/thunks/catalog-thunks";
@@ -6,7 +6,6 @@ import {getProductsThunkCreator} from "../../../../store/thunks/catalog-thunks";
 
 
 const PagesContainer = (props)=>{
-
     return <Pages {...props}/>
 };
 

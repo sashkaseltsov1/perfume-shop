@@ -27,11 +27,11 @@ const Navbar = (props) => {
                     <li><NavLink onClick={props.menuItemClickHandler}
                                  to={'/delivery'}><img src={delivery} alt={delivery}/>Доставка</NavLink></li>
                     <li><NavLink onClick={props.menuItemClickHandler}
-                                 to={'payment'}><img src={payment} alt={payment}/>Оплата</NavLink></li>
+                                 to={'/payment'}><img src={payment} alt={payment}/>Оплата</NavLink></li>
                     <li><NavLink onClick={props.menuItemClickHandler}
-                                 to={'help'}><img src={help} alt={help}/>Помощь</NavLink></li>
+                                 to={'/info'}><img src={help} alt={help}/>Помощь</NavLink></li>
                     <li><NavLink onClick={props.menuItemClickHandler}
-                                 to={'contacts'}><img src={contacts} alt={contacts}/>Контакты</NavLink></li>
+                                 to={'/contacts'}><img src={contacts} alt={contacts}/>Контакты</NavLink></li>
                 </ul>
 
 

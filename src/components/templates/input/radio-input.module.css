@@ -1,0 +1,43 @@
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+}
+
+/* IMAGE STYLES */
+[type=radio] + div {
+    cursor: pointer;
+}
+.image img {
+    width: 100%;
+    object-fit: cover;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.image{
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    height: 0;
+    padding-top: calc(150 / 350 * 100%);
+}
+.deliveryType{
+    margin: 0 auto;
+    max-width: 350px;
+    border: 1px solid #c7c7c7;
+    max-height: 150px;
+    overflow: hidden;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + div {
+    border: 1px solid cornflowerblue;
+
+}

@@ -1,0 +1,9 @@
+.page{
+    margin-top: 20px;
+    min-height: 600px;
+    text-align: center;
+}
+.page>div{
+    font-size: large;
+    font-weight: 600;
+}

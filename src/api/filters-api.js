@@ -1,6 +1,7 @@
 import axios from 'axios'
+import config from '../config/config';
 const instance = axios.create({
-    baseURL: 'http://176.197.36.4:8000/api/filters',
+    baseURL: `${config.apiUrl}api/filters`,
 });
 
 const filtersApi= {

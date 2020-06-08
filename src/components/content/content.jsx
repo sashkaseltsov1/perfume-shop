@@ -10,21 +10,32 @@ import RouteWithAccessError from "../templates/private-routes/route-with-access-
 import OrderContainer from "./order/order-container";
 import ProductContainer from "./product/product-container";
 import CartContainer from "./cart/cart-container";
+import Success from "./success/success";
+import PageNotFound from "./page-not-found/page-not-found";
+import Delivery from "./delivery/delivery";
+import Payment from "./payment/payment";
+import Info from "./info/info";
+import Contacts from "./contacts/contacts";
 
 
 const Content = ()=>{
 
     return <div className={wrap.wrapper}>
-
         <Switch >
             <Route path='/' component={Main} exact />
+            <Route path={'/delivery'} component={Delivery} exact/>
+            <Route path={'/payment'} component={Payment} exact/>
+            <Route path={'/info'} component={Info} exact/>
+            <Route path={'/contacts'}  component={Contacts} exact/>
             <Route path='/shop' component={Main} exact />
             <Route path={'/shop/catalog/'} component={Catalog} exact/>
             <Route path={'/shop/catalog/:id'} component={ProductContainer} exact/>
             <Route path={'/shop/cart'} component={CartContainer} exact/>
+            <Route path={'/shop/success'} component={Success} exact/>
             <PrivateRouteWithRedirect path='/auth' component={Authentication} isInvert={true} exact/>
             <PrivateRouteWithRedirect path='/profile' component={ProfileContainer} isInvert={false} exact/>
             <RouteWithAccessError path='/orders/:id' component={OrderContainer} isInvert={false} exact/>
+            <Route component={PageNotFound}/>
         </Switch>
     </div>
 };

@@ -1,0 +1,18 @@
+.payment{
+    margin-top: 20px;
+    line-height: 30px;
+}
+.large{
+    margin-top: 20px;
+    font-size: large;
+    font-weight: 600;
+}
+.small{
+    font-size: small;
+    color: #9a9a9a;
+}
+.img{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}

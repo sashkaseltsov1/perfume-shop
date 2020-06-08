@@ -3,14 +3,17 @@ import styles from './order.module.css';
 import History from "./history/history";
 import TextWithLine from "../../templates/text-width-line/text-with-line";
 import SimpleSwiper from "../../templates/swiper/swiper";
+import Item from "../../templates/item/item";
+import {getInitialItems} from "../../templates/swiper/swiper-container";
 
 
 const Order = ({error, order})=>{
-    /*let array = [{state:'Принят на рассмотрение', date:'2020-05-30T17:05:17.538Z'},
-        {state:'Отправлен', date:'2020-05-30T17:05:17.538Z'},
-        {state:'Прибыл в место назначения', date:'2020-05-30T17:05:17.538Z'},
-        {state:'Закрыт', date:'2020-05-30T17:05:17.538Z'},
-    ];*/
+
+    const slides = order? order.products.map((item, index) => (
+        <div key={item._id+index} className={'slide'}>
+            <Item item={item}/>
+        </div>)):
+        getInitialItems().map(item => (<div key={item._id} className={'slide'}><Item item={item}/></div>));
     return (
         <div className={styles.orderPage}>
             {error && <div className={styles.error}>{error}</div>}
@@ -21,6 +24,8 @@ const Order = ({error, order})=>{
                     <div>{order?.address}</div>
                     <div>Тип платежа:</div>
                     <div>{order?.paymentType}</div>
+                    <div>Тип доставки:</div>
+                    <div>{order?.deliveryType}</div>
                     <div>Стоимость:</div>
                     <div className={styles.prise}>
                         {order && parseInt(order.totalPrise).toLocaleString('ru-RU')} руб.
@@ -36,7 +41,7 @@ const Order = ({error, order})=>{
                 </div>
             </fieldset>
             <TextWithLine name={'Товары'}/>
-            <SimpleSwiper items={order? order.products:undefined}/>
+            <SimpleSwiper slides={slides}/>
         </div>
     )
 };

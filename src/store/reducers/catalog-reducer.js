@@ -6,7 +6,7 @@ export const SET_ERROR = 'catalog/SET_ERROR';
 export const SET_INITIAL_PRODUCTS = 'catalog/SET_INITIAL';
 const getInitialItems = ()=>{
     let items=[];
-    for (let i=0;i<12;i++){
+    for (let i=0;i<24;i++){
         items.push({
             isInitial:true,
             fullPrise:'',

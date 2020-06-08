@@ -1,0 +1,52 @@
+.delivery{
+    margin-top: 20px;
+}
+
+.small{
+    color: #9a9a9a;
+    font-size: small;
+    margin: 20px 0;
+}
+.info{
+    margin-top: 20px;
+}
+.faq{
+    font-size: large;
+    font-weight: 600;
+    text-align: center;
+}
+.info>div{
+    line-height: 30px;
+}
+.info img{
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+.block{
+    margin-top: 20px;
+    padding: 0 20px;
+    border: 1px solid #c7c7c7;
+}
+.title{
+    user-select: none;
+    line-height: 40px;
+}
+.title:hover{
+    cursor: pointer;
+}
+.description{
+    line-height: 30px;
+    padding-bottom: 10px;
+    transition: height .3s;
+}
+.color{
+    color: seagreen;
+}
+.border{
+    border: 1px solid seagreen;
+
+}

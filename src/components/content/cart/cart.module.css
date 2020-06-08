@@ -1,10 +1,27 @@
-.cart a{
+.item a{
     color: #161515;
     text-decoration: none;
 }
-.cart a:hover{
+.item a:hover{
     color: cornflowerblue;
-
+}
+.button:hover{
+    cursor: pointer;
+}
+.button{
+    outline: 0;
+    height: 40px;
+    width: 50%;
+    border: 0;
+    user-select: none;
+    text-align: center;
+    line-height: 40px;
+    background-color: cornflowerblue;
+    margin: 20px auto;
+}
+.button a{
+    color: white;
+    text-decoration: none;
 }
 .cart{
     min-height: 600px;
@@ -58,7 +75,7 @@
 .description{
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-
+    margin: 20px 0;
 }
 
 .remove>img{
@@ -68,4 +85,9 @@
 }
 .remove>img:hover{
     cursor: pointer;
+}
+@media screen and (max-width:750px) {
+    .button{
+        width: calc(100% - 40px);
+    }
 }
