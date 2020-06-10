@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 const Cart = ({totalCount})=>{
 
     return(
-        <NavLink to={'/shop/cart'}>
+        <NavLink to={'/shop/cart'} className={styles.link}>
             <div className={styles.cart}>
                 <img src={cart} alt={cart}/>
                 <div className={styles.number}>{totalCount}</div>

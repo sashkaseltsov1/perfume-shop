@@ -13,17 +13,18 @@ const Footer = ()=>{
         <div className={styles.back}>
             <div className={cn(wrap.wrapper, styles.footer)}>
                 <div>
+
                     <div ><NavLink to={'/shop/catalog'}>Каталог</NavLink></div>
+                    <div ><NavLink to={'/auth'}>Регистрация</NavLink></div>
+                    <div ><NavLink to={'/contacts'}>Связаться с нами</NavLink></div>
+                </div>
+                <div>
+                    <div ><NavLink to={'/info'}>Информация</NavLink></div>
                     <div ><NavLink to={'/payment'}>Оплата</NavLink></div>
                     <div ><NavLink to={'/delivery'}>Доставка</NavLink></div>
                 </div>
                 <div>
-                    <div ><NavLink to={'/auth'}>Регистрация</NavLink></div>
-                    <div ><NavLink to={'/contacts'}>Связаться с нами</NavLink></div>
-                    <div ><NavLink to={'/info'}>Информация</NavLink></div>
-                </div>
-                <div>
-                    <div ><NavLink to={'/search'}>Поиск</NavLink></div>
+                    <div ><NavLink to={'/'}>На главную</NavLink></div>
                     <div ><NavLink to={'/profile'}>Профиль</NavLink></div>
                     <div ><NavLink to={'/shop/cart'}>Корзина</NavLink></div>
                 </div>

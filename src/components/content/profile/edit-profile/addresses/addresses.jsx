@@ -18,17 +18,17 @@ const AddressField = ({dispatch})=>{
         }).catch(()=>{
         })
     };
-    const getCandidates = usePreventRefetchData(1000, getAddressesApiHandler);
+    const getCandidates = usePreventRefetchData(500, getAddressesApiHandler);
     return(
 
         <div className={fieldStyle.field} >
             <Field name="address" component={renderField} type="text"
                    placeholder={'Введите новый адрес...'} onChange={(e)=>{
-                if(e.target.value.length>1 && e.target.value.length>e.target.defaultValue.length){
+                if(e.target.value.length>1){
                     getCandidates({'query':e.target.value, 'count':5})
                 }
             }}
-                    autoComplete={false}
+                    disableAutoComplete={true}
                     onBlur={()=>setVisibility(false)}
                     onFocus={()=>setVisibility(true)}
             />
@@ -37,9 +37,7 @@ const AddressField = ({dispatch})=>{
                     dispatch(change('EditProfile', 'address', item))
                 }}
                 >
-                    <div>
-
-                    </div>
+                    <div/>
                     <div>
                         {item}
                     </div>

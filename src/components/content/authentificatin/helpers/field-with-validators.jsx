@@ -5,13 +5,14 @@ const renderField = ({
                          input,
                          placeholder,
                          type,
-                         autoComplete,
+                         disableAutoComplete,
                          meta: { touched, error }
                      }) => (
     <div className={styles.sector}>
         <input {...input}
                placeholder={placeholder}
-               autoComplete={autoComplete? autoComplete:'on'}
+
+               autoComplete={disableAutoComplete? 'off':'on'}
                type={type}
                className={cn(styles.field, touched&&error&& styles.errorField)}/>
         {touched &&

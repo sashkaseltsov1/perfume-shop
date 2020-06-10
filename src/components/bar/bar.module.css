@@ -1,5 +1,15 @@
 .bar{
     margin-top: 10px;
     height: auto;
-    text-align: right;
+    grid-gap: 20px;
+    display: grid;
+    grid-template-columns: 400px auto;
+
+}
+
+
+@media screen and (max-width:750px) {
+    .bar{
+        grid-template-columns: minmax(auto, 70%) auto;
+    }
 }

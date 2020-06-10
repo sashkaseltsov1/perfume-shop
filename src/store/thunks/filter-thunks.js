@@ -3,7 +3,7 @@ import { createBrowserHistory } from "history";
 import {
     getFiltersActionCreator,
     resetFiltersActionCreator, setActiveFiltersActionCreator, setInitialActionCreator, setOptionActionCreator,
-    setRangeOptionActionCreator,
+    setRangeOptionActionCreator, setSearchFilterActionCreator,
     setSortFilterActionCreator
 } from "../actions/filter-actions";
 import {getProductsThunkCreator} from "./catalog-thunks";
@@ -18,6 +18,11 @@ export const setSortFilterThunkCreator = (value) =>{
     return (dispatch)=>{
         dispatch(setSortFilterActionCreator(value));
         dispatch(filterThunkCreator());
+    }
+};
+export const setSearchFilterThunkCreator = (value) =>{
+    return (dispatch)=>{
+        dispatch(setSearchFilterActionCreator(value));
     }
 };
 export const setInitialThunkCreator = ()=>{
@@ -54,6 +59,7 @@ const joinStateToQueryString = (state)=>{
     if(rangeFilterState.fieldState[1]!==rangeFilterState.domain[1])
         newState.push('max='+rangeFilterState.fieldState[1]);
     if(state.sortFilter) newState.push('sort='+state.sortFilter);
+    if(state.search) newState.push('find='+state.search);
     return '?'+newState.join('&');
 };
 const initializeActiveFilters = (filters)=>{
@@ -108,13 +114,14 @@ const parseQueryString = (queryString)=>{
     let min = queryString.match(/min=[0-9]+/);
     let max = queryString.match(/max=[0-9]+/);
     let sort = queryString.match(/sort=((inc)|(dec))/);
+    let find = queryString.match(/find=[a-zA-Zа-яА-Я0-9]+/);
     if(isNovelty) options.push('isNovelty');
     if(isDiscount) options.push('isDiscount');
     min=min? min[0].match(/[^min=][0-9]+/)[0]:0;
     max=max? max[0].match(/[^max=][0-9]+/)[0]:50000;
     sort=sort? sort[0].match(/[^sort=][a-z]+/)[0]:null;
-
-    return [options, [min,max], sort];
+    find=find? find[0].match(/[^find=][а-яА-Яa-zA-Z0-9]+/)[0]:null;
+    return [options, [min,max], sort, find];
 };
 
 export const getFiltersThunkCreator = ()=>{
@@ -122,7 +129,7 @@ export const getFiltersThunkCreator = ()=>{
         instance.getFilters()
             .then( (response) =>{
                 let history = createBrowserHistory();
-                let [categories, ranges, sort] = parseQueryString(history.location.search);
+                let [categories, ranges, sort, search] = parseQueryString(history.location.search);
                 let activeFilters = [];
                 let data = response.data.filters.map(item=>{
                     let items = item.items.map(option=>{
@@ -142,7 +149,8 @@ export const getFiltersThunkCreator = ()=>{
                         filters:data,
                         rangeFilter:rangeFilter,
                         activeFilters:activeFilters,
-                        sortFilter:sort
+                        sortFilter:sort,
+                        search:search
                     })
                 )
             })

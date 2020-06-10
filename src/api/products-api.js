@@ -8,5 +8,5 @@ const instance = axios.create({
 export default {
     getProducts: params =>instance.get(params),
     getProduct: (id, count) =>instance.get(`/${id}?count=${count}`),
-    addComment:(id,data) =>instance.post(`/${id}`,data)
+    addComment:(id,data) =>instance.post(`/${id}`,data),
 }

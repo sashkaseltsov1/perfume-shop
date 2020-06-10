@@ -3,7 +3,7 @@ import {
     RESET_FILTERS,
     SET_ACTIVE_FILTERS, SET_INITIAL,
     SET_OPTION,
-    SET_RANGE,
+    SET_RANGE, SET_SEARCH,
     SET_SORT
 } from "../reducers/filter-reducer";
 
@@ -43,6 +43,12 @@ export const setRangeOptionActionCreator = (values)=>{
 export const setSortFilterActionCreator = (value)=>{
     return {
         type:SET_SORT,
+        value:value
+    }
+};
+export const setSearchFilterActionCreator = (value)=>{
+    return {
+        type:SET_SEARCH,
         value:value
     }
 };

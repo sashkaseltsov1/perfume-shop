@@ -1,6 +1,7 @@
 export const SET_OPTION = 'filters/SET_OPTION';
 export const GET_FILTERS = 'filters/GET_FILTERS';
 export const SET_RANGE = 'filters/SET_SLIDER_RANGE';
+export const SET_SEARCH = 'filters/SET_SEARCH';
 export const RESET_FILTERS = 'filters/RESET_FILTERS';
 export const SET_ACTIVE_FILTERS='filters/SET_ACTIVE_FILTERS';
 export const SET_SORT='filters/SET_SORT';
@@ -16,11 +17,14 @@ const initialState = {
         fieldState:[0,50000],
     },
     sortFilter:null,
-    activeFilters:[]
+    activeFilters:[],
+    search:''
 };
 
 const FilterReducer = (state=initialState, action)=>{
     switch (action.type) {
+        case SET_SEARCH:
+            return {...state, search: action.value};
         case SET_INITIAL:
             return {...initialState};
         case SET_SORT:
@@ -37,7 +41,8 @@ const FilterReducer = (state=initialState, action)=>{
                     return item;
                 }),
                 sortFilter:null,
-                activeFilters:[]
+                activeFilters:[],
+                search:''
             };
         case SET_RANGE:
             return {...state, rangeFilter: action.values};
