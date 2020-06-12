@@ -31,6 +31,7 @@ export const signupThunkCreator = (values)=>{
 };
 export const authenticate = ()=>{
     return (dispatch, getState)=>{
+
         let isAuthorized = getState().auth.isAuthorized;
         return authApi.auth().then(response=>{
             let tokens = response.data;

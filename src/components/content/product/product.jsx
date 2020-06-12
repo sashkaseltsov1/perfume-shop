@@ -12,7 +12,14 @@ import loader from "../../../images/white-loader.svg";
 import {CSSTransition} from "react-transition-group";
 import './product.css';
 
-const Product = ({product, addCommentThunkCreator, match, appendCommentsThunkCreator, isFetching, appendProductThunkCreator})=>{
+const Product = ({
+                     product,
+                     addCommentThunkCreator,
+                     match,
+                     appendCommentsThunkCreator,
+                     isFetching,
+                     appendProductThunkCreator,
+                     role})=>{
     const [inProp, setInProp] = useState(true);
     return(
         <div className={styles.product}>
@@ -60,15 +67,15 @@ const Product = ({product, addCommentThunkCreator, match, appendCommentsThunkCre
                         <CSSTransition in={inProp} timeout={2000} classNames={'added'}>
                             <div className={styles.append}>Продукт добавлен!</div>
                         </CSSTransition>
-
                     </button>
                 </div>
             </fieldset>
             <div className={styles.bottomArea}>
+                <div className={styles.edit}>Редактировать</div>
                 <AddComment match={match} addCommentThunkCreator={addCommentThunkCreator}/>
                 <TextWithLine name={'Отзывы'}/>
                 <div style={{'marginBottom':'20px'}}>Всего отзывов: {product?.commentsCount}</div>
-                <Comments comments={product?.comments}/>
+                <Comments comments={product?.comments} role={role} productId={product?._id}/>
                 {product?.comments.length<product?.commentsCount && <div className={styles.next}
                 onClick={()=>{
                     !isFetching && appendCommentsThunkCreator(match.params.id);

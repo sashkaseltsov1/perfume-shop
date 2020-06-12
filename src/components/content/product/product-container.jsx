@@ -18,7 +18,7 @@ const ProductContainer = (props)=>{
     return <Product {...props}/>
 };
 
-export default connect(state=>state.product, {
+export default connect(state=>({product:state.product.product, role:state.auth.role}), {
     getProductThunkCreator,
     setInitialThunkCreator,
     addCommentThunkCreator,

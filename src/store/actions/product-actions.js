@@ -1,6 +1,6 @@
 import {
     ADD_COMMENT,
-    APPEND_COMMENTS,
+    APPEND_COMMENTS, REMOVE_RESTORE_COMMENT,
     SET_ERROR,
     SET_INITIAL,
     SET_IS_FETCHING,
@@ -31,6 +31,13 @@ export const appendCommentsActionCreator = (comments)=>{
     return {
         type:APPEND_COMMENTS,
         comments:comments
+    }
+};
+export const removeOrRestoreCommentActionCreator = (commentId, isRemoved)=>{
+    return {
+        type:REMOVE_RESTORE_COMMENT,
+        commentId:commentId,
+        isRemoved:isRemoved
     }
 };
 export const addCommentActionCreator = (comment)=>{

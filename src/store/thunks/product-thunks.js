@@ -1,11 +1,13 @@
 import productsApi from '../../api/products-api';
 import {
-    addCommentActionCreator, appendCommentsActionCreator,
+    addCommentActionCreator, appendCommentsActionCreator, removeOrRestoreCommentActionCreator,
     setErrorActionCreator,
     setInitialActionCreator, setIsFetchingActionCreator,
     setProductActionCreator
 } from "../actions/product-actions";
 import {SubmissionError} from "redux-form";
+import {authenticate} from "./auth-thunks";
+
 
 
 
@@ -22,7 +24,8 @@ export const getProductThunkCreator = (id)=>{
 export const appendCommentsThunkCreator = (id)=>{
     return (dispatch, getState) =>{
         dispatch(setIsFetchingActionCreator(true));
-        let count = getState().product.product?.comments.length||0;
+
+        let count = getState().product.product?.comments.filter(item=>item.isRemoved===false).length||0;
         productsApi.getProduct(id, count).then((res)=>{
             dispatch(appendCommentsActionCreator(res.data.product.comments))
         }).catch((err)=>{
@@ -47,5 +50,20 @@ export const addCommentThunkCreator = (productId, message, stars)=>{
         }).then((res)=>{
             dispatch(addCommentActionCreator(res.data.comment))
         }).catch((err)=>{throw new SubmissionError({_error:err.response.data.message})})
+    }
+};
+export const removeOrRestoreCommentThunkCreator = (productId, commentId, isRemoved)=>{
+    return async (dispatch, getState) =>{
+        await dispatch(authenticate());
+        let isAuthorized = getState().auth.isAuthorized;
+        if(isAuthorized){
+            return productsApi.removeComment(productId,
+                {commentId:commentId, isRemoved:isRemoved})
+                .then((res)=>{
+                dispatch(removeOrRestoreCommentActionCreator(res.data.commentId, res.data.isRemoved));
+            }).catch((err)=>{
+                alert(err.response.data.message)
+            })
+        }
     }
 };

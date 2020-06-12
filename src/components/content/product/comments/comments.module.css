@@ -7,6 +7,16 @@
     line-height: 30px;
     padding: 0 10px;
 }
+.remove>span:hover{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+.remove{
+    width: auto;
+    text-align: right;
+    font-size: small;
+}
+
 .description{
     display: grid;
     grid-template-columns: auto 100px;

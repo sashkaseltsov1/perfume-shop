@@ -2,7 +2,7 @@ import ordersApi from '../../api/orders-api';
 import {setErrorActionCreator, setInitialActionCreator, setOrderActionCreator} from "../actions/order-actions";
 import {authenticate} from "./auth-thunks";
 import {SubmissionError} from "redux-form";
-import {setCartThunkCreator} from "./cart-thunks";
+
 
 
 export const getOrderThunkCreator = (id)=>{

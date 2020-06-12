@@ -2,6 +2,7 @@ import React from "react";
 import { Route} from "react-router-dom";
 import Waiting from "./waiting";
 import {connect} from "react-redux";
+import AccessError from "./access-error";
 
 const RouteWithAccessError = ({ component: Component, ...rest }) => {
     return(
@@ -10,14 +11,8 @@ const RouteWithAccessError = ({ component: Component, ...rest }) => {
                 return <Component {...props} />}
             else
             if(rest.isAuthorized===rest.isInvert) {
-                return (<div style={{
-                        width:'100%',
-                        height:'600px',
-                        'text-align':'center',
-                        color:'#c12020',
-                        'margin-top':'20px'
-                    }}>Доступ к данному ресурсу запрещен!</div>
-                )}else{
+                return <AccessError/>
+                }else{
                 return <Waiting/>
             }
         }} />

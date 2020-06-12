@@ -9,4 +9,6 @@ export default {
     getProducts: params =>instance.get(params),
     getProduct: (id, count) =>instance.get(`/${id}?count=${count}`),
     addComment:(id,data) =>instance.post(`/${id}`,data),
+    removeComment:(id,data) =>instance.put(`/remove-restore-comment/${id}`,data,
+        {withCredentials:true, headers:{'Authorization': localStorage.token}}),
 }

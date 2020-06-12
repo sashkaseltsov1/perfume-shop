@@ -29,12 +29,12 @@ const Filters = (props)=>{
                     let Filter = WithConnection(WithVisibility(SimpleFilter), index);
                     return <Filter key={index}/>})}
 
-            <div className={styles.filterButton}
+            <button className={styles.filterButton}
                  onClick={()=>{
                      props.isTabletOrMobile && props.setFilterState(true);
                      props.filterThunkCreator()}}>
                 Фильтровать
-            </div>
+            </button>
             <div className={styles.reset} onClick={()=>{
                 props.isTabletOrMobile && props.setFilterState(true);
                 props.resetFiltersThunkCreator()}}>

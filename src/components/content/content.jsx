@@ -16,6 +16,7 @@ import Delivery from "./delivery/delivery";
 import Payment from "./payment/payment";
 import Info from "./info/info";
 import Contacts from "./contacts/contacts";
+import EditProductContainer from "./edit-product/edit-product-container";
 
 
 const Content = ()=>{
@@ -28,6 +29,7 @@ const Content = ()=>{
             <Route path={'/info'} component={Info} exact/>
             <Route path={'/contacts'}  component={Contacts} exact/>
             <Route path='/shop' component={Main} exact />
+            <Route path='/shop/edit-product/:id' component={EditProductContainer} exact />
             <Route path={'/shop/catalog/'} component={Catalog} exact/>
             <Route path={'/shop/catalog/:id'} component={ProductContainer} exact/>
             <Route path={'/shop/cart'} component={CartContainer} exact/>

@@ -8,6 +8,7 @@ import {useDispatch} from "react-redux";
 import {signinThunkCreator} from "../../../../store/thunks/auth-thunks";
 import cn from 'classnames';
 import loader from "../../../../images/white-loader.svg";
+import Button from "../../../templates/button/button";
 
 const SignIn = (props)=>{
     const dispatch = useDispatch();
@@ -24,10 +25,7 @@ const SignIn = (props)=>{
                     <Field name="password" component={renderField} type="password"
                            placeholder={'Введите пароль...'} validate={[required, min6max20]}/>
                 </div>
-                <button type="submit" disabled={props.submitting} className={cn(formStyles.button, styles.button)} >
-                    {props.submitting &&<div className={formStyles.loader}><img src={loader} alt={loader}/></div>}
-                    <span>Войти</span>
-                </button>
+                <Button type={'submit'} disabled={props.submitting} title={'Войти'}/>
                 {props.error && <div className={formStyles.error}><span >{props.error}</span></div>}
             </form>
         </fieldset>

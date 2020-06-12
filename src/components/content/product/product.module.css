@@ -93,15 +93,12 @@
 .append{
     opacity: 0;
     line-height: 25px;
-    /*border-radius: 50%;*/
     top: 0;
     left: 0;
     width: 100%;
     height: 25px;
     position: absolute;
     background-color: seagreen;
-    /*background-color: cornflowerblue;*/
-
 }
 .next{
     margin: 0 auto;
@@ -116,7 +113,14 @@
 .next:hover{
     cursor: pointer;
 }
-
+.edit{
+    background-color: cornflowerblue;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+}
 
 
 @media screen and (max-width:750px) {
