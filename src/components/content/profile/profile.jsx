@@ -5,6 +5,7 @@ import EditProfile from "./edit-profile/edit-profile";
 import styles from "./profile.module.css";
 import {signoutThunkCreator} from "../../../store/thunks/auth-thunks";
 import {useDispatch} from "react-redux";
+import Button from "../../templates/button/button";
 
 
 
@@ -13,10 +14,13 @@ const Profile = (props)=>{
     const dispatch = useDispatch();
     return (
         <div >
-            <div className={styles.button} onClick={()=>{
-                dispatch(signoutThunkCreator());
-            }}>
-                <span>Выйти</span>
+            <div className={styles.button}>
+                <Button title={'Выйти'} callback={()=>{
+                    dispatch(signoutThunkCreator());
+                }} style={{
+                    backgroundColor:'#c12020',
+                    borderRadius:'2px',
+                }}/>
             </div>
             <fieldset className={styles.profile}>
                 <legend className={styles.legend}><h3>Профиль</h3></legend>

@@ -6,8 +6,6 @@ import renderField from "../helpers/field-with-validators";
 import {email, min6max20, required} from "../helpers/validators";
 import {useDispatch} from "react-redux";
 import {signinThunkCreator} from "../../../../store/thunks/auth-thunks";
-import cn from 'classnames';
-import loader from "../../../../images/white-loader.svg";
 import Button from "../../../templates/button/button";
 
 const SignIn = (props)=>{

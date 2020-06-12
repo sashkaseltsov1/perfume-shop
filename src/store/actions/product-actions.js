@@ -1,7 +1,6 @@
 import {
     ADD_COMMENT,
     APPEND_COMMENTS, REMOVE_RESTORE_COMMENT,
-    SET_ERROR,
     SET_INITIAL,
     SET_IS_FETCHING,
     SET_PRODUCT
@@ -46,9 +45,4 @@ export const addCommentActionCreator = (comment)=>{
         comment:comment
     }
 };
-export const setErrorActionCreator = (error)=>{
-    return {
-        type:SET_ERROR,
-        error:error
-    }
-};
+

@@ -1,8 +1,7 @@
 import React, {useEffect} from "react";
 import styles from './add-order.module.css';
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import cn from 'classnames';
-import loader from "../../../../images/white-loader.svg";
 import {connect} from "react-redux";
 import cdek from '../../../../images/delivery/cdek.jpg';
 import russiaPost from '../../../../images/delivery/russia-post.jpg';
@@ -10,11 +9,12 @@ import dpd from '../../../../images/delivery/dpd.jpg';
 import ems from '../../../../images/delivery/ems.jpg';
 import pay from '../../../../images/payment/pay.jpg';
 import RadioInput from "../../../templates/input/radio-input";
-import TextWithLine from "../../../templates/text-width-line/text-with-line";
+import TextWithLine from "../../../templates/text-with-line/text-with-line";
 import {addOrderThunkCreator} from "../../../../store/thunks/order-thunks";
 import {NavLink} from "react-router-dom";
 import {useHistory} from 'react-router-dom';
 import {setCartThunkCreator} from "../../../../store/thunks/cart-thunks";
+import Button from "../../../templates/button/button";
 const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, submitSucceeded, ...props})=>{
     const history = useHistory();
     useEffect(()=>{
@@ -53,10 +53,9 @@ const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, s
                         <RadioInput image={pay} value={'Наложенный платёж'} name={'paymentType'}/>
                     </div>
                 </div>
-                <button type="submit" className={styles.button} disabled={!isAuth} >
-                    {submitting &&<div className={styles.loader}><img src={loader} alt={loader}/></div>}
-                    <span>Оформить заказ</span>
-                </button>
+                <div className={styles.button}>
+                    <Button title={'Оформить заказ'} disabled={submitting} type={'submit'}/>
+                </div>
                 {error && <div className={styles.error}><span >{error}</span></div>}
             </form>}
             {isAuth===false && <div style={{'textAlign':'center'}}>

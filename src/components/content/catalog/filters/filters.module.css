@@ -33,25 +33,7 @@
     margin-left: calc(100% - 21px);
     display: none;
 }
-.filterButton{
-    background-color: cornflowerblue;
 
-    line-height: 40px;
-    color: white;
-    text-align: center;
-    margin-top: 10px;
-    outline: 0;
-    height: 40px;
-    width: 100%;
-    border: 0;
-    left: 0;
-
-    
-}
-.filterButton:hover{
-    cursor: pointer;
-    background-color: royalblue;
-}
 @media screen and (max-width:750px) {
     .filters{
         --scroll-bar-width:22px;
@@ -70,7 +52,7 @@
     .padding{
         height: 20px;
     }
-    .filterButton{
+    .button{
         margin: 0 auto;
         width: 96%;
     }
@@ -80,10 +62,7 @@
     .filters>div>img{
         margin-bottom: 45px;
     }
-    .filterButton:hover{
-        cursor: pointer;
-        background-color: cornflowerblue;
-    }
+
 }
 .hideFilters{
     display: none;

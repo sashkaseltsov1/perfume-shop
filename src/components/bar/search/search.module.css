@@ -14,18 +14,6 @@
     display: grid;
     grid-template-columns: auto 70px;
 }
-.button{
-    width: 70px;
-    height: 32px;
-    text-align: center;
-    line-height: 32px;
-    background-color: #161515;
-    color: white;
-    border-radius: 3px;
-    display: table;
-}
-.button:hover{
-    cursor: pointer;
-}
+
 
 

@@ -1,6 +1,7 @@
 .button{
     border: 1px solid #d4d4d4;
     user-select: none;
+    position: relative;
 }
 .button:hover{
     cursor: pointer;
@@ -25,13 +26,14 @@
     padding-top: calc(430 / 360 * 100%);
 }
 .title {
+
+    left: 0;
+    top: calc(100% - 60px);
+    position: absolute;
     height: 30px;
-    color: #fff;
-    right: 0;
     width: 100%;
     line-height: 30px;
     text-align: center;
     user-select: none;
-    --bg-color:rgba(22,22,22,1);
-    background-color:var(--bg-color);
+    color:white;
 }

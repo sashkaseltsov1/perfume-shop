@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './payment.module.css';
-import TextWithLine from "../../templates/text-width-line/text-with-line";
+import TextWithLine from "../../templates/text-with-line/text-with-line";
 import config from "../../../config/config";
 import MainBanner from "../../templates/main-banner/main-banner";
 import SimpleSwiper from "../../templates/swiper/swiper";

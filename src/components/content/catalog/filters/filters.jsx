@@ -2,16 +2,13 @@ import React from "react";
 import styles from './filters.module.css'
 import close from '../../../../images/close-white.svg'
 import cn from 'classnames'
-
 import { WithVisibility} from "./wrappers/with-visibility";
-
-
 import SimpleFilter from "./items/simple-filter";
 import WithConnection from "./wrappers/with-connection";
 import {connect} from "react-redux";
-
 import SliderWithTwoHandles from "./items/sliderWithTwoHandles";
 import {setRangeOptionThunkCreator} from "../../../../store/thunks/filter-thunks";
+import Button from "../../../templates/button/button";
 
 const Filters = (props)=>{
     const getScrollbarWidth = ()=> {
@@ -25,16 +22,17 @@ const Filters = (props)=>{
              style={{'--scroll-bar-width': getScrollbarWidth()+'px'}}>
             <div ><img src={close} alt={close} onClick={()=>{props.setFilterState(true)}}/></div>
             <Slider />
-            {[0,1,2,3,4].map(index=>{
-                    let Filter = WithConnection(WithVisibility(SimpleFilter), index);
-                    return <Filter key={index}/>})}
+            {[0, 1, 2, 3, 4].map(index => {
+                let Filter = WithConnection(WithVisibility(SimpleFilter), index);
+                return <Filter key={index}/>
+            })}
+            <div className={styles.button}>
+                <Button title={'Фильтровать'} callback={() => {
+                    props.isTabletOrMobile && props.setFilterState(true);
+                    props.filterThunkCreator()
+                }}/>
+            </div>
 
-            <button className={styles.filterButton}
-                 onClick={()=>{
-                     props.isTabletOrMobile && props.setFilterState(true);
-                     props.filterThunkCreator()}}>
-                Фильтровать
-            </button>
             <div className={styles.reset} onClick={()=>{
                 props.isTabletOrMobile && props.setFilterState(true);
                 props.resetFiltersThunkCreator()}}>

@@ -1,18 +1,9 @@
 
-.button:hover{
-    cursor: pointer;
-}
 .button{
-    background-color: cornflowerblue;
-    outline: 0;
     height: 40px;
     width: 220px;
-    border: 0;
-    color: white;
     margin-left: auto;
     display: block;
-    position: relative;
-
 }
 .body{
     width: 100%;

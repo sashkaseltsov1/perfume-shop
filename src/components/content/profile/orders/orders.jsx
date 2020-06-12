@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './orders.module.css';
-import TextWithLine from "../../../templates/text-width-line/text-with-line";
+import TextWithLine from "../../../templates/text-with-line/text-with-line";
 import Order from "./order/order";
 
 const Orders = ({user})=>{

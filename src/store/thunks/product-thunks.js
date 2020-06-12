@@ -1,7 +1,6 @@
 import productsApi from '../../api/products-api';
 import {
     addCommentActionCreator, appendCommentsActionCreator, removeOrRestoreCommentActionCreator,
-    setErrorActionCreator,
     setInitialActionCreator, setIsFetchingActionCreator,
     setProductActionCreator
 } from "../actions/product-actions";
@@ -16,7 +15,7 @@ export const getProductThunkCreator = (id)=>{
         productsApi.getProduct(id, 0).then((res)=>{
             dispatch(setProductActionCreator(res.data.product))
         }).catch((err)=>{
-            dispatch(setErrorActionCreator(err.message));
+            console.log(err);
         })
     }
 };
@@ -24,12 +23,11 @@ export const getProductThunkCreator = (id)=>{
 export const appendCommentsThunkCreator = (id)=>{
     return (dispatch, getState) =>{
         dispatch(setIsFetchingActionCreator(true));
-
         let count = getState().product.product?.comments.filter(item=>item.isRemoved===false).length||0;
         productsApi.getProduct(id, count).then((res)=>{
             dispatch(appendCommentsActionCreator(res.data.product.comments))
         }).catch((err)=>{
-            dispatch(setErrorActionCreator(err.message));
+            console.log(err);
         }).then(()=>dispatch(setIsFetchingActionCreator(false)))
     }
 };
@@ -42,7 +40,6 @@ export const setInitialThunkCreator = ()=>{
 export const addCommentThunkCreator = (productId, message, stars)=>{
     return (dispatch, getState)=>{
         let username = getState().auth?.name;
-        console.log(username)
         return productsApi.addComment(productId, {
             message,
             stars,

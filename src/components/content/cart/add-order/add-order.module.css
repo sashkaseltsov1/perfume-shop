@@ -6,28 +6,15 @@
     font-size: small;
     color: #9a9a9a;
 }
-.button:hover{
-    cursor: pointer;
-}
+
 
 .button{
-    outline: 0;
-    height: 40px;
+    margin: 0 auto;
     width: 50%;
-    border: 0;
-    color: white;
-    position: relative;
-    background-color: cornflowerblue;
+
 }
 
-.loader{
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    bottom: 0;
-    margin: auto;
-    top: 0;
-}
+
 .deliveryType{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -43,10 +30,7 @@
 .text{
     line-height: 40px;
 }
-.loader>img{
-    width: 25px;
-    height: 25px;
-}
+
 .error{
     color: #c12020;
     margin-bottom: 20px;

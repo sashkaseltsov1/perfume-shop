@@ -1,5 +1,4 @@
 export const SET_PRODUCT = 'product/SET_PRODUCT';
-export const SET_ERROR = 'product/SET_ERROR';
 export const SET_INITIAL = 'product/SET_INITIAL';
 export const ADD_COMMENT = 'product/ADD_COMMENT';
 export const APPEND_COMMENTS = 'product/APPEND_COMMENTS';
@@ -7,7 +6,6 @@ export const SET_IS_FETCHING = 'product/SET_IS_FETCHING';
 export const REMOVE_RESTORE_COMMENT = 'product/REMOVE_RESTORE_COMMENT';
 const initialState = {
     product:undefined,
-    error:undefined,
     isFetching:false
 };
 
@@ -35,8 +33,6 @@ const ProductReducer = (state=initialState, action)=>{
                     commentsCount:state.product.commentsCount+1}};
         case SET_INITIAL:
             return {...initialState};
-        case SET_ERROR:
-            return {...state, error:action.error};
         case SET_PRODUCT:
             return {...state, product:action.product};
         default:

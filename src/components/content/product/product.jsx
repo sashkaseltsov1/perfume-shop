@@ -4,13 +4,12 @@ import Image from "../../templates/image/image";
 import newItem from "../../../images/offer-items/new.svg";
 import discount from "../../../images/offer-items/discount.svg";
 import star from '../../../images/star.svg';
-import TextWithLine from "../../templates/text-width-line/text-with-line";
+import TextWithLine from "../../templates/text-with-line/text-with-line";
 import Comments from "./comments/comments";
 import AddComment from "./add-comment/add-comment";
-import formStyles from "../authentificatin/form-styles.module.css";
-import loader from "../../../images/white-loader.svg";
 import {CSSTransition} from "react-transition-group";
 import './product.css';
+import Button from "../../templates/button/button";
 
 const Product = ({
                      product,
@@ -59,15 +58,16 @@ const Product = ({
                     <div className={styles.name}>{product?.stars|| 0} <img src={star} alt={star} className={styles.star}/></div>
                     <div>Описание:</div>
                     <div >{product?.description}</div>
-                    <button className={styles.button} onClick={()=>{
-                        setInProp(!inProp);
-                        appendProductThunkCreator(product)
-                    }}>
-                        <span>Добавить в корзину</span>
-                        <CSSTransition in={inProp} timeout={2000} classNames={'added'}>
-                            <div className={styles.append}>Продукт добавлен!</div>
-                        </CSSTransition>
-                    </button>
+                    <div className={styles.button}>
+                        <Button title={'Добавить в корзину'} callback={()=>{
+                            setInProp(!inProp);
+                            appendProductThunkCreator(product)
+                        }}>
+                            <CSSTransition in={inProp} timeout={2000} classNames={'added'}>
+                                <div className={styles.append}>Продукт добавлен!</div>
+                            </CSSTransition>
+                        </Button>
+                    </div>
                 </div>
             </fieldset>
             <div className={styles.bottomArea}>
@@ -76,13 +76,11 @@ const Product = ({
                 <TextWithLine name={'Отзывы'}/>
                 <div style={{'marginBottom':'20px'}}>Всего отзывов: {product?.commentsCount}</div>
                 <Comments comments={product?.comments} role={role} productId={product?._id}/>
-                {product?.comments.length<product?.commentsCount && <div className={styles.next}
-                onClick={()=>{
+                {product?.comments.length<product?.commentsCount &&
+                <Button title={'Показать еще'} disabled={isFetching} callback={()=>{
                     !isFetching && appendCommentsThunkCreator(match.params.id);
-                }}>
-                    {isFetching && <div className={formStyles.loader}><img src={loader} alt={loader}/></div>}
-                    Показать ещё
-                </div>}
+                }}/>
+                }
             </div>
         </div>
     )

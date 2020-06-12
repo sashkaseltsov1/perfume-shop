@@ -5,24 +5,6 @@
 .item a:hover{
     color: cornflowerblue;
 }
-.button:hover{
-    cursor: pointer;
-}
-.button{
-    outline: 0;
-    height: 40px;
-    width: 50%;
-    border: 0;
-    user-select: none;
-    text-align: center;
-    line-height: 40px;
-    background-color: cornflowerblue;
-    margin: 20px auto;
-}
-.button a{
-    color: white;
-    text-decoration: none;
-}
 .cart{
     min-height: 600px;
 }
@@ -33,21 +15,7 @@
     font-size: large;
     font-weight: 600;
 }
-.clearButton{
-    border-radius: 3px;
-    width: 150px;
-    height: 40px;
-    color: white;
-    background-color: #c12020;
-    text-align: center;
-    line-height: 40px;
-    margin-bottom: 20px;
-    user-select: none;
-}
-.clearButton:hover{
-    cursor: pointer;
-    background-color: #e12020;
-}
+
 .number{
 
 }
@@ -85,9 +53,4 @@
 }
 .remove>img:hover{
     cursor: pointer;
-}
-@media screen and (max-width:750px) {
-    .button{
-        width: calc(100% - 40px);
-    }
 }

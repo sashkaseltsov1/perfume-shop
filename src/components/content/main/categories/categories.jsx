@@ -5,7 +5,7 @@ import menImg from '../../../../images/men-perfume.jpg'
 import womenImg from '../../../../images/women-perfume.jpg'
 import allImg from '../../../../images/all.jpg'
 import CategoryButton from "./categoryButton";
-import TextWithLine from "../../../templates/text-width-line/text-with-line";
+import TextWithLine from "../../../templates/text-with-line/text-with-line";
 
 const Categories = ()=>{
     return(

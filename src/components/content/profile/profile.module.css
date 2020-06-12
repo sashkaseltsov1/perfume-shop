@@ -11,21 +11,12 @@
     margin-left: 20px;
 
 }
-.button:hover{
-    background-color: #e12020;
-    cursor: pointer;
-}
+
 .button{
-    text-align: center;
-    line-height: 40px;
-    outline: 0;
-    height: 40px;
+
     margin-top: 20px;
     margin-left: auto;
     width: 100px;
     border-radius: 2px;
-    border: 0;
-    background-color: #c12020;
-    color: white;
-    user-select: none;
+
 }

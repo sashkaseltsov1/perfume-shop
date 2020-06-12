@@ -1,10 +1,11 @@
 import React from "react";
 import styles from './cart.module.css';
-import TextWithLine from "../../templates/text-width-line/text-with-line";
+import TextWithLine from "../../templates/text-with-line/text-with-line";
 import Image from "../../templates/image/image";
 import close from "../../../images/close.svg";
 import {NavLink} from "react-router-dom";
 import AddOrder from "./add-order/add-order";
+import Button from "../../templates/button/button";
 
 const Cart = (props)=>{
     return(
@@ -14,12 +15,16 @@ const Cart = (props)=>{
                 Ваша корзина пока пуста...
             </div>}
             {props.products && props.products.length>0 &&
-            <div className={styles.clearButton} onClick={()=>{
-                localStorage.removeItem('cart');
-                props.setCartThunkCreator();
-            }}>
-                Очистить корзину
-            </div>}
+                <Button title={'Очистить корзину'} callback={()=>{
+                    localStorage.removeItem('cart');
+                    props.setCartThunkCreator();
+                }} style={{
+                    backgroundColor:'#c12020',
+                    borderRadius:'2px',
+                    width:'150px',
+                    marginBottom:'20px'
+                }
+                }/>}
             {props.products && props.products.map(product=><div key={product._id} className={styles.item}>
                 <NavLink to={'/shop/catalog/'+product._id}><Image image={product.image}/></NavLink>
                 <div className={styles.description}>

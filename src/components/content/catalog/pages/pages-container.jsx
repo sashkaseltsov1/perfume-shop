@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Pages from "./pages";
 import {connect} from "react-redux";
 import {getProductsThunkCreator} from "../../../../store/thunks/catalog-thunks";

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from './search.module.css';
 import {connect} from "react-redux";
 import {
@@ -6,6 +6,7 @@ import {
     setSearchFilterThunkCreator
 } from "../../../store/thunks/filter-thunks";
 import {useHistory} from 'react-router-dom';
+import Button from "../../templates/button/button";
 
 const Search = (props)=>{
     const history = useHistory();
@@ -23,9 +24,13 @@ const Search = (props)=>{
         <div className={styles.search}>
             <input placeholder='Поиск по каталогу...' autoComplete='off' type='text' className={styles.input}
                    onKeyPress={handleKeyPress}
-                   value={props.search}
+                   value={props.search|| ''}
                    onChange={(e)=>props.setSearchFilterThunkCreator(e.target.value)}/>
-            <div className={styles.button} onClick={findHandler} >Поиск</div>
+                   <Button title={'Поиск'} callback={findHandler} style={{
+                       backgroundColor:'#161515',
+                       width:'70px',
+                       height:'32px'
+                   }}/>
         </div>
     )
 };

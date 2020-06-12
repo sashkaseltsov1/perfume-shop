@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import Categories from "./categories/categories";
-import TextWithLine from "../../templates/text-width-line/text-with-line";
+import TextWithLine from "../../templates/text-with-line/text-with-line";
 import {connect, useDispatch} from "react-redux";
 import SwiperContainer from "../../templates/swiper/swiper-container";
 import {
