@@ -106,11 +106,7 @@
     cursor: pointer;
 }
 .edit{
-    background-color: cornflowerblue;
-    height: 30px;
-    width: 150px;
-    text-align: center;
-    color: white;
+    color: cornflowerblue;
     line-height: 30px;
 }
 

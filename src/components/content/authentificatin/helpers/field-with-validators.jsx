@@ -22,7 +22,6 @@ const renderField = ({
 export const renderTextarea = ({
                          input,
                          placeholder,
-                         type,
                          autoComplete,
                          meta: { touched, error }
                      }) => (
@@ -30,11 +29,40 @@ export const renderTextarea = ({
         <textarea {...input}
                placeholder={placeholder}
                autoComplete={autoComplete? autoComplete:'on'}
-               type={type}
+
                className={cn(styles.textarea, touched&&error&& styles.errorField)}/>
         {touched &&
         ((error && <span className={styles.errorSpan}>{error}</span>))}
     </div>
 );
+
+
+export const renderCheckboxes =({category, callback, input, meta})=>{
+
+    return (
+        <div>
+            {meta.initial?.map((option) => {
+
+                return (
+                    <div className={styles.checkbox} key={option._id}>
+                        <label>
+                            <input type="checkbox"
+                                   name={`${input.name}[${option._id}]`}
+                                   value={option._id}
+                                   checked={option.state}
+                                   onChange={(event) => {
+                                       callback(category, option._id, event.target.checked)
+                                   }}
+
+                            />
+                            {option.type}
+                        </label>
+                    </div>)
+            })}
+        </div>
+    )
+};
+
+
 
 export default renderField;

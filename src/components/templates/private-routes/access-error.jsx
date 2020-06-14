@@ -4,9 +4,9 @@ const AccessError = ()=>{
     return <div style={{
         width:'100%',
         height:'600px',
-        'text-align':'center',
+        textAlign:'center',
         color:'#c12020',
-        'margin-top':'20px'
+        marginTop:'20px'
     }}>Доступ к данному ресурсу запрещен!</div>
 };
 

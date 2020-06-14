@@ -6,6 +6,16 @@ const instance = axios.create({
 });
 
 export default {
+    createProduct:(data) =>instance.post('/',data,
+        {withCredentials:true, headers:{
+                'Authorization': localStorage.token,
+                'Content-Type': 'multipart/form-data;boundary=boundary'
+            }}),
+    updateProduct:(data, id) =>instance.put('/'+id,data,
+        {withCredentials:true, headers:{
+                'Authorization': localStorage.token,
+                'Content-Type': 'multipart/form-data;boundary=boundary'
+            }}),
     getProducts: params =>instance.get(params),
     getProduct: (id, count) =>instance.get(`/${id}?count=${count}`),
     addComment:(id,data) =>instance.post(`/${id}`,data),

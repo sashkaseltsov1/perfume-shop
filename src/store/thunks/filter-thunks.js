@@ -25,7 +25,7 @@ export const setSearchFilterThunkCreator = (value) =>{
         dispatch(setSearchFilterActionCreator(value));
     }
 };
-export const setInitialThunkCreator = ()=>{
+export const setInitialFiltersThunkCreator = ()=>{
     return (dispatch)=>{
         dispatch(setInitialActionCreator());
     }

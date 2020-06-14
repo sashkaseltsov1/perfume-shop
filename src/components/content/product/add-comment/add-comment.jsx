@@ -6,12 +6,13 @@ import Button from "../../../templates/button/button";
 
 
 
-const AddComment = (props)=>{
+const AddComment = ({productId, ...props})=>{
     return(
             <form onSubmit={props.handleSubmit(values => {
-                let productId=props.match.params.id;
-                props.reset();
-                return props.addCommentThunkCreator(productId, values.message, values.stars)
+                if(productId){
+                    props.reset();
+                    return props.addCommentThunkCreator(productId, values.message, values.stars)
+                }
             }
             )} className={styles.body}>
                 <div className={styles.stars}>

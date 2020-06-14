@@ -6,7 +6,7 @@ import Filters from "./filters";
 import {
     filterThunkCreator,
     getFiltersThunkCreator,
-    resetFiltersThunkCreator, setInitialThunkCreator
+    resetFiltersThunkCreator, setInitialFiltersThunkCreator
 } from "../../../../store/thunks/filter-thunks";
 
 const FiltersContainer = (props)=>{
@@ -24,7 +24,7 @@ const FiltersContainer = (props)=>{
     useEffect(() => {
         props.getFiltersThunkCreator();
         return props.history.listen((location) => {
-            props.setInitialThunkCreator();
+            props.setInitialFiltersThunkCreator();
             location.pathname==='/shop/catalog' && props.getFiltersThunkCreator();
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,4 +42,4 @@ const FiltersContainer = (props)=>{
 export default connect(null,{getFiltersThunkCreator,
     filterThunkCreator,
     resetFiltersThunkCreator,
-    setInitialThunkCreator}) (FiltersContainer);
+    setInitialFiltersThunkCreator}) (FiltersContainer);

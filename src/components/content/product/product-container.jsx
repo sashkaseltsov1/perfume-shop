@@ -7,6 +7,8 @@ import {
     setInitialThunkCreator
 } from "../../../store/thunks/product-thunks";
 import {appendProductThunkCreator} from "../../../store/thunks/cart-thunks";
+import EmptyPage from "../../templates/empty-page/empty-page";
+import PageNotFound from "../page-not-found/page-not-found";
 
 const ProductContainer = (props)=>{
     useEffect(()=>{
@@ -15,11 +17,19 @@ const ProductContainer = (props)=>{
         return ()=>props.setInitialThunkCreator();
         // eslint-disable-next-line
     },[]);
-    return <Product {...props}/>
+    if(!props.product && !props.error ){
+        return <EmptyPage/>
+    } else if(props.product){
+        return <Product {...props}/>
+    } else{
+        return <PageNotFound/>
+    }
+
 };
 
 export default connect(state=>({
     product:state.product.product,
+    error:state.product.error,
     isFetching:state.product.isFetching,
     role:state.auth.role}), {
     getProductThunkCreator,

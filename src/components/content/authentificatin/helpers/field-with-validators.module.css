@@ -9,6 +9,9 @@
     display: grid;
 
 }
+.checkbox{
+    line-height: 30px;
+}
 .textarea{
     outline: 0;
     border: 1px solid #d4d4d4;

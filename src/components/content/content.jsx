@@ -29,7 +29,8 @@ const Content = ()=>{
             <Route path={'/info'} component={Info} exact/>
             <Route path={'/contacts'}  component={Contacts} exact/>
             <Route path='/shop' component={Main} exact />
-            <Route path='/shop/edit-product/:id' component={EditProductContainer} exact />
+            <Route path='/shop/edit-product/:id' render={(props)=><EditProductContainer {...props} isEdit={true}/>} exact />
+            <Route path='/shop/create-product' render={(props)=><EditProductContainer {...props} isEdit={false}/>} exact />
             <Route path={'/shop/catalog/'} component={Catalog} exact/>
             <Route path={'/shop/catalog/:id'} component={ProductContainer} exact/>
             <Route path={'/shop/cart'} component={CartContainer} exact/>
