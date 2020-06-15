@@ -1,12 +1,14 @@
 .button{
-    border: 1px solid #d4d4d4;
+
     user-select: none;
     display: grid;
     grid-template-rows: auto 30px;
+
 }
 .button:hover{
     cursor: pointer;
-    border: 1px solid #6495ed;
+    border-color: cornflowerblue;
+
 }
 .image img {
     width: 100%;
@@ -27,11 +29,11 @@
     padding-top: calc(430 / 360 * 100%);
 }
 .title {
-
     height: 30px;
     width: 100%;
     line-height: 30px;
     text-align: center;
     user-select: none;
     color:white;
+
 }

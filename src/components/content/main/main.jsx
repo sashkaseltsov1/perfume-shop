@@ -40,10 +40,10 @@ const Main = ()=>{
     let Discount = connect((state)=>({items:state.mainPage.discountProducts}),
         {getItems:getDiscountProductsThunkCreator})(SwiperContainer);
     return(
-        <div>
+        <div >
 
             <CategoriesContainer />
-            <SimpleSwiper slides={items} portion={1} space={1}/>
+
             <br/>
             <TextWithLine name={'Новинки'} />
             <Novelty/>
@@ -51,7 +51,7 @@ const Main = ()=>{
             <TextWithLine name={'Скидки'} />
             <Discount />
             <br/>
-
+            <SimpleSwiper slides={items} portion={1} space={1}/>
         </div>
     )
 };

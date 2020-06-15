@@ -22,9 +22,17 @@ const Categories = ({filters})=>{
             </div>
             <TextWithLine name={'Брэнды'} />
             <div className={styles.types} >
-                {filters[1]?.items.map(brand=><div key={brand._id} className={styles.div}>{brand.type}</div>)}
-            </div>
+                {filters[1]?.items.map(brand=><div key={brand._id} className={styles.type}>
+                    <div/>
+                    <div/>
+                    <div className={styles.div}>{brand.type}</div>
 
+                </div>)}
+            </div>
+            <TextWithLine name={'Ароматы'} />
+            <div className={styles.types} >
+                {filters[2]?.items.map(fragrance=><div key={fragrance._id} className={styles.div}>{fragrance.type}</div>)}
+            </div>
 
 
 

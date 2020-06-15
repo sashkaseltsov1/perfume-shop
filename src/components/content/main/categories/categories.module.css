@@ -1,7 +1,7 @@
 .gridContainer{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: auto;
 
     margin: 20px 0;
     grid-gap: 20px;
@@ -12,18 +12,21 @@
     list-style: none;
     text-align: center;
     padding: 0;
-    margin-bottom: 40px;
     flex-wrap: wrap;
 }
-.brands{
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    background-color: white;
-    color: black;
-    margin-bottom: 20px;
-    font-size: 2em;
+.type{
+    width: auto;
+    height: auto;
+}
+.type>div:nth-child(1){
+    background-color: #c12020;
+    height: 20px;
+    width: 50%;
+}
+.type>div:nth-child(2){
+    background-color: green;
+    height: 20px;
+    width: 30%;
 }
 .div{
     padding: 0 20px;
