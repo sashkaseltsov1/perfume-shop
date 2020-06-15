@@ -7,22 +7,23 @@ import allImg from '../../../../images/all.jpg'
 import CategoryButton from "./categoryButton";
 import TextWithLine from "../../../templates/text-with-line/text-with-line";
 
-const Categories = ()=>{
+const Categories = ({filters})=>{
+    console.log(filters)
     return(
         <div>
-            <div className={styles.title}>
-                <TextWithLine name={'Категории'} />
-            </div>
             <div className={styles.gridContainer} >
                 <CategoryButton image={allImg} name={'Все'} bgColor={'#161616'} />
-                <CategoryButton url={'?gender=5ebac469345ad830c8c668cf'}
+                <CategoryButton url={filters[3]?.items[0]?`?gender=${filters[3].items[0]._id}`:undefined}
                                 image={menImg} name={'Для мужчин'} bgColor={'#6495ed'} />
-                <CategoryButton url={'?gender=5ebac469345ad830c8c668d0'}
+                <CategoryButton url={filters[3]?.items[1]?`?gender=${filters[3].items[1]._id}`:undefined}
                                 image={womenImg} name={'Для женщин'} bgColor={'#e7a9bc'} />
-                <CategoryButton url={'?gender=5ebac469345ad830c8c668d1'}
+                <CategoryButton url={filters[3]?.items[2]?`?gender=${filters[3].items[2]._id}`:undefined}
                                 image={nicheImg} name={'Ниша'} bgColor={'#9593d9'} />
             </div>
-
+            <TextWithLine name={'Брэнды'} />
+            <div className={styles.types} >
+                {filters[1]?.items.map(brand=><div key={brand._id} className={styles.div}>{brand.type}</div>)}
+            </div>
 
 
 

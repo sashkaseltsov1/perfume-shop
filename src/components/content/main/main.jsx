@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import Categories from "./categories/categories";
 import TextWithLine from "../../templates/text-with-line/text-with-line";
 import {connect, useDispatch} from "react-redux";
 import SwiperContainer from "../../templates/swiper/swiper-container";
@@ -10,6 +9,7 @@ import {
 import config from "../../../config/config";
 import MainBanner from "../../templates/main-banner/main-banner";
 import SimpleSwiper from "../../templates/swiper/swiper";
+import CategoriesContainer from "./categories/categories-container";
 const slides = [
     {
         image:`${config.apiUrl}banners/banner6.jpg`,
@@ -42,7 +42,7 @@ const Main = ()=>{
     return(
         <div>
 
-            <Categories />
+            <CategoriesContainer />
             <SimpleSwiper slides={items} portion={1} space={1}/>
             <br/>
             <TextWithLine name={'Новинки'} />

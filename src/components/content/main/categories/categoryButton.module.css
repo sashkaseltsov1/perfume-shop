@@ -1,7 +1,8 @@
 .button{
     border: 1px solid #d4d4d4;
     user-select: none;
-    position: relative;
+    display: grid;
+    grid-template-rows: auto 30px;
 }
 .button:hover{
     cursor: pointer;
@@ -27,9 +28,6 @@
 }
 .title {
 
-    left: 0;
-    top: calc(100% - 60px);
-    position: absolute;
     height: 30px;
     width: 100%;
     line-height: 30px;

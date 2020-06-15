@@ -6,6 +6,8 @@ import styles from "./profile.module.css";
 import {signoutThunkCreator} from "../../../store/thunks/auth-thunks";
 import {useDispatch} from "react-redux";
 import Button from "../../templates/button/button";
+import TextWithLine from "../../templates/text-with-line/text-with-line";
+import {NavLink} from "react-router-dom";
 
 
 
@@ -30,7 +32,15 @@ const Profile = (props)=>{
                                     <EditProfile user={props.profile.user}
                                                  setState={setState}/>}
             </fieldset>
-
+            {props.profile.user?.role==='Admin' && <div>
+                <TextWithLine name={'Администрирование'}/>
+                <div>
+                    <NavLink to={'/shop/create-product'} >Добавить продукт</NavLink>
+                </div>
+                <div>
+                    <NavLink to={'/shop/create-product'} >Добавить продукт</NavLink>
+                </div>
+            </div>}
             <Orders user={props.profile.user}/>
 
         </div>
