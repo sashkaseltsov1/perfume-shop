@@ -7,39 +7,113 @@
     grid-gap: 20px;
 }
 
-.types{
+.brands{
     display: flex;
-    list-style: none;
-    text-align: center;
-    padding: 0;
     flex-wrap: wrap;
+    margin-top: 40px;
+    justify-content: center;
 }
-.type{
+
+.bottle{
+    margin: 20px 10px;
     width: auto;
     height: auto;
+    text-decoration: none;
 }
-.type>div:nth-child(1){
-    background-color: #c12020;
+.bottle:hover div{
+    color: cornflowerblue;
+    cursor: pointer;
+}
+.fragrances{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))
+}
+.cup{
+    margin: 0 auto;
     height: 20px;
     width: 50%;
+    border-radius: 4px;
+    background-color: #161515;
 }
-.type>div:nth-child(2){
-    background-color: green;
+.spout{
+    margin: 0 auto;
+    border-width: 3px 0px 3px 0px;
+    border-color: white;
+    border-style: solid;
+    background-color: #161515;
     height: 20px;
     width: 30%;
 }
-.div{
+.body{
     padding: 0 20px;
-    line-height: 40px;
-    border: 1px solid #c7c7c7;
-    border-radius: 2px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    height: 40px;
+    line-height: 150px;
+    border-radius: 34px 34px 34px 34px;
+    text-align: center;
+    background-color: #161515;
+    height: 150px;
     width: auto;
     font-weight: 600;
+    color: white;
 
+}
+.brands>a:nth-child(5n-4)>.body{
+    border-radius: 10px 10px 10px 10px;
+}
+.brands>a:nth-child(5n-3)>.body{
+    border-radius: 30% 30% 4px 4px;
+    height: 100px;
+    line-height: 100px;
+}
+.brands>a:nth-child(5n-3)>.spout{
+    height: 10px;
+    width: 20px;
+}
+.brands>a:nth-child(5n-3)>.cup{
+    height: 50px;
+    width: 50px;
+}
 
+.brands>a:nth-child(5n-2)>.body{
+    border-radius: 10px 10px 10px 10px;
+    height: 50px;
+    line-height: 50px;
+}
+.brands>a:nth-child(5n-2)>.cup{
+    border-radius: 4px 4px 4px 4px;
+    width: 80%;
+    height: 30px;
+    margin-bottom: 3px;
+}
+.brands>a:nth-child(5n-2)>.spout{
+    display: none;
+}
+.brands>a:nth-child(5n)>.body{
+    border-radius: 10px 10px 40% 40%;
+    height: 90px;
+    line-height: 90px;
+}
+.brands>a:nth-child(5n)>.cup{
+    border-radius: 40% 40% 4px 4px;
+    height: 30px;
+}
+.brands>a:nth-child(5n-1)>.body{
+    height: 180px;
+    line-height: 180px;
+}
+.brands>a{
+    margin-top: auto;
+
+}
+.fragrance{
+    padding: 0 20px;
+    line-height: 60px;
+    height: 60px;
+    border-radius: 3px;
+    text-align: center;
+    background-color: cornflowerblue;
+    color: white;
+    margin: 10px;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 750px) {
@@ -47,16 +121,6 @@
         grid-template-rows:repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
-@media screen and (max-width: 550px) {
-    .div{
-        margin-right: 10px;
-        margin-bottom: 10px;
-        font-size: small;
-        line-height: 30px;
-        height: 30px;
-    }
 
-}
 

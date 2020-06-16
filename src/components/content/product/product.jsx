@@ -40,15 +40,15 @@ const Product = ({
                         <div>Название:</div>
                         <div className={styles.name}>{product?.name}</div>
                         <div>Тип:</div>
-                        <div className={styles.perfumeType}>{product?.perfumeType.type}</div>
+                        <div className={styles.perfumeType}>{product?.perfumeType?.type}</div>
                         <div>Брэнд:</div>
-                        <div >{product?.brand.type}</div>
+                        <div >{product?.brand?.type}</div>
                         <div>Цена:</div>
                         <div className={styles.name}>
                             {product && parseInt(product.fullPrise).toLocaleString('ru-RU')} руб.
                         </div>
                         <div>Пол:</div>
-                        <div >{product?.gender.type}</div>
+                        <div >{product?.gender?.type}</div>
                         <div>Аромат:</div>
                         <div >
                             {product && product.fragrance.map(item=><span key={item._id} >
@@ -59,8 +59,9 @@ const Product = ({
                         <div >{product?.amount} мл.</div>
                         <div>Рейтинг:</div>
                         <div className={styles.name}>{product?.stars|| 0} <img src={star} alt={star} className={styles.star}/></div>
-                        <div>Описание:</div>
-                        <div >{product?.description}</div>
+                        <div className={styles.descTitle}><TextWithLine name={'Описание'}/></div>
+
+                        <div className={styles.description} style={{lineHeight:'20px'}}>{product?.description}</div>
                         <div className={styles.button}>
                             <Button title={'Добавить в корзину'} callback={()=>{
                                 if(product){

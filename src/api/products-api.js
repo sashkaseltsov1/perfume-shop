@@ -21,4 +21,6 @@ export default {
     addComment:(id,data) =>instance.post(`/${id}`,data),
     removeComment:(id,data) =>instance.put(`/remove-restore-comment/${id}`,data,
         {withCredentials:true, headers:{'Authorization': localStorage.token}}),
+    removeProduct:(id) =>instance.delete(`/${id}`,
+        {withCredentials:true, headers:{'Authorization': localStorage.token}}),
 }

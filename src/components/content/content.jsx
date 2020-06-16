@@ -17,6 +17,8 @@ import Payment from "./payment/payment";
 import Info from "./info/info";
 import Contacts from "./contacts/contacts";
 import EditProductContainer from "./edit-product/edit-product-container";
+import EditFilterContainer from "./edit-filter/edit-filter-container";
+
 
 
 const Content = ()=>{
@@ -31,6 +33,7 @@ const Content = ()=>{
             <Route path='/shop' component={Main} exact />
             <Route path='/shop/edit-product/:id' render={(props)=><EditProductContainer {...props} isEdit={true}/>} exact />
             <Route path='/shop/create-product' render={(props)=><EditProductContainer {...props} isEdit={false}/>} exact />
+            <Route path={'/shop/edit-filter/:category'} component={EditFilterContainer} exact/>
             <Route path={'/shop/catalog/'} component={Catalog} exact/>
             <Route path={'/shop/catalog/:id'} component={ProductContainer} exact/>
             <Route path={'/shop/cart'} component={CartContainer} exact/>

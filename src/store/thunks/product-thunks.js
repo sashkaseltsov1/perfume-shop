@@ -118,3 +118,18 @@ export const updateProductThunkCreator = (file)=>{
         }
     }
 };
+export const removeProductThunkCreator = (id)=>{
+    return async (dispatch, getState) =>{
+        await dispatch(authenticate());
+        let isAuthorized = getState().auth.isAuthorized;
+        if(isAuthorized){
+            return productsApi.removeProduct(id)
+                .then((res)=>{
+                    dispatch(setErrorActionCreator('page not found'));
+                    alert('Продукт успешно удалён!');
+                }).catch((err)=>{
+                    alert(err.response.data.message);
+                })
+        }
+    }
+};

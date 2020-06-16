@@ -20,7 +20,7 @@ const EditProduct = ({product,isEdit,isFetching, ...props}) => {
         let reader = new FileReader();
         let img = e.target.files[0];
         reader.onloadend = () => {
-            props.setImageActionCreator(reader.result)
+            props.setImageActionCreator(reader.result);
             setFile({
                 file: img,
                 imagePreviewUrl: reader.result
@@ -149,6 +149,11 @@ const EditProduct = ({product,isEdit,isFetching, ...props}) => {
                             }
                         }/>
             </div>
+            {isEdit && <div className={styles.remove}>
+                <span onClick={()=>{
+                    props.removeProductThunkCreator(product._id)}}>Удалить продукт</span>
+            </div>}
+
         </>
 
     )

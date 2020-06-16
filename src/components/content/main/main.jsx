@@ -41,7 +41,9 @@ const Main = ()=>{
         {getItems:getDiscountProductsThunkCreator})(SwiperContainer);
     return(
         <div >
-
+            <div style={{marginTop:'20px'}}>
+                <SimpleSwiper slides={items} portion={1} space={1} />
+            </div>
             <CategoriesContainer />
 
             <br/>
@@ -51,7 +53,12 @@ const Main = ()=>{
             <TextWithLine name={'Скидки'} />
             <Discount />
             <br/>
-            <SimpleSwiper slides={items} portion={1} space={1}/>
+            <div style={{fontSize:'small', color:'#9a9a9a'}}>
+                Ресурс находится в разработке и представляет собой демонстрационную версию. Проект не используется
+                в коммерческих целях, не интегрирован с платежными системами и API служб доставки. При использовании
+                форм регистрации не сообщайте данному ресурсу критически важные данные: личный номер телефона, e-mail,
+                адрес проживания.
+            </div>
         </div>
     )
 };

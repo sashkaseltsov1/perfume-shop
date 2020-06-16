@@ -38,7 +38,16 @@ const Profile = (props)=>{
                     <NavLink to={'/shop/create-product'} >Добавить продукт</NavLink>
                 </div>
                 <div>
-                    <NavLink to={'/shop/create-product'} >Добавить продукт</NavLink>
+                    <NavLink to={'/shop/edit-filter/gender'} >Добавить новый пол</NavLink>
+                </div>
+                <div>
+                    <NavLink to={'/shop/edit-filter/brand'} >Добавить новый брэнд</NavLink>
+                </div>
+                <div>
+                    <NavLink to={'/shop/edit-filter/fragrance'} >Добавить новый аромат</NavLink>
+                </div>
+                <div>
+                    <NavLink to={'/shop/edit-filter/perfumeType'} >Добавить новый тип парфюма</NavLink>
                 </div>
             </div>}
             <Orders user={props.profile.user}/>

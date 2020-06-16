@@ -6,5 +6,15 @@ const instance = axios.create({
 
 const filtersApi= {
     getFilters: () =>instance.get(),
+    getFilter: (category) =>instance.get(`/${category}`),
+    addFilter: (category, type) =>instance.post(`/${category}`,
+        {type:type},
+        {withCredentials:true, headers:{
+            'Authorization': localStorage.token}
+    }),
+    removeFilter: (category, optionId) =>instance.delete(`/${category}/${optionId}`,
+        {withCredentials:true, headers:{
+                'Authorization': localStorage.token}
+        }),
 };
 export default filtersApi;

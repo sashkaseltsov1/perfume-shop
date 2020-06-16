@@ -17,6 +17,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+.remove{
+    color: #c12020;
+    text-align: center;
+}
+.remove>span:hover{
+    cursor: pointer;
+}
 .error{
     font-size: small;
     text-align: center;

@@ -1,0 +1,55 @@
+.filter{
+    min-height: 600px;
+    margin-top: 20px;
+
+}
+.filter>div{
+     line-height: 30px;
+    width: 50%;
+    margin: 0 auto;
+}
+.filter>div>span:nth-child(2){
+    font-size: large;
+    font-weight: 600;
+}
+.remove>img{
+    width: 10px;
+    height: 10px;
+}
+.title{
+    margin-left: 5px;
+}
+.option{
+    border: 1px solid #c7c7c7;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    display: grid;
+    grid-template-columns: auto 15px;
+}
+
+.input{
+    height: 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+}
+.input>input{
+    border-radius: 0;
+    border: 1px solid #c7c7c7;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    width: 100%;
+    height: auto;
+}
+.option:hover{
+    border: 1px solid #c12020;
+    cursor: pointer;
+
+}
+@media screen and (max-width:550px) {
+    .filter>div{
+        width: 100%;
+    }
+
+}

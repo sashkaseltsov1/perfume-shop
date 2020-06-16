@@ -15,8 +15,13 @@ import {NavLink} from "react-router-dom";
 import {useHistory} from 'react-router-dom';
 import {setCartThunkCreator} from "../../../../store/thunks/cart-thunks";
 import Button from "../../../templates/button/button";
+import {getUserThunkCreator} from "../../../../store/thunks/user-thunks";
 const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, submitSucceeded, ...props})=>{
     const history = useHistory();
+    useEffect(()=>{
+        props.getUserThunkCreator();
+        //eslint-disable-next-line
+    },[]);
     useEffect(()=>{
         if(submitSucceeded) {
             localStorage.removeItem('cart');
@@ -28,14 +33,14 @@ const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, s
     return(
         <div>
             <TextWithLine name={'Оформить заказ'}/>
-            {isAuth===true &&<form
+            {isAuth === true && <form
                 onSubmit={handleSubmit(values => {
                     return dispatch(addOrderThunkCreator(values.deliveryType, values.paymentType, address));
-                    })}
+                })}
                 className={styles.form}>
                 <div className={styles.text}>Адрес доставки:</div>
                 <span className={cn(styles.text, styles.address)}>
-                    {address|| <span style={{color:'#c12020'}}>Не определён</span>}
+                    {address || <span style={{color: '#c12020'}}>Не определён</span>}
                 </span>
                 <div className={styles.help}>Адрес доставки можно изменить в вашем профиле!</div>
                 <div>
@@ -56,15 +61,14 @@ const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, s
                 <div className={styles.button}>
                     <Button title={'Оформить заказ'} disabled={submitting} type={'submit'}/>
                 </div>
-                {error && <div className={styles.error}><span >{error}</span></div>}
+                {error && <div className={styles.error}><span>{error}</span></div>}
             </form>}
-            {isAuth===false && <div style={{'textAlign':'center'}}>
-                <span >Для оформления заказа необходима <NavLink to={'../auth'}>авторизация</NavLink></span>
+            {isAuth === false && <div style={{'textAlign': 'center'}}>
+                <span>Для оформления заказа необходима <NavLink to={'../auth'}>авторизация</NavLink></span>
             </div>}
         </div>
-
     )
 };
 
-export default connect(state=>({address:state.auth?.address, isAuth:state.auth?.isAuthorized}))
+export default connect(state=>({address:state.profile.user?.address, isAuth:state.auth?.isAuthorized}),{getUserThunkCreator})
 (reduxForm({form: 'AddOrder'})(AddOrder));

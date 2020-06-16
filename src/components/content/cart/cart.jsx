@@ -29,7 +29,7 @@ const Cart = (props)=>{
                 <NavLink to={'/shop/catalog/'+product._id}><Image image={product.image}/></NavLink>
                 <div className={styles.description}>
                     <div className={styles.name}><NavLink to={'/shop/catalog/'+product._id}>{product.name}</NavLink></div>
-                    <div className={styles.perfumeType}>{product.perfumeType.type}</div>
+                    <div className={styles.perfumeType}>{product.perfumeType?.type}</div>
                     <div className={styles.fullPrise}>{parseInt(product.fullPrise).toLocaleString('ru-RU')} руб.</div>
                 </div>
                 <div className={styles.number}>

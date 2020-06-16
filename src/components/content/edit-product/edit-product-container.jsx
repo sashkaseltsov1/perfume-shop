@@ -6,7 +6,7 @@ import EmptyPage from "../../templates/empty-page/empty-page";
 import PageNotFound from "../page-not-found/page-not-found";
 import {
     createProductThunkCreator,
-    getProductThunkCreator,
+    getProductThunkCreator, removeProductThunkCreator,
     setInitialThunkCreator, updateProductThunkCreator
 } from "../../../store/thunks/product-thunks";
 import {
@@ -27,6 +27,7 @@ import {
     setNameActionCreator,
     setNoveltyActionCreator, setTemplateActionCreator, setTypeActionCreator
 } from "../../../store/actions/product-actions";
+
 
 
 
@@ -72,7 +73,7 @@ const getProductWithFilters = createSelector(
                 return optFromFilters.map(item=>{
                     let newItem={...item};
                     opt.forEach(item2=>{
-                        if(item._id===item2._id) {
+                        if(item?._id===item2?._id) {
                             newItem.state=true
                         }
                     });
@@ -130,5 +131,6 @@ export default connect(state=>getProductWithFilters(state)
     setImageActionCreator,
     createProductThunkCreator,
     updateProductThunkCreator,
-    setTemplateActionCreator
+    setTemplateActionCreator,
+    removeProductThunkCreator
 })(EditProductContainer);

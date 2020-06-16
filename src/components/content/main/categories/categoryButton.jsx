@@ -8,7 +8,6 @@ const CategoryButton = (props)=>{
 
     return(
         <div className={styles.button} onClick={()=>{
-            url &&
             history.push('/shop/catalog'+url)}}>
             <div className={styles.image}><img src={props.image} alt={props.image} /></div>
             <div className={styles.title} style={{backgroundColor:props.bgColor}}>{props.name}</div>

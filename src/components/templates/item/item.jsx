@@ -21,7 +21,7 @@ const Item = (props)=>{
                 <NavLink to={'/shop/catalog/'+props.item._id}>{props.item.name}</NavLink>
             </div>
             <div className={styles.itemDescription}>
-                {props.item.perfumeType.type}
+                {props.item.perfumeType?.type}
                 {props.item.isInitial && <span style={{'color':'white'}}>init</span>}
             </div>
             <div className={styles.itemCost}>
