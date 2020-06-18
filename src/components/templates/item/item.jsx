@@ -3,11 +3,11 @@ import styles from "./item.module.css";
 import newItem from "../../../images/offer-items/new.svg";
 import discount from "../../../images/offer-items/discount.svg";
 import {NavLink} from "react-router-dom";
-
+import cn from 'classnames';
 
 const Item = (props)=>{
     return(
-        <div key={props.item._id} className={styles.item}>
+        <div key={props.item._id} className={cn(styles.item, props.item.isInitial && styles.whiteBorder)}>
             <div className={styles.offers}>
                 {props.item.isNovelty && <img src={newItem} alt={newItem}/>}
                 {props.item.isDiscount && <img src={discount} alt={discount}/>}

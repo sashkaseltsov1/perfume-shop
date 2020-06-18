@@ -1,13 +1,18 @@
+import {ProductCartItem} from "../types/product";
 export const SET_CART = 'cart/SET_CART';
-export const APPEND_PRODUCT = 'cart/APPEND_PRODUCT';
 
 export const initialState = {
-    products:undefined,
+    products:undefined as Array<ProductCartItem>|undefined,
     totalCount:0,
     totalPrise:0
 };
+type Cart = typeof initialState;
+interface CartAction {
+    type:typeof SET_CART
+    cart:Cart
+}
 
-const CartReducer = (state=initialState, action)=>{
+const CartReducer = (state=initialState, action:CartAction):Cart=>{
     switch (action.type) {
         case SET_CART:
                 return {...action.cart};

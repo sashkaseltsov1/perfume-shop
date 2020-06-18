@@ -3,6 +3,7 @@ import {setErrorActionCreator, setInitialStateActionCreator, setUserActionCreato
 import {SubmissionError} from "redux-form";
 import {authenticate} from "./auth-thunks";
 
+
 export const getUserThunkCreator = ()=>{
     return async (dispatch, getState)=>{
         await dispatch(authenticate());

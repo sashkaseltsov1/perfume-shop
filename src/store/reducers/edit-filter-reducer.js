@@ -1,6 +1,4 @@
 export const SET_FILTER = 'edit-filter/SET_FILTER';
-export const ADD_FILTER = 'edit-filter/ADD_FILTER';
-export const REMOVE_FILTER = 'edit-filter/REMOVE_FILTER';
 export const SET_ERROR = 'edit-filter/SET_ERROR';
 export const SET_INITIAL = 'edit-filter/SET_INITIAL';
 const initialState = {

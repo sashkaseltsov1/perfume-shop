@@ -1,39 +1,62 @@
 import initialImage from '../../images/loading-image.jpg'
-
+import {ProductItem} from "../types/product";
 export const GET_PRODUCTS = 'catalog/GET_PRODUCTS';
 export const SET_LOADER = 'catalog/SET_LOADER';
 export const SET_ERROR = 'catalog/SET_ERROR';
 export const SET_INITIAL_PRODUCTS = 'catalog/SET_INITIAL';
-const getInitialItems = ()=>{
+
+interface ProductsAction{
+    type: typeof GET_PRODUCTS
+    data:Catalog
+}
+interface LoaderAction{
+    type: typeof SET_LOADER
+    state:boolean
+}
+interface ErrorAction{
+    type: typeof SET_ERROR
+}
+interface InitialAction{
+    type: typeof SET_INITIAL_PRODUCTS
+}
+interface InitialItem extends ProductItem{
+    isInitial:boolean
+}
+
+const getInitialItems = ():Array<InitialItem>=>{
     let items=[];
     for (let i=0;i<24;i++){
         items.push({
             isInitial:true,
-            fullPrise:'',
+            fullPrise:0,
             image:initialImage,
             isDiscount:false,
             isNovelty:false,
             name:'',
-            perfumeType:{type:''},
-            _id:i })}
+            perfumeType:{type:'', _id:'pType'},
+            _id:'prItem'+i })}
     return items;
 };
+
 const initialState = {
     isLoading:true,
-    count:'',
-    error:null,
+    count:undefined as number|undefined,
+    error:undefined as string|undefined,
     page:1,
     pageCount:1,
     products:getInitialItems(),
-
 };
 
-const CatalogReducer = (state=initialState, action)=>{
+type Catalog = typeof initialState;
+
+type ActionTypes = ProductsAction|LoaderAction|ErrorAction|InitialAction
+
+const CatalogReducer = (state=initialState, action:ActionTypes):Catalog=>{
     switch (action.type) {
         case SET_INITIAL_PRODUCTS:
-            return initialState;
+            return {...initialState};
         case SET_ERROR:
-            return {...initialState,products:[], error:'some error', isLoading: false};
+            return {...initialState,products:[], error:'some error.ts', isLoading: false};
         case SET_LOADER:
             return {...state, isLoading: action.state};
         case GET_PRODUCTS:
