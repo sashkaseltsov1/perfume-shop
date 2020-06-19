@@ -1,4 +1,4 @@
-import {setCartActionCreator} from "../actions/cart-actions";
+import {setCartActionCreator} from "../action-creators/cart-actions";
 import {initialState} from "../reducers/cart-reducer";
 
 export const setCartThunkCreator = () =>{

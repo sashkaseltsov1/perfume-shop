@@ -1,6 +1,6 @@
 import authApi, {saveTokens} from "../../api/auth-api";
 import jwtDecode from "jwt-decode";
-import {signinActionCreator, signoutActionCreator} from "../actions/auth-actions";
+import {signinActionCreator, signoutActionCreator} from "../action-creators/auth-actions";
 import {SubmissionError} from "redux-form";
 
 

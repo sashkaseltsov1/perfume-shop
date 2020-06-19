@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Profile from "./profile";
 import {connect} from "react-redux";
-import {getUserThunkCreator, setInitialThunkCreator} from "../../../store/thunks/user-thunks";
+import {getUserThunkCreator, setInitialThunkCreator} from "../../../store/thunk-creators/user-thunks";
 
 const ProfileContainer = (props)=>{
     

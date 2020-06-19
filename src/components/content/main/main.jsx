@@ -5,7 +5,7 @@ import SwiperContainer from "../../templates/swiper/swiper-container";
 import {
     getDiscountProductsThunkCreator,
     getNoveltyProductsThunkCreator, setInitialThunkCreator
-} from "../../../store/thunks/main-page-thunks";
+} from "../../../store/thunk-creators/main-page-thunks";
 import config from "../../../config/config";
 import MainBanner from "../../templates/main-banner/main-banner";
 import SimpleSwiper from "../../templates/swiper/swiper";

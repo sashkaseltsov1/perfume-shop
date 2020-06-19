@@ -8,45 +8,45 @@ export const SET_ACTIVE_FILTERS='filters/SET_ACTIVE_FILTERS';
 export const SET_SORT='filters/SET_SORT';
 export const SET_INITIAL='filters/SET_INITIAL';
 
-interface SearchAction {
+export interface FiltersSearchAction {
     type: typeof SET_SEARCH
     value:string
 }
-interface InitialAction {
+export interface FiltersInitialAction {
     type: typeof SET_INITIAL
 }
-interface SortAction {
+export interface FiltersSortAction {
     type: typeof SET_SORT
     value:'inc'|'dec'
 }
-interface ActiveFiltersAction {
+export interface FiltersActiveAction {
     type: typeof SET_ACTIVE_FILTERS
     activeFilters:Array<ActiveFilter>
 }
-interface ResetFiltersAction {
+export interface FiltersResetAction {
     type: typeof RESET_FILTERS
 }
-interface RangeAction {
+export interface FiltersRangeAction {
     type: typeof SET_RANGE
     values:RangeFilter
 }
-interface OptionAction {
+export interface FiltersOptionAction {
     type: typeof SET_OPTION
     category:string
     optionId:string
     state:boolean
 }
-interface FiltersAction {
+export interface FiltersAction {
     type: typeof GET_FILTERS
     data:Filters
 }
-type Filters = typeof initialState;
+export type Filters = typeof initialState;
 
 type ActionTypes =
-    SearchAction|InitialAction|
-    SortAction|ActiveFiltersAction|
-    ResetFiltersAction|RangeAction|
-    OptionAction|FiltersAction
+    FiltersSearchAction|FiltersInitialAction|
+    FiltersSortAction|FiltersActiveAction|
+    FiltersResetAction|FiltersRangeAction|
+    FiltersOptionAction|FiltersAction
 
 const initialState = {
     isInitial:true,

@@ -5,8 +5,8 @@ import {
     addCommentThunkCreator, appendCommentsThunkCreator,
     getProductThunkCreator,
     setInitialThunkCreator
-} from "../../../store/thunks/product-thunks";
-import {appendProductThunkCreator} from "../../../store/thunks/cart-thunks";
+} from "../../../store/thunk-creators/product-thunks";
+import {appendProductThunkCreator} from "../../../store/thunk-creators/cart-thunks";
 import EmptyPage from "../../templates/empty-page/empty-page";
 import PageNotFound from "../page-not-found/page-not-found";
 

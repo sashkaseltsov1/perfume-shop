@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import renderField from "../helpers/field-with-validators";
 import {email, min6max20, required} from "../helpers/validators";
 import {useDispatch} from "react-redux";
-import {signinThunkCreator} from "../../../../store/thunks/auth-thunks";
+import {signinThunkCreator} from "../../../../store/thunk-creators/auth-thunks";
 import Button from "../../../templates/button/button";
 
 const SignIn = (props)=>{

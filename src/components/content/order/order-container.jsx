@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Order from "./order";
 import {connect} from "react-redux";
-import {getOrderThunkCreator, setInitialThunkCreator} from "../../../store/thunks/order-thunks";
+import {getOrderThunkCreator, setInitialThunkCreator} from "../../../store/thunk-creators/order-thunks";
 import EmptyPage from "../../templates/empty-page/empty-page";
 import PageNotFound from "../page-not-found/page-not-found";
 

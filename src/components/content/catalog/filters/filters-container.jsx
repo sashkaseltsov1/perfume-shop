@@ -7,7 +7,7 @@ import {
     filterThunkCreator,
     getFiltersThunkCreator,
     resetFiltersThunkCreator, setInitialFiltersThunkCreator
-} from "../../../../store/thunks/filter-thunks";
+} from "../../../../store/thunk-creators/filter-thunks";
 
 const FiltersContainer = (props)=>{
     const  handleMediaQueryChange  = () => {!isTabletOrMobile && props.setFilterState(true)};

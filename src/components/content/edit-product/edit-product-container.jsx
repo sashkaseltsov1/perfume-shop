@@ -8,11 +8,11 @@ import {
     createProductThunkCreator,
     getProductThunkCreator, removeProductThunkCreator,
     setInitialThunkCreator, updateProductThunkCreator
-} from "../../../store/thunks/product-thunks";
+} from "../../../store/thunk-creators/product-thunks";
 import {
     getFiltersThunkCreator,
     setInitialFiltersThunkCreator,
-} from "../../../store/thunks/filter-thunks";
+} from "../../../store/thunk-creators/filter-thunks";
 import { createSelector } from 'reselect';
 import {
     appendFragranceActionCreator,
@@ -26,7 +26,7 @@ import {
     setGenderActionCreator, setImageActionCreator,
     setNameActionCreator,
     setNoveltyActionCreator, setTemplateActionCreator, setTypeActionCreator
-} from "../../../store/actions/product-actions";
+} from "../../../store/action-creators/product-actions";
 
 
 

@@ -5,18 +5,18 @@ export const SET_LOADER = 'catalog/SET_LOADER';
 export const SET_ERROR = 'catalog/SET_ERROR';
 export const SET_INITIAL_PRODUCTS = 'catalog/SET_INITIAL';
 
-interface ProductsAction{
+export interface CatalogProductsAction{
     type: typeof GET_PRODUCTS
     data:Catalog
 }
-interface LoaderAction{
+export interface CatalogLoaderAction{
     type: typeof SET_LOADER
     state:boolean
 }
-interface ErrorAction{
+export interface CatalogErrorAction{
     type: typeof SET_ERROR
 }
-interface InitialAction{
+export interface CatalogInitialAction{
     type: typeof SET_INITIAL_PRODUCTS
 }
 interface InitialItem extends ProductItem{
@@ -47,9 +47,9 @@ const initialState = {
     products:getInitialItems(),
 };
 
-type Catalog = typeof initialState;
+export type Catalog = typeof initialState;
 
-type ActionTypes = ProductsAction|LoaderAction|ErrorAction|InitialAction
+type ActionTypes = CatalogProductsAction|CatalogLoaderAction|CatalogErrorAction|CatalogInitialAction
 
 const CatalogReducer = (state=initialState, action:ActionTypes):Catalog=>{
     switch (action.type) {

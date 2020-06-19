@@ -5,7 +5,7 @@ import {
     setErrorActionCreator,
     setInitialProductsActionCreator,
     setLoaderActionCreator
-} from "../actions/catalog-actions";
+} from "../action-creators/catalog-actions";
 
 const normalizeQuery = (query)=>{
     let prm = query[0]==='?'? query:'?'+query;

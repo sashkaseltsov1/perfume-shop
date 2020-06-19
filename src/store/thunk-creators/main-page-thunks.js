@@ -2,7 +2,7 @@ import instance from "../../api/products-api";
 import {
     setDiscountProductsActionCreator, setInitialActionCreator,
     setNoveltyProductsActionCreator
-} from "../actions/main-page-actions";
+} from "../action-creators/main-page-actions";
 
 
 

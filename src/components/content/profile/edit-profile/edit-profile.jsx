@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import renderField from "../../authentificatin/helpers/field-with-validators";
 import {min2max30, min6max20, required} from "../../authentificatin/helpers/validators";
 import { useDispatch} from "react-redux";
-import {editUserThunkCreator} from "../../../../store/thunks/user-thunks";
+import {editUserThunkCreator} from "../../../../store/thunk-creators/user-thunks";
 import normalizePhone from "./normalize-phone";
 import AddressField from "./addresses/addresses";
 import Button from "../../../templates/button/button";

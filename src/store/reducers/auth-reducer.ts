@@ -1,7 +1,7 @@
 export const SIGN_IN = 'auth/SIGN_IN';
 export const SIGN_OUT = 'auth/SIGN_OUT';
 
-interface UserData{
+export interface UserData{
     address?: string
     exp?:number
     iat?:number
@@ -11,12 +11,12 @@ interface UserData{
     _id?:string
 }
 
-interface SignInAction{
+export interface SignInAction{
     type: typeof SIGN_IN
     payload:UserData
 }
 
-interface SignOutAction {
+export interface SignOutAction {
     type: typeof SIGN_OUT
 }
 

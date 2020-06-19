@@ -5,7 +5,7 @@ import {
     resetFiltersActionCreator, setActiveFiltersActionCreator, setInitialActionCreator, setOptionActionCreator,
     setRangeOptionActionCreator, setSearchFilterActionCreator,
     setSortFilterActionCreator
-} from "../actions/filter-actions";
+} from "../action-creators/filter-actions";
 import {getProductsThunkCreator} from "./catalog-thunks";
 
 

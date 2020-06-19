@@ -4,15 +4,15 @@ export const SET_USER = 'user/SET_USER';
 export const SET_ERROR = 'user/SET_ERROR';
 export const SET_INITIAL = 'user/SET_INITIAL';
 
-interface UserAction {
+export interface UserAction {
     type: typeof SET_USER
     user:User
 }
-interface ErrorAction {
+export interface UserErrorAction {
     type: typeof SET_ERROR
     error:string
 }
-interface InitialAction {
+export interface UserInitialAction {
     type: typeof SET_INITIAL
 }
 interface Profile {
@@ -24,7 +24,7 @@ const initialState:Profile = {
     user:undefined,
     error:undefined
 };
-type ActionTypes = ErrorAction|UserAction|InitialAction
+type ActionTypes = UserErrorAction|UserAction|UserInitialAction
 
 const UserReducer = (state=initialState, action:ActionTypes):Profile=>{
     switch (action.type) {

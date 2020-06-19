@@ -1,5 +1,5 @@
 import userApi from '../../api/user-api';
-import {setErrorActionCreator, setInitialStateActionCreator, setUserActionCreator} from "../actions/user-actions";
+import {setErrorActionCreator, setInitialStateActionCreator, setUserActionCreator} from "../action-creators/user-actions";
 import {SubmissionError} from "redux-form";
 import {authenticate} from "./auth-thunks";
 

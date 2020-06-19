@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Categories from "./categories";
 import {connect} from "react-redux";
-import {getFiltersThunkCreator} from "../../../../store/thunks/filter-thunks";
+import {getFiltersThunkCreator} from "../../../../store/thunk-creators/filter-thunks";
 
 const CategoriesContainer = (props)=>{
     useEffect(()=>{

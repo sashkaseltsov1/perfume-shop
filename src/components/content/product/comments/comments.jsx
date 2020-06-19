@@ -2,7 +2,7 @@ import React from "react";
 import styles from './comments.module.css';
 import star from '../../../../images/star.svg';
 import {useDispatch} from "react-redux";
-import {removeOrRestoreCommentThunkCreator} from "../../../../store/thunks/product-thunks";
+import {removeOrRestoreCommentThunkCreator} from "../../../../store/thunk-creators/product-thunks";
 
 const Comments = ({comments, productId, role})=>{
 

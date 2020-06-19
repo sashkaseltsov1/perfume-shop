@@ -3,22 +3,22 @@ export const SET_ORDER = 'order/SET_ORDER';
 export const SET_ERROR = 'order/SET_ERROR';
 export const SET_INITIAL = 'order/SET_INITIAL';
 
-interface OrderAction{
+export interface OrderAction{
     type: typeof SET_ORDER
     order:OrderWithFullInfo
 }
-interface ErrorAction{
+export interface OrderErrorAction{
     type: typeof SET_ERROR
     error:string
 }
-interface InitialAction{
+export interface OrderInitialAction{
     type: typeof SET_INITIAL
 }
 interface OrderPage{
     order?:OrderWithFullInfo
     error?:string
 }
-type ActionTypes = OrderAction|ErrorAction|InitialAction
+type ActionTypes = OrderAction|OrderErrorAction|OrderInitialAction
 const initialState:OrderPage = {
     order:undefined,
     error:undefined

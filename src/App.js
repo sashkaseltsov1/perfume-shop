@@ -5,10 +5,10 @@ import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/footer/footer";
 import AdaptiveNavbar from "./components/navbar/adaptive-navbar";
 import {useDispatch} from "react-redux";
-import {authenticate} from "./store/thunks/auth-thunks";
+import {authenticate} from "./store/thunk-creators/auth-thunks";
 import ScrollToTop from "./components/content/helpers/scroll-to-top";
 import Bar from "./components/bar/bar";
-import {setCartThunkCreator} from "./store/thunks/cart-thunks";
+import {setCartThunkCreator} from "./store/thunk-creators/cart-thunks";
 
 const App = () => {
     const dispatch = useDispatch();

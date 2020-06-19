@@ -3,7 +3,7 @@ import Orders from "./orders/orders";
 import ReadProfile from "./read-profile/read-profile";
 import EditProfile from "./edit-profile/edit-profile";
 import styles from "./profile.module.css";
-import {signoutThunkCreator} from "../../../store/thunks/auth-thunks";
+import {signoutThunkCreator} from "../../../store/thunk-creators/auth-thunks";
 import {useDispatch} from "react-redux";
 import Button from "../../templates/button/button";
 import TextWithLine from "../../templates/text-with-line/text-with-line";

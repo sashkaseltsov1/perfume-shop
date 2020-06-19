@@ -3,7 +3,7 @@ import {
     addCommentActionCreator, appendCommentsActionCreator, removeOrRestoreCommentActionCreator, setErrorActionCreator,
     setInitialActionCreator, setIsFetchingActionCreator,
     setProductActionCreator, setTemplateActionCreator
-} from "../actions/product-actions";
+} from "../action-creators/product-actions";
 import {SubmissionError} from "redux-form";
 import {authenticate} from "./auth-thunks";
 
@@ -76,8 +76,8 @@ const getFormData = (product, file)=>{
     bodyFormData.set('perfumeType',product.perfumeType._id);
     bodyFormData.set('brand',product.brand._id);
     bodyFormData.set('gender',product.gender._id);
-    product.fragrance.forEach(fr=>{
-        bodyFormData.set('fragrance[]',fr._id);
+    product.fragrance.forEach((fr, index)=>{
+        bodyFormData.set(`fragrance[${index}]`,fr._id);
     });
     bodyFormData.append('image', file);
     return bodyFormData;

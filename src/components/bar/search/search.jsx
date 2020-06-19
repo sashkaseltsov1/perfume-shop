@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {
     filterThunkCreator,
     setSearchFilterThunkCreator
-} from "../../../store/thunks/filter-thunks";
+} from "../../../store/thunk-creators/filter-thunks";
 import {useHistory} from 'react-router-dom';
 import Button from "../../templates/button/button";
 

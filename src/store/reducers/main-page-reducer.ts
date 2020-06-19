@@ -3,15 +3,15 @@ import {ProductItem} from "../types/product";
 export const SET_NOVELTY_PRODUCTS = 'main/SET_NOVELTY_PRODUCTS';
 export const SET_DISCOUNT_PRODUCTS = 'main/SET_DISCOUNT_PRODUCTS';
 export const SET_INITIAL = 'main/SET_INITIAL';
-interface NoveltyAction{
+export interface MainPageNoveltyAction{
     type:typeof SET_NOVELTY_PRODUCTS
     products:Array<ProductItem>
 }
-interface DiscountAction{
+export interface MainPageDiscountAction{
     type:typeof SET_DISCOUNT_PRODUCTS
     products:Array<ProductItem>
 }
-interface InitialAction{
+export interface MainPageInitialAction{
     type:typeof SET_INITIAL
 }
 interface MainPage {
@@ -19,7 +19,7 @@ interface MainPage {
     discountProducts?:Array<ProductItem>
 }
 
-type ActionTypes = NoveltyAction|DiscountAction|InitialAction
+type ActionTypes = MainPageNoveltyAction|MainPageDiscountAction|MainPageInitialAction
 
 const initialState:MainPage = {
     noveltyProducts:undefined,

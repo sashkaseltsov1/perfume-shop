@@ -1,5 +1,5 @@
 import instance from "../../api/filters-api";
-import {setErrorActionCreator, setFilterActionCreator} from "../actions/edit-filter-actions";
+import {setErrorActionCreator, setFilterActionCreator} from "../action-creators/edit-filter-actions";
 import {authenticate} from "./auth-thunks";
 
 export const getFilterThunkCreator = (category)=>{

@@ -5,7 +5,7 @@ import {email, min2max30, min6max20, required} from "../helpers/validators";
 import formStyles from '../form-styles.module.css';
 import renderField from "../helpers/field-with-validators";
 import {useDispatch} from "react-redux";
-import {signupThunkCreator} from "../../../../store/thunks/auth-thunks";
+import {signupThunkCreator} from "../../../../store/thunk-creators/auth-thunks";
 import Button from "../../../templates/button/button";
 const SignUp = (props)=>{
     const dispatch = useDispatch();

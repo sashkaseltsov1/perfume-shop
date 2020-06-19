@@ -7,8 +7,8 @@ import {
     addFilterThunkCreator,
     getFilterThunkCreator,
     removeFilterThunkCreator
-} from "../../../store/thunks/edit-filter-thunks";
-import {setInitialActionCreator} from "../../../store/actions/edit-filter-actions";
+} from "../../../store/thunk-creators/edit-filter-thunks";
+import {setInitialActionCreator} from "../../../store/action-creators/edit-filter-actions";
 import EditFilter from "./edit-filter";
 
 const EditFilterContainer = ({filter,role, ...props})=>{

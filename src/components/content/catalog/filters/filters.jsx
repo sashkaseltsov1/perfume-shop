@@ -7,7 +7,7 @@ import SimpleFilter from "./items/simple-filter";
 import WithConnection from "./wrappers/with-connection";
 import {connect} from "react-redux";
 import SliderWithTwoHandles from "./items/sliderWithTwoHandles";
-import {setRangeOptionThunkCreator} from "../../../../store/thunks/filter-thunks";
+import {setRangeOptionThunkCreator} from "../../../../store/thunk-creators/filter-thunks";
 import Button from "../../../templates/button/button";
 
 const Filters = (props)=>{

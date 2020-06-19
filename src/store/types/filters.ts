@@ -1,6 +1,6 @@
 export interface FilterOption {
-    _id:string
-    type:string
+    _id?:string
+    type?:string
     state:boolean
 }
 export interface Filter {

@@ -10,12 +10,12 @@ import ems from '../../../../images/delivery/ems.jpg';
 import pay from '../../../../images/payment/pay.jpg';
 import RadioInput from "../../../templates/input/radio-input";
 import TextWithLine from "../../../templates/text-with-line/text-with-line";
-import {addOrderThunkCreator} from "../../../../store/thunks/order-thunks";
+import {addOrderThunkCreator} from "../../../../store/thunk-creators/order-thunks";
 import {NavLink} from "react-router-dom";
 import {useHistory} from 'react-router-dom';
-import {setCartThunkCreator} from "../../../../store/thunks/cart-thunks";
+import {setCartThunkCreator} from "../../../../store/thunk-creators/cart-thunks";
 import Button from "../../../templates/button/button";
-import {getUserThunkCreator} from "../../../../store/thunks/user-thunks";
+import {getUserThunkCreator} from "../../../../store/thunk-creators/user-thunks";
 const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, submitSucceeded, ...props})=>{
     const history = useHistory();
     useEffect(()=>{
