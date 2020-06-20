@@ -9,18 +9,19 @@ import {
 import {getProductsThunkCreator} from "./catalog-thunks";
 
 
+
 export const setRangeOptionThunkCreator = (values) =>{
     return (dispatch)=>{
         dispatch(setRangeOptionActionCreator(values));
     }
 };
-export const setSortFilterThunkCreator = (value) =>{
+export const setSortFilterThunkCreator = (value)=>{
     return (dispatch)=>{
         dispatch(setSortFilterActionCreator(value));
         dispatch(filterThunkCreator());
     }
 };
-export const setSearchFilterThunkCreator = (value) =>{
+export const setSearchFilterThunkCreator = (value)=>{
     return (dispatch)=>{
         dispatch(setSearchFilterActionCreator(value));
     }
@@ -74,10 +75,8 @@ const initializeActiveFilters = (filters)=>{
 
 export const abortActiveFilterThunkCreator = (category, optionId, state)=>{
     return (dispatch) =>{
-        if(!state.isInitial){
-            dispatch(setOptionActionCreator(category, optionId, state));
-            dispatch(filterThunkCreator());
-        }
+        dispatch(setOptionActionCreator(category, optionId, state));
+        dispatch(filterThunkCreator());
     }
 };
 export const filterThunkCreator = ()=>{
@@ -99,7 +98,7 @@ const parseQueryString = (queryString)=>{
         let arr=[];
         array.forEach(item=>{
             let regexp = new RegExp(item+'=[a-zA-Z0-9%]+');
-            let temp = queryString.match(regexp);
+            let temp = string.match(regexp);
             if(temp) {
                 regexp = new RegExp(`[^${item}=][a-zA-Z0-9%]+`);
                 temp=temp[0].match(regexp);
@@ -117,12 +116,29 @@ const parseQueryString = (queryString)=>{
     let find = queryString.match(/find=[a-zA-Zа-яА-Я0-9]+/);
     if(isNovelty) options.push('isNovelty');
     if(isDiscount) options.push('isDiscount');
-    min=min? min[0].match(/[^min=][0-9]+/)[0]:0;
-    max=max? max[0].match(/[^max=][0-9]+/)[0]:50000;
-    sort=sort? sort[0].match(/[^sort=][a-z]+/)[0]:null;
-    find=find? find[0].match(/[^find=][а-яА-Яa-zA-Z0-9]+/)[0]:null;
-    return [options, [min,max], sort, find];
+    let minRange = 0;
+    if(min){
+        let minMatchArray = min[0].match(/[^min=][0-9]+/);
+        minRange=minMatchArray? minMatchArray[0]:0
+    }
+    let maxRange = 50000;
+    if(max){
+        let maxMatchArray = max[0].match(/[^max=][0-9]+/);
+        maxRange=maxMatchArray? maxMatchArray[0]:50000
+    }
+    let sortSwitch=null;
+    if(sort){
+        let sortMatchArray = sort[0].match(/[^sort=][a-z]+/);
+        sortSwitch = sortMatchArray && sortMatchArray[0]==='inc'?sortMatchArray[0]:null
+    }
+    let findStr = '';
+    if(find){
+        let findMatchArray = find[0].match(/[^find=][а-яА-Яa-zA-Z0-9]+/);
+        findStr = findMatchArray?findMatchArray[0]:''
+    }
+    return [options, [minRange,maxRange], sortSwitch, findStr];
 };
+
 
 export const getFiltersThunkCreator = ()=>{
     return (dispatch)=>{
@@ -145,6 +161,7 @@ export const getFiltersThunkCreator = ()=>{
                     sliderState:ranges,
                     fieldState:ranges
                 };
+
                 dispatch(getFiltersActionCreator({
                         filters:data,
                         rangeFilter:rangeFilter,

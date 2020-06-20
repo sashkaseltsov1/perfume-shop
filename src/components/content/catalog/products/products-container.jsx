@@ -8,9 +8,14 @@ const ProductsContainer = (props)=>{
     useEffect(()=>{
         props.getProductsThunkCreator(props.location.search, false);
         return props.history.listen((location) => {
-            props.setInitialProductsThunkCreator();
+            location.pathname==='/shop/catalog' &&props.setInitialProductsThunkCreator();
             location.pathname==='/shop/catalog' && props.getProductsThunkCreator(location.search, false);
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+    useEffect(()=>{
+        return ()=>{
+            props.history.location.pathname!=='/shop/catalog' &&props.setInitialProductsThunkCreator();}
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     return (

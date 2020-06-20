@@ -24,12 +24,19 @@ const FiltersContainer = (props)=>{
     useEffect(() => {
         props.getFiltersThunkCreator();
         return props.history.listen((location) => {
-            props.setInitialFiltersThunkCreator();
+            location.pathname==='/shop/catalog' && props.setInitialFiltersThunkCreator();
             location.pathname==='/shop/catalog' && props.getFiltersThunkCreator();
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
+    useEffect(() => {
+        props.getFiltersThunkCreator();
+        return () => {
+            props.history.location.pathname!=='/shop/catalog' && props.setInitialFiltersThunkCreator();
 
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
     return ( <Filters targetRef={targetRef}
                       isTabletOrMobile={isTabletOrMobile}
                       filterState={props.filterState}

@@ -54,7 +54,8 @@ type ActionTypes = CatalogProductsAction|CatalogLoaderAction|CatalogErrorAction|
 const CatalogReducer = (state=initialState, action:ActionTypes):Catalog=>{
     switch (action.type) {
         case SET_INITIAL_PRODUCTS:
-            return {...initialState};
+            console.log('initia')
+            return initialState;
         case SET_ERROR:
             return {...initialState,products:[], error:'some error.ts', isLoading: false};
         case SET_LOADER:

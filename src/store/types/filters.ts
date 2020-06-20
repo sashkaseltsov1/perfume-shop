@@ -10,8 +10,8 @@ export interface Filter {
 }
 export interface ActiveFilter {
     category:string
-    optionId:string
-    type:string
+    optionId?:string
+    type?:string
 }
 export interface RangeFilter {
     domain:[number, number]
