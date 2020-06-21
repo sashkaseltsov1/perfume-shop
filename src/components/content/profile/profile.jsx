@@ -9,8 +9,6 @@ import Button from "../../templates/button/button";
 import TextWithLine from "../../templates/text-with-line/text-with-line";
 import {NavLink} from "react-router-dom";
 
-
-
 const Profile = (props)=>{
     const [isEditing, setState] = useState(true);
     const dispatch = useDispatch();
@@ -51,7 +49,6 @@ const Profile = (props)=>{
                 </div>
             </div>}
             <Orders user={props.profile.user}/>
-
         </div>
     )
 };

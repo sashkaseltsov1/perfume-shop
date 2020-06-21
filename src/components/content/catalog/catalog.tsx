@@ -5,12 +5,9 @@ import FiltersContainer from "./filters/filters-container";
 import ActiveFilters from "./active-filters/active-filters";
 import PagesContainer from "./pages/pages-container";
 import ProductsContainer from "./products/products-container";
+import {RouteComponentProps} from "react-router-dom";
 
-
-
-
-const Catalog = (props)=>{
-
+const Catalog = (props:RouteComponentProps)=>{
     const [filterState, setFilterState] = useState(true);
 
     return (
@@ -25,7 +22,7 @@ const Catalog = (props)=>{
             </div>
             <div className={styles.products}>
                 <ActiveFilters/>
-                <ProductsContainer location={props.location} history={props.history}/>
+                <ProductsContainer location={props.location} history={props.history} match={props.match}/>
                 <PagesContainer/>
             </div>
         </div>

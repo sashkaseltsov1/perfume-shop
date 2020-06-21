@@ -2,7 +2,13 @@ import React from "react";
 import styles from './products.module.css'
 import Item from "../../../templates/item/item";
 import Loader from "../../../templates/loader/loader";
-const Products = (props)=>{
+import {Catalog} from "../../../../store/reducers/catalog-reducer";
+
+interface Props {
+    products:Catalog
+}
+
+const Products:React.FC<Props> = (props)=>{
 
     return (
         <div>

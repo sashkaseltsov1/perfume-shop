@@ -15,7 +15,7 @@ export interface UserErrorAction {
 export interface UserInitialAction {
     type: typeof SET_INITIAL
 }
-interface Profile {
+export interface Profile {
     user?:User,
     error?:string
 }
