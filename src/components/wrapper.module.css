@@ -2,8 +2,6 @@
     width: 1020px;
     margin: 0 auto;
 }
-
-
 @media screen and (max-width: 1120px) {
     .wrapper{
         width: 94%;
