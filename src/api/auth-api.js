@@ -18,7 +18,7 @@ const authApi = {
         let refreshToken = localStorage.refreshToken;
         if(token && refreshToken){
             let decode = jwtDecode(token);
-            if (Date.now() >= decode.exp * 1000){
+            if (decode.exp && Date.now() >= decode.exp * 1000){
                 try {
                     let response = await instance.put('/refresh-token', {refreshToken:refreshToken});
                     saveTokens(response.data);
