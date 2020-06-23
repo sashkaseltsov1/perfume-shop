@@ -1,6 +1,6 @@
 import instance from "../../api/products-api";
 import {
-    setDiscountProductsActionCreator, setInitialActionCreator,
+    setDiscountProductsActionCreator,
     setNoveltyProductsActionCreator
 } from "../action-creators/main-page-actions";
 import {ThunkAction} from "redux-thunk";
@@ -28,10 +28,5 @@ export const getDiscountProductsThunkCreator = ():ThunkAction<void, RootState, v
             .catch( (error) =>{
                 console.log(error);
             })
-    }
-};
-export const setInitialThunkCreator = ():ThunkAction<void, RootState, void, AnyAction>=>{
-    return (dispatch)=>{
-        dispatch(setInitialActionCreator());
     }
 };

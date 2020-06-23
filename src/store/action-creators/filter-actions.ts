@@ -11,7 +11,7 @@ import {
 } from "../reducers/filter-reducer";
 import {ActiveFilter, RangeFilter} from "../types/filters";
 
-export const setInitialActionCreator = ():FiltersInitialAction=>{
+export const setInitialFilterActionCreator = ():FiltersInitialAction=>{
     return {
         type:SET_INITIAL,
     }

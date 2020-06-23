@@ -1,5 +1,5 @@
 import ordersApi from '../../api/orders-api';
-import {setErrorActionCreator, setInitialActionCreator, setOrderActionCreator} from "../action-creators/order-actions";
+import {setErrorActionCreator, setOrderActionCreator} from "../action-creators/order-actions";
 import {authenticate} from "./auth-thunks";
 import {SubmissionError} from "redux-form";
 import {ThunkAction} from "redux-thunk";
@@ -35,10 +35,5 @@ export const addOrderThunkCreator = (deliveryType:string, paymentType:string, ad
             return ordersApi.addOrder(productIds, address, deliveryType, paymentType)
                 .catch((err)=>{throw new SubmissionError({_error:err.response.data.message})})
         }
-    }
-};
-export const setInitialThunkCreator = ():ThunkAction<void, RootState, void, AnyAction>=>{
-    return (dispatch)=>{
-        dispatch(setInitialActionCreator());
     }
 };

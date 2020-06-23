@@ -3,7 +3,6 @@ import { createBrowserHistory } from "history";
 import {
     getProductsActionCreator,
     setErrorActionCreator,
-    setInitialProductsActionCreator,
     setLoaderActionCreator
 } from "../action-creators/catalog-actions";
 import {ThunkAction} from "redux-thunk";
@@ -31,11 +30,5 @@ export const getProductsThunkCreator = (queries='', isPushNewQuery=true):ThunkAc
                 dispatch(setErrorActionCreator());
                 console.log(error);
             })
-    }
-};
-
-export const setInitialProductsThunkCreator = ():ThunkAction<void, RootState, void, AnyAction>=>{
-    return (dispatch) =>{
-        dispatch(setInitialProductsActionCreator());
     }
 };

@@ -4,12 +4,13 @@ import {connect, useDispatch} from "react-redux";
 import SwiperContainer from "../../templates/swiper/swiper-container";
 import {
     getDiscountProductsThunkCreator,
-    getNoveltyProductsThunkCreator, setInitialThunkCreator
+    getNoveltyProductsThunkCreator
 } from "../../../store/thunk-creators/main-page-thunks";
 import config from "../../../config/config";
 import MainBanner from "../../templates/main-banner/main-banner";
 import SimpleSwiper from "../../templates/swiper/swiper";
 import CategoriesContainer from "./categories/categories-container";
+import {setInitialActionCreator} from "../../../store/action-creators/main-page-actions";
 const slides = [
     {
         image:`${config.apiUrl}banners/banner6.jpg`,
@@ -32,7 +33,7 @@ const items = slides.map(item=><div key={item.image}><MainBanner image={item.ima
 const Main = ()=>{
     let dispatch = useDispatch();
     useEffect(()=>{
-        return ()=>dispatch(setInitialThunkCreator());
+        return ()=>dispatch(setInitialActionCreator());
         //eslint-disable-next-line
     },[]);
     let Novelty = connect((state)=>({items:state.mainPage.noveltyProducts}),

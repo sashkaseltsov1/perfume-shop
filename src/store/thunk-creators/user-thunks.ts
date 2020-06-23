@@ -1,5 +1,5 @@
 import userApi from '../../api/user-api';
-import {setErrorActionCreator, setInitialStateActionCreator, setUserActionCreator} from "../action-creators/user-actions";
+import {setErrorActionCreator, setUserActionCreator} from "../action-creators/user-actions";
 import {SubmissionError} from "redux-form";
 import {authenticate} from "./auth-thunks";
 import {ThunkAction} from "redux-thunk";
@@ -29,11 +29,7 @@ export const getUserThunkCreator = ():ThunkAction<void, RootState, void, AnyActi
         }
     }
 };
-export const setInitialThunkCreator = ():ThunkAction<void, RootState, void, AnyAction>=>{
-    return (dispatch)=>{
-        dispatch(setInitialStateActionCreator());
-    }
-};
+
 export const editUserThunkCreator = (values:NewUserValues):ThunkAction<void, RootState, void, AnyAction>=>{
     return async (dispatch, getState)=>{
         await dispatch(authenticate());

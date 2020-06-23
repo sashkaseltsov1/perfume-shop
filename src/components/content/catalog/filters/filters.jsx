@@ -7,15 +7,15 @@ import SimpleFilter from "./items/simple-filter";
 import WithConnection from "./wrappers/with-connection";
 import {connect} from "react-redux";
 import SliderWithTwoHandles from "./items/sliderWithTwoHandles";
-import {setRangeOptionThunkCreator} from "../../../../store/thunk-creators/filter-thunks";
 import Button from "../../../templates/button/button";
+import {setRangeOptionActionCreator} from "../../../../store/action-creators/filter-actions";
 
 const Filters = (props)=>{
     const getScrollbarWidth = ()=> {
         return window.innerWidth - document.documentElement.clientWidth;
     };
     const Slider = connect((state)=>({item:state.filters.rangeFilter}),
-        {setRangeOptionThunkCreator})(WithVisibility(SliderWithTwoHandles));
+        {setRangeOptionActionCreator})(WithVisibility(SliderWithTwoHandles));
     return (
         <div className={cn(styles.filters, (props.isTabletOrMobile && props.filterState &&  styles.hideFilters))}
              ref={props.targetRef}

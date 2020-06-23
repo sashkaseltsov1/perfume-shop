@@ -27,22 +27,26 @@ const SliderWithTwoHandles = (props)=>{
                         <span>от </span>
                         <input type={'text'} value={props.item.fieldState[0]}
                                onBlur={(event)=>{
-                                   props.setRangeOptionThunkCreator({...props.item, sliderState:[event.target.value, props.item.fieldState[1]]})
+                                   props.setRangeOptionActionCreator(
+                                       {...props.item, sliderState:[event.target.value, props.item.fieldState[1]]})
                                }}
                                onChange={(event)=>{
                                    /^([0-9]*)$/.test(event.target.value) &&
-                                       props.setRangeOptionThunkCreator({...props.item, fieldState:[event.target.value, props.item.fieldState[1]]})
+                                       props.setRangeOptionActionCreator(
+                                           {...props.item, fieldState:[event.target.value, props.item.fieldState[1]]})
                                   }} />
                     </div>
                     <div className={styles.cost}>
                         <span>до </span>
                         <input type={'text'} value={props.item.fieldState[1]}
                                onBlur={(event)=>{
-                                   props.setRangeOptionThunkCreator({...props.item, sliderState:[props.item.fieldState[0],event.target.value]})
+                                   props.setRangeOptionActionCreator(
+                                       {...props.item, sliderState:[props.item.fieldState[0],event.target.value]})
                                }}
                                onChange={(event)=>{
                                    /^([0-9]*)$/.test(event.target.value) &&
-                                   props.setRangeOptionThunkCreator({...props.item, fieldState:[props.item.fieldState[0],event.target.value]})
+                                   props.setRangeOptionActionCreator(
+                                       {...props.item, fieldState:[props.item.fieldState[0],event.target.value]})
                                    }
                                }/>
                     </div>
@@ -50,7 +54,7 @@ const SliderWithTwoHandles = (props)=>{
                 </div>
             </div>
             <Slider
-                onUpdate={(event)=>props.setRangeOptionThunkCreator({...props.item, fieldState:event})}
+                onUpdate={(event)=>props.setRangeOptionActionCreator({...props.item, fieldState:event})}
                 rootStyle={sliderStyle}
                 domain={props.item.domain}
                 step={1}
@@ -111,7 +115,7 @@ const Track = ({ source, target, getTrackProps })=> {
                 left: `${source.percent}%`,
                 width: `${target.percent - source.percent}%`,
             }}
-            {...getTrackProps() /* this will set up events if you want it to be clickeable (optional) */}
+            {...getTrackProps() }
         />
     )
 }

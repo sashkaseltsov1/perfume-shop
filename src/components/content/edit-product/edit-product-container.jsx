@@ -7,12 +7,10 @@ import PageNotFound from "../page-not-found/page-not-found";
 import {
     createProductThunkCreator,
     getProductThunkCreator, removeProductThunkCreator,
-    setInitialThunkCreator, updateProductThunkCreator
+    updateProductThunkCreator
 } from "../../../store/thunk-creators/product-thunks";
-import {
-    getFiltersThunkCreator,
-    setInitialFiltersThunkCreator,
-} from "../../../store/thunk-creators/filter-thunks";
+
+import {getFiltersThunkCreator} from "../../../store/thunk-creators/filter-thunks";
 import { createSelector } from 'reselect';
 import {
     appendFragranceActionCreator,
@@ -23,10 +21,11 @@ import {
     setDescriptionActionCreator,
     setDiscountActionCreator,
     setFullpriseActionCreator,
-    setGenderActionCreator, setImageActionCreator,
+    setGenderActionCreator, setImageActionCreator, setInitialActionCreator,
     setNameActionCreator,
     setNoveltyActionCreator, setTemplateActionCreator, setTypeActionCreator
 } from "../../../store/action-creators/product-actions";
+import {setInitialFilterActionCreator} from "../../../store/action-creators/filter-actions";
 
 
 
@@ -42,8 +41,8 @@ const EditProductContainer = ({product, role, filters,isEdit, ...props})=>{
 
         props.getFiltersThunkCreator();
         return ()=>{
-            props.setInitialThunkCreator();
-            props.setInitialFiltersThunkCreator();
+            props.setInitialActionCreator();
+            props.setInitialFilterActionCreator();
         }
         // eslint-disable-next-line
     },[]);
@@ -112,10 +111,10 @@ const getProductWithFilters = createSelector(
 
 export default connect(state=>getProductWithFilters(state)
 , {
-    setInitialThunkCreator,
+    setInitialActionCreator,
     getProductThunkCreator,
     getFiltersThunkCreator,
-    setInitialFiltersThunkCreator,
+    setInitialFilterActionCreator,
     setNameActionCreator,
     setAmountActionCreator,
     setDescriptionActionCreator,

@@ -2,44 +2,22 @@ import instance from "../../api/filters-api";
 import { createBrowserHistory } from "history";
 import {
     getFiltersActionCreator,
-    resetFiltersActionCreator, setActiveFiltersActionCreator, setInitialActionCreator, setOptionActionCreator,
-    setRangeOptionActionCreator, setSearchFilterActionCreator,
+    resetFiltersActionCreator, setActiveFiltersActionCreator, setOptionActionCreator,
     setSortFilterActionCreator
 } from "../action-creators/filter-actions";
 import {getProductsThunkCreator} from "./catalog-thunks";
 
-
-
-export const setRangeOptionThunkCreator = (values) =>{
-    return (dispatch)=>{
-        dispatch(setRangeOptionActionCreator(values));
-    }
-};
 export const setSortFilterThunkCreator = (value)=>{
     return (dispatch)=>{
         dispatch(setSortFilterActionCreator(value));
         dispatch(filterThunkCreator());
     }
 };
-export const setSearchFilterThunkCreator = (value)=>{
-    return (dispatch)=>{
-        dispatch(setSearchFilterActionCreator(value));
-    }
-};
-export const setInitialFiltersThunkCreator = ()=>{
-    return (dispatch)=>{
-        dispatch(setInitialActionCreator());
-    }
-};
+
 export const resetFiltersThunkCreator = () =>{
     return (dispatch)=>{
         dispatch(resetFiltersActionCreator());
         dispatch(getProductsThunkCreator('?'));
-    }
-}
-export const setOptionThunkCreator = (category, optionId, state)=>{
-    return (dispatch)=>{
-        dispatch(setOptionActionCreator(category, optionId, state));
     }
 };
 const joinStateToQueryString = (state)=>{
@@ -80,7 +58,6 @@ export const abortActiveFilterThunkCreator = (category, optionId, state)=>{
     }
 };
 export const filterThunkCreator = ()=>{
-
     return (dispatch, getState) =>{
         let state = getState().filters;
         if(!state.isInitial)
@@ -90,7 +67,6 @@ export const filterThunkCreator = ()=>{
             dispatch(setActiveFiltersActionCreator(activeFilters));
             dispatch(getProductsThunkCreator(queryString))
         }
-
     }
 };
 const parseQueryString = (queryString)=>{

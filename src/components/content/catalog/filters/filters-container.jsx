@@ -6,8 +6,9 @@ import Filters from "./filters";
 import {
     filterThunkCreator,
     getFiltersThunkCreator,
-    resetFiltersThunkCreator, setInitialFiltersThunkCreator
+    resetFiltersThunkCreator
 } from "../../../../store/thunk-creators/filter-thunks";
+import {setInitialFilterActionCreator} from "../../../../store/action-creators/filter-actions";
 
 const FiltersContainer = (props)=>{
     const  handleMediaQueryChange  = () => {!isTabletOrMobile && props.setFilterState(true)};
@@ -24,7 +25,7 @@ const FiltersContainer = (props)=>{
     useEffect(() => {
         props.getFiltersThunkCreator();
         return props.history.listen((location) => {
-            location.pathname==='/shop/catalog' && props.setInitialFiltersThunkCreator();
+            location.pathname==='/shop/catalog' && props.setInitialFilterActionCreator();
             location.pathname==='/shop/catalog' && props.getFiltersThunkCreator();
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,7 +33,7 @@ const FiltersContainer = (props)=>{
     useEffect(() => {
         props.getFiltersThunkCreator();
         return () => {
-            props.history.location.pathname!=='/shop/catalog' && props.setInitialFiltersThunkCreator();
+            props.history.location.pathname!=='/shop/catalog' && props.setInitialFilterActionCreator();
 
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,4 +50,4 @@ const FiltersContainer = (props)=>{
 export default connect(null,{getFiltersThunkCreator,
     filterThunkCreator,
     resetFiltersThunkCreator,
-    setInitialFiltersThunkCreator}) (FiltersContainer);
+    setInitialFilterActionCreator}) (FiltersContainer);

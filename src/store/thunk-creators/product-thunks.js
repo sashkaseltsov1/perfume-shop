@@ -1,7 +1,7 @@
 import productsApi from '../../api/products-api';
 import {
     addCommentActionCreator, appendCommentsActionCreator, removeOrRestoreCommentActionCreator, setErrorActionCreator,
-    setInitialActionCreator, setIsFetchingActionCreator,
+    setIsFetchingActionCreator,
     setProductActionCreator, setTemplateActionCreator
 } from "../action-creators/product-actions";
 import {SubmissionError} from "redux-form";
@@ -32,11 +32,6 @@ export const appendCommentsThunkCreator = (id)=>{
     }
 };
 
-export const setInitialThunkCreator = ()=>{
-    return (dispatch)=>{
-        dispatch(setInitialActionCreator());
-    }
-};
 export const addCommentThunkCreator = (productId, message, stars)=>{
     return (dispatch, getState)=>{
         let username = getState().auth?.name;

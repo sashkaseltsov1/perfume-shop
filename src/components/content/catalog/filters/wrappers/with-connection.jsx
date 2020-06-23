@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setOptionThunkCreator} from "../../../../../store/thunk-creators/filter-thunks";
+import {setOptionActionCreator} from "../../../../../store/action-creators/filter-actions";
+
 
 
 
@@ -12,7 +13,7 @@ const WithConnection = (Component, id)=>{
     };
     return connect(
         (state)=>({item:state.filters.filters[id]}),
-        {setOptionThunkCreator})
+        {setOptionActionCreator})
     (WithConnectionComponent);
 };
 
