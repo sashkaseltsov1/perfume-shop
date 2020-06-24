@@ -1,4 +1,6 @@
 import {
+    FETCH_USER_DATA,
+    FetchUserDataAction,
     SET_ERROR,
     SET_INITIAL,
     SET_USER,
@@ -20,6 +22,12 @@ export const setErrorActionCreator = (error:string):UserErrorAction=>{
         error:error
     }
 };
+export const fetchUserDataActionCreator = ():FetchUserDataAction=>{
+    return {
+        type:FETCH_USER_DATA,
+    }
+};
+
 export const setInitialStateActionCreator = ():UserInitialAction=>{
     return {
         type:SET_INITIAL,

@@ -10,22 +10,23 @@ import ems from '../../../../images/delivery/ems.jpg';
 import pay from '../../../../images/payment/pay.jpg';
 import RadioInput from "../../../templates/input/radio-input";
 import TextWithLine from "../../../templates/text-with-line/text-with-line";
-import {addOrderThunkCreator} from "../../../../store/thunk-creators/order-thunks";
 import {NavLink} from "react-router-dom";
 import {useHistory} from 'react-router-dom';
-import {setCartThunkCreator} from "../../../../store/thunk-creators/cart-thunks";
 import Button from "../../../templates/button/button";
-import {getUserThunkCreator} from "../../../../store/thunk-creators/user-thunks";
+import {fetchUserDataActionCreator} from "../../../../store/action-creators/user-actions";
+import {onSubmitActions} from "redux-form-submit-saga";
+import {ADD_ORDER_FORM} from "../../../../store/redux-form-actions/add-order";
+
 const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, submitSucceeded, ...props})=>{
     const history = useHistory();
     useEffect(()=>{
-        props.getUserThunkCreator();
+        props.fetchUserDataActionCreator();
         //eslint-disable-next-line
     },[]);
     useEffect(()=>{
         if(submitSucceeded) {
             localStorage.removeItem('cart');
-            dispatch(setCartThunkCreator());
+            props.initCartActionCreator();
             history.push('/shop/success');
         }
         //eslint-disable-next-line
@@ -34,9 +35,7 @@ const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, s
         <div>
             <TextWithLine name={'Оформить заказ'}/>
             {isAuth === true && <form
-                onSubmit={handleSubmit(values => {
-                    return dispatch(addOrderThunkCreator(values.deliveryType, values.paymentType, address));
-                })}
+                onSubmit={handleSubmit}
                 className={styles.form}>
                 <div className={styles.text}>Адрес доставки:</div>
                 <span className={cn(styles.text, styles.address)}>
@@ -70,5 +69,6 @@ const AddOrder = ({handleSubmit, dispatch, submitting, error, address, isAuth, s
     )
 };
 
-export default connect(state=>({address:state.profile.user?.address, isAuth:state.auth?.isAuthorized}),{getUserThunkCreator})
-(reduxForm({form: 'AddOrder'})(AddOrder));
+export default connect(state=>({address:state.profile.user?.address, isAuth:state.auth?.isAuthorized}),
+    {fetchUserDataActionCreator})
+(reduxForm({form: 'AddOrder', onSubmit: onSubmitActions(ADD_ORDER_FORM)})(AddOrder));

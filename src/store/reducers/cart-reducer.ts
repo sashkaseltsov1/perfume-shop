@@ -1,7 +1,21 @@
-import {ProductCartItem} from "../types/product";
+import {ProductCartItem, ProductWithFullInfo} from "../types/product";
 export const SET_CART = 'cart/SET_CART';
+export const INIT_CART = 'cart/INIT_CART';
+export const APPEND_PRODUCT = 'cart/APPEND_PRODUCT';
+export const REMOVE_PRODUCT = 'cart/REMOVE_PRODUCT';
 
 export type Cart = typeof initialState;
+export interface InitCartAction {
+    type:typeof INIT_CART
+}
+export interface AppendProductCartAction {
+    type:typeof APPEND_PRODUCT
+    product:ProductWithFullInfo
+}
+export interface RemoveProductCartAction {
+    type:typeof REMOVE_PRODUCT
+    product:ProductCartItem
+}
 export interface CartAction {
     type:typeof SET_CART
     cart:Cart

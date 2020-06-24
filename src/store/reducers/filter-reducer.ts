@@ -7,7 +7,31 @@ export const RESET_FILTERS = 'filters/RESET_FILTERS';
 export const SET_ACTIVE_FILTERS='filters/SET_ACTIVE_FILTERS';
 export const SET_SORT='filters/SET_SORT';
 export const SET_INITIAL='filters/SET_INITIAL';
+export const FETCH_FILTERS='filters/FETCH_FILTERS';
+export const APPLY_FILTERS='filters/APPLY_FILTERS';
+export const ABORT_ACTIVE_FILTER='filters/ABORT_ACTIVE_FILTER';
+export const CANCEL_ALL_FILTERS='filters/CANCEL_ALL_FILTERS';
+export const APPLY_SORT_FILTER='filters/APPLY_SORT_FILTER';
 
+export interface ApplySortFilterAction {
+    type: typeof APPLY_SORT_FILTER
+    value:string
+}
+export interface ApplyFiltersAction {
+    type: typeof APPLY_FILTERS
+}
+export interface CancelAllFiltersAction {
+    type: typeof CANCEL_ALL_FILTERS
+}
+export interface FetchFiltersAction {
+    type: typeof FETCH_FILTERS
+}
+export interface AbortActiveFilterAction {
+    type: typeof ABORT_ACTIVE_FILTER
+    category:string
+    optionId:string
+    state:boolean
+}
 export interface FiltersSearchAction {
     type: typeof SET_SEARCH
     value:string

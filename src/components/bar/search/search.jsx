@@ -1,16 +1,15 @@
 import React from "react";
 import styles from './search.module.css';
 import {connect} from "react-redux";
-import {filterThunkCreator} from "../../../store/thunk-creators/filter-thunks";
 import {useHistory} from 'react-router-dom';
 import Button from "../../templates/button/button";
-import {setSearchFilterActionCreator} from "../../../store/action-creators/filter-actions";
+import {applyFiltersActionCreator, setSearchFilterActionCreator} from "../../../store/action-creators/filter-actions";
 
 const Search = (props)=>{
     const history = useHistory();
     const findHandler = ()=>{
         if (history.location.pathname==='/shop/catalog'){
-            props.filterThunkCreator()
+            props.applyFiltersActionCreator()
         }else{
             history.push('/shop/catalog?find='+props.search)
         }
@@ -34,4 +33,4 @@ const Search = (props)=>{
 };
 
 export default connect(state=>({search:state.filters.search}),
-    {setSearchFilterActionCreator, filterThunkCreator})(Search);
+    {setSearchFilterActionCreator, applyFiltersActionCreator})(Search);

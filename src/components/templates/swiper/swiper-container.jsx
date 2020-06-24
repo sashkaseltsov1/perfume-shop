@@ -20,7 +20,7 @@ const SwiperContainer = ({getItems, items})=>{
     const slides = items? items.map((item, index) => (<div key={item._id+index} className={'slide'}><Item item={item}/></div>)):
         getInitialItems().map(item => (<div key={item._id} className={'slide'}><Item item={item}/></div>));
     useEffect(()=>{
-        getItems();
+        getItems && getItems();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return(

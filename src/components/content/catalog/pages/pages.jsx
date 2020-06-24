@@ -3,6 +3,7 @@ import styles from './pages.module.css'
 import arrow from '../../../../images/slider-arrow.svg'
 import cn from 'classnames'
 import { createBrowserHistory } from "history";
+
 const getPages = (page, count)=>{
     let pages=[];
     if(count<=5) {
@@ -53,21 +54,21 @@ const Pages = (props)=>{
         <div className={styles.main}>
             <div className={styles.pages}>
                 {props.page-1>=1 && <Arrow value={props.page-1}
-                                           callback ={props.getProductsThunkCreator}/>}
+                                           callback ={props.fetchProductsActionCreator}/>}
                 {props.pageCount>5 &&props.page-2>1 && <Page value={1}
                                                              isActive={false}
-                                                             callback ={props.getProductsThunkCreator}/>}
+                                                             callback ={props.fetchProductsActionCreator}/>}
                 {props.pageCount>5 &&props.page-2>1 && <div className={styles.etc}>...</div>}
                 {getPages(props.page, props.pageCount).map(item=><Page key={item}
                                                        value={item}
                                                        isActive={item===props.page}
-                                                       callback ={props.getProductsThunkCreator}/>)}
+                                                       callback ={props.fetchProductsActionCreator}/>)}
                 {props.pageCount>5 && props.page+2<props.pageCount && <div className={styles.etc}>...</div>}
                 {props.pageCount>5 && props.page+2<props.pageCount && <Page value={props.pageCount}
                                                                         isActive={false}
-                                                                        callback ={props.getProductsThunkCreator}/>}
+                                                                        callback ={props.fetchProductsActionCreator}/>}
                 {props.page+1<=props.pageCount && <Arrow value={props.page+1}
-                                                         callback ={props.getProductsThunkCreator}/>}
+                                                         callback ={props.fetchProductsActionCreator}/>}
             </div>
         </div>
     )

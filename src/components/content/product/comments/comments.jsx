@@ -2,7 +2,8 @@ import React from "react";
 import styles from './comments.module.css';
 import star from '../../../../images/star.svg';
 import {useDispatch} from "react-redux";
-import {removeOrRestoreCommentThunkCreator} from "../../../../store/thunk-creators/product-thunks";
+import {changeCommentStateActionCreator} from "../../../../store/action-creators/product-actions";
+
 
 const Comments = ({comments, productId, role})=>{
 
@@ -18,12 +19,12 @@ const Comments = ({comments, productId, role})=>{
                 return <div className={styles.comment} key={comment._id}>
                     {role==='Admin' && comment.isRemoved===false &&
                     <div className={styles.remove} onClick={()=>{
-                        dispatch(removeOrRestoreCommentThunkCreator(productId, comment._id, true))
+                        dispatch(changeCommentStateActionCreator(productId, comment._id, true))
                     }}><span>Удалить</span></div>}
 
                     {role==='Admin' && comment.isRemoved===true &&
                     <div className={styles.remove} onClick={()=>{
-                        dispatch(removeOrRestoreCommentThunkCreator(productId, comment._id, false))
+                        dispatch(changeCommentStateActionCreator(productId, comment._id, false))
                     }}><span>Восстановить</span></div>}
                     {comment.isRemoved===false && <div className={styles.description}>
                         <div>

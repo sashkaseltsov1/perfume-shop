@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styles from './edit-filter.module.css';
 import Button from "../../templates/button/button";
 import close from '../../../images/close.svg';
+
 const EditFilter = (props)=>{
     const [text, setText] = useState('');
     return(
@@ -11,7 +12,7 @@ const EditFilter = (props)=>{
             <div >
                 {props.items.map(item=>{
                     return <div key={item._id} className={styles.option}
-                                onClick={()=>props.removeFilterThunkCreator(props.match.params.category,item._id)}>
+                                onClick={()=>props.removeFilterActionCreator(props.match.params.category,item._id)}>
                         <div className={styles.title}>{item.type}</div>
                         <div className={styles.remove}>
                             <img src={close} alt={'close'}/>
@@ -27,7 +28,7 @@ const EditFilter = (props)=>{
                             callback={()=>{
                                 let newOption = text;
                                 setText('');
-                                props.addFilterThunkCreator(props.match.params.category,newOption)}}/>
+                                props.addFilterActionCreator(props.match.params.category,newOption)}}/>
                 </div>
             </div>
         </div>

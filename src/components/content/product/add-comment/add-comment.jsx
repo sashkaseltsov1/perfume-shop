@@ -1,20 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from './add-comment.module.css';
 import {Field, reduxForm} from "redux-form";
 import {renderTextarea} from "../../authentificatin/helpers/field-with-validators";
 import Button from "../../../templates/button/button";
-
-
+import {onSubmitActions} from "redux-form-submit-saga";
+import {ADD_COMMENT_FORM} from "../../../../store/redux-form-actions/add-comment";
 
 const AddComment = ({productId, ...props})=>{
+    useEffect(()=>{
+        props.submitSucceeded && props.reset()
+        //eslint-disable-next-line
+    },[props.submitSucceeded]);
     return(
-            <form onSubmit={props.handleSubmit(values => {
-                if(productId){
-                    props.reset();
-                    return props.addCommentThunkCreator(productId, values.message, values.stars)
-                }
-            }
-            )} className={styles.body}>
+            <form onSubmit={props.handleSubmit} className={styles.body}>
                 <div className={styles.stars}>
                     <span >Рейтинг: </span>
                     <Field name="stars" component="select" >
@@ -39,4 +37,4 @@ const AddComment = ({productId, ...props})=>{
     )
 };
 
-export default reduxForm({form: 'addComment'})(AddComment);
+export default reduxForm({form: 'addComment', onSubmit: onSubmitActions(ADD_COMMENT_FORM)})(AddComment);

@@ -16,9 +16,9 @@ const Product = ({
                      product,
                      addCommentThunkCreator,
                      match,
-                     appendCommentsThunkCreator,
+                     fetchNextCommentsActionCreator,
                      isFetching,
-                     appendProductThunkCreator,
+                     appendProductCartActionCreator,
                      role})=>{
     const [inProp, setInProp] = useState(true);
     return(
@@ -66,7 +66,7 @@ const Product = ({
                             <Button title={'Добавить в корзину'} callback={()=>{
                                 if(product){
                                     setInProp(!inProp);
-                                    appendProductThunkCreator(product)
+                                    appendProductCartActionCreator(product)
                                 }
                             }}>
                                 <CSSTransition in={inProp} timeout={2000} classNames={'added'}>
@@ -81,10 +81,10 @@ const Product = ({
                     <TextWithLine name={'Отзывы'}/>
                     <div style={{'marginBottom':'20px'}}>Всего отзывов: {product?.commentsCount}</div>
                     <Comments comments={product?.comments} role={role} productId={product?._id}/>
-                    {product?.comments.length<product?.commentsCount &&
+                    {product?.comments.length<product?.commentsCount && <div className={styles.showNextButton}>
                     <Button title={'Показать еще'} disabled={isFetching} callback={()=>{
-                        !isFetching && appendCommentsThunkCreator(match.params.id);
-                    }}/>
+                        !isFetching && fetchNextCommentsActionCreator(match.params.id);
+                    }}/></div>
                     }
                 </div>
             </div>

@@ -4,17 +4,10 @@ import {connect} from "react-redux";
 import AccessError from "../../templates/private-routes/access-error";
 import EmptyPage from "../../templates/empty-page/empty-page";
 import PageNotFound from "../page-not-found/page-not-found";
-import {
-    createProductThunkCreator,
-    getProductThunkCreator, removeProductThunkCreator,
-    updateProductThunkCreator
-} from "../../../store/thunk-creators/product-thunks";
-
-import {getFiltersThunkCreator} from "../../../store/thunk-creators/filter-thunks";
 import { createSelector } from 'reselect';
 import {
-    appendFragranceActionCreator,
-    removeFragranceActionCreator,
+    appendFragranceActionCreator, createProductActionCreator, fetchProductActionCreator,
+    removeFragranceActionCreator, removeProductActionCreator,
     setAmountActionCreator,
     setBrandActionCreator,
     setCountActionCreator,
@@ -23,23 +16,20 @@ import {
     setFullpriseActionCreator,
     setGenderActionCreator, setImageActionCreator, setInitialActionCreator,
     setNameActionCreator,
-    setNoveltyActionCreator, setTemplateActionCreator, setTypeActionCreator
+    setNoveltyActionCreator, setTemplateActionCreator, setTypeActionCreator, updateProductActionCreator
 } from "../../../store/action-creators/product-actions";
-import {setInitialFilterActionCreator} from "../../../store/action-creators/filter-actions";
-
-
+import {fetchFiltersActionCreator, setInitialFilterActionCreator} from "../../../store/action-creators/filter-actions";
 
 
 const EditProductContainer = ({product, role, filters,isEdit, ...props})=>{
     useEffect(()=>{
         let id = props.match.params.id;
         if(isEdit){
-            props.getProductThunkCreator(id);
+            props.fetchProductActionCreator(id);
         } else{
             props.setTemplateActionCreator();
         }
-
-        props.getFiltersThunkCreator();
+        props.fetchFiltersActionCreator();
         return ()=>{
             props.setInitialActionCreator();
             props.setInitialFilterActionCreator();
@@ -112,8 +102,8 @@ const getProductWithFilters = createSelector(
 export default connect(state=>getProductWithFilters(state)
 , {
     setInitialActionCreator,
-    getProductThunkCreator,
-    getFiltersThunkCreator,
+    fetchProductActionCreator,
+    fetchFiltersActionCreator,
     setInitialFilterActionCreator,
     setNameActionCreator,
     setAmountActionCreator,
@@ -128,8 +118,8 @@ export default connect(state=>getProductWithFilters(state)
     setGenderActionCreator,
     setTypeActionCreator,
     setImageActionCreator,
-    createProductThunkCreator,
-    updateProductThunkCreator,
+    createProductActionCreator,
+    updateProductActionCreator,
     setTemplateActionCreator,
-    removeProductThunkCreator
+    removeProductActionCreator
 })(EditProductContainer);

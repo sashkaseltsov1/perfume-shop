@@ -1,12 +1,17 @@
 import {ProductItem} from "../types/product";
-
 export const SET_NOVELTY_PRODUCTS = 'main/SET_NOVELTY_PRODUCTS';
 export const SET_DISCOUNT_PRODUCTS = 'main/SET_DISCOUNT_PRODUCTS';
+export const FETCH_PRODUCTS_FOR_SLIDERS = 'main/FETCH_PRODUCTS_FOR_SLIDERS';
 export const SET_INITIAL = 'main/SET_INITIAL';
 export interface MainPageNoveltyAction{
     type:typeof SET_NOVELTY_PRODUCTS
     products:Array<ProductItem>
 }
+
+export interface fetchProductsForSlidersAction{
+    type:typeof FETCH_PRODUCTS_FOR_SLIDERS
+}
+
 export interface MainPageDiscountAction{
     type:typeof SET_DISCOUNT_PRODUCTS
     products:Array<ProductItem>
@@ -19,7 +24,7 @@ interface MainPage {
     discountProducts?:Array<ProductItem>
 }
 
-type ActionTypes = MainPageNoveltyAction|MainPageDiscountAction|MainPageInitialAction
+type ActionTypes = MainPageNoveltyAction|MainPageDiscountAction|MainPageInitialAction|fetchProductsForSlidersAction
 
 const initialState:MainPage = {
     noveltyProducts:undefined,

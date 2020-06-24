@@ -4,11 +4,11 @@ import close from "../../../../images/close.svg";
 import {Field, reduxForm} from "redux-form";
 import renderField from "../../authentificatin/helpers/field-with-validators";
 import {min2max30, min6max20, required} from "../../authentificatin/helpers/validators";
-import { useDispatch} from "react-redux";
-import {editUserThunkCreator} from "../../../../store/thunk-creators/user-thunks";
 import normalizePhone from "./normalize-phone";
 import AddressField from "./addresses/addresses";
 import Button from "../../../templates/button/button";
+import {onSubmitActions} from "redux-form-submit-saga";
+import {EDIT_PROFILE_FORM} from "../../../../store/redux-form-actions/edit-profile";
 
 
 const EditProfile = ({user, error, setState, handleSubmit, initialize, submitting, submitSucceeded, ...props})=>{
@@ -20,10 +20,9 @@ const EditProfile = ({user, error, setState, handleSubmit, initialize, submittin
         submitSucceeded && setState(true)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[submitSucceeded]);
-    const dispatch = useDispatch();
     return(
         <form
-            onSubmit={handleSubmit(values => dispatch(editUserThunkCreator(values)))}
+            onSubmit={handleSubmit}
             className={styles.profile}>
             <div className={styles.field}>
                 <Field name="name" component={renderField} type="text"
@@ -58,4 +57,4 @@ const EditProfile = ({user, error, setState, handleSubmit, initialize, submittin
         </form>
     )
 };
-export default reduxForm({form: 'EditProfile'})(EditProfile)
+export default reduxForm({form: 'EditProfile', onSubmit: onSubmitActions(EDIT_PROFILE_FORM)})(EditProfile)

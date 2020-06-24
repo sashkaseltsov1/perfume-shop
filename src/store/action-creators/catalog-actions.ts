@@ -1,15 +1,27 @@
 import {
-    Catalog, CatalogErrorAction, CatalogInitialAction, CatalogLoaderAction,
+    Catalog,
+    CatalogErrorAction,
+    CatalogInitialAction,
+    CatalogLoaderAction,
     CatalogProductsAction,
-    GET_PRODUCTS,
+    FETCH_PRODUCTS,
+    FetchProductsAction,
     SET_ERROR,
     SET_INITIAL_PRODUCTS,
-    SET_LOADER
+    SET_LOADER,
+    SET_PRODUCTS
 } from "../reducers/catalog-reducer";
 
-export const getProductsActionCreator = (data:Catalog):CatalogProductsAction=>{
+export const fetchProductsActionCreator = (queries='', isPushNewQuery=true):FetchProductsAction=>{
     return {
-        type:GET_PRODUCTS,
+        type:FETCH_PRODUCTS,
+        queries:queries,
+        isPushNewQuery:isPushNewQuery
+    }
+};
+export const setProductsActionCreator = (data:Catalog):CatalogProductsAction=>{
+    return {
+        type:SET_PRODUCTS,
         data:data
     }
 };

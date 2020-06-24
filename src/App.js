@@ -5,16 +5,17 @@ import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/footer/footer";
 import AdaptiveNavbar from "./components/navbar/adaptive-navbar";
 import {useDispatch} from "react-redux";
-import {authenticate} from "./store/thunk-creators/auth-thunks";
 import ScrollToTop from "./components/content/helpers/scroll-to-top";
 import Bar from "./components/bar/bar";
-import {setCartThunkCreator} from "./store/thunk-creators/cart-thunks";
+import {initCartActionCreator} from "./store/action-creators/cart-actions";
+import {authenticateActionCreator} from "./store/action-creators/auth-actions";
+
 
 const App = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch(authenticate());
-        dispatch(setCartThunkCreator());
+        dispatch(authenticateActionCreator());
+        dispatch(initCartActionCreator());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     return (

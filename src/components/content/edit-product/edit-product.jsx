@@ -8,6 +8,7 @@ import Checkboxes from "./checkboxes/checkboxes";
 
 
 
+
 const EditProduct = ({product,isEdit,isFetching, ...props}) => {
 
     const [file, setFile]=useState({
@@ -142,16 +143,16 @@ const EditProduct = ({product,isEdit,isFetching, ...props}) => {
                         style={{backgroundColor: 'seagreen'}} callback={
                             ()=>{
                                 if(isEdit){
-                                    props.updateProductThunkCreator(file.file)
+                                    props.updateProductActionCreator(file.file)
                                 }else{
-                                    props.createProductThunkCreator(file.file)
+                                    props.createProductActionCreator(file.file)
                                 }
                             }
                         }/>
             </div>
             {isEdit && <div className={styles.remove}>
                 <span onClick={()=>{
-                    props.removeProductThunkCreator(product._id)}}>Удалить продукт</span>
+                    props.removeProductActionCreator(product._id)}}>Удалить продукт</span>
             </div>}
 
         </>

@@ -2,19 +2,33 @@ import {
     ADD_COMMENT,
     APPEND_COMMENTS,
     APPEND_FRAGRANCE,
+    CHANGE_COMMENT_STATE,
+    ChangeCommentStateAction,
+    CREATE_PRODUCT,
+    CreateProductAction,
+    FETCH_NEXT_COMMENTS,
+    FETCH_PRODUCT,
+    FetchNextCommentsAction,
+    FetchProductAction,
     ProductAction,
     ProductAddCommentAction,
     ProductAppendCommentsAction,
     ProductAppendFragranceAction,
     ProductBrandAction,
     ProductErrorAction,
-    ProductFetchingAction, ProductGenderAction, ProductImageAction,
-    ProductInitialAction, ProductPerfumeTypeAction,
+    ProductFetchingAction,
+    ProductGenderAction,
+    ProductImageAction,
+    ProductInitialAction,
+    ProductPerfumeTypeAction,
     ProductPrmAction,
     ProductRemoveCommentAction,
-    ProductRemoveFragranceAction, ProductTemplateAction,
+    ProductRemoveFragranceAction,
+    ProductTemplateAction,
     REMOVE_FRAGRANCE,
+    REMOVE_PRODUCT,
     REMOVE_RESTORE_COMMENT,
+    RemoveProductAction,
     SET_AMOUNT,
     SET_BRAND,
     SET_COUNT,
@@ -30,10 +44,51 @@ import {
     SET_NOVELTY,
     SET_PRODUCT,
     SET_TEMPLATE,
-    SET_TYPE
+    SET_TYPE,
+    UPDATE_PRODUCT,
+    UpdateProductAction
 } from "../reducers/product-reducer";
 import {Comment, ProductWithFullInfo} from "../types/product";
 import {FilterOption} from "../types/filters";
+
+export const createProductActionCreator = (file:File):CreateProductAction=>{
+    return {
+        type:CREATE_PRODUCT,
+        file:file
+    }
+};
+export const updateProductActionCreator = (file:File):UpdateProductAction=>{
+    return {
+        type:UPDATE_PRODUCT,
+        file:file
+    }
+};
+export const removeProductActionCreator = (id:string):RemoveProductAction=>{
+    return {
+        type:REMOVE_PRODUCT,
+        id:id
+    }
+};
+export const changeCommentStateActionCreator = (productId:string, commentId:string, isRemoved:boolean):ChangeCommentStateAction=>{
+    return {
+        type:CHANGE_COMMENT_STATE,
+        productId:productId,
+        commentId:commentId,
+        isRemoved:isRemoved
+    }
+};
+export const fetchProductActionCreator = (id:string):FetchProductAction=>{
+    return {
+        type:FETCH_PRODUCT,
+        id:id
+    }
+};
+export const fetchNextCommentsActionCreator = (id:string):FetchNextCommentsAction=>{
+    return {
+        type:FETCH_NEXT_COMMENTS,
+        id:id
+    }
+};
 
 export const setProductActionCreator = (product:ProductWithFullInfo):ProductAction=>{
     return {

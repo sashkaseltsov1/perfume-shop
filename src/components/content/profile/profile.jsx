@@ -3,11 +3,11 @@ import Orders from "./orders/orders";
 import ReadProfile from "./read-profile/read-profile";
 import EditProfile from "./edit-profile/edit-profile";
 import styles from "./profile.module.css";
-import {signoutThunkCreator} from "../../../store/thunk-creators/auth-thunks";
 import {useDispatch} from "react-redux";
 import Button from "../../templates/button/button";
 import TextWithLine from "../../templates/text-with-line/text-with-line";
 import {NavLink} from "react-router-dom";
+import {trySignoutActionCreator} from "../../../store/action-creators/auth-actions";
 
 const Profile = (props)=>{
     const [isEditing, setState] = useState(true);
@@ -16,7 +16,7 @@ const Profile = (props)=>{
         <div >
             <div className={styles.button}>
                 <Button title={'Выйти'} callback={()=>{
-                    dispatch(signoutThunkCreator());
+                    dispatch(trySignoutActionCreator());
                 }} style={{
                     backgroundColor:'#c12020',
                     borderRadius:'2px',

@@ -1,20 +1,20 @@
 import React, {useEffect} from "react";
 import Product from "./product";
 import {connect} from "react-redux";
-import {
-    addCommentThunkCreator, appendCommentsThunkCreator,
-    getProductThunkCreator
-} from "../../../store/thunk-creators/product-thunks";
-import {appendProductThunkCreator} from "../../../store/thunk-creators/cart-thunks";
 import EmptyPage from "../../templates/empty-page/empty-page";
 import PageNotFound from "../page-not-found/page-not-found";
-import {setInitialActionCreator} from "../../../store/action-creators/product-actions";
+import {
+    fetchNextCommentsActionCreator,
+    fetchProductActionCreator,
+    setInitialActionCreator
+} from "../../../store/action-creators/product-actions";
+import {appendProductCartActionCreator} from "../../../store/action-creators/cart-actions";
 
 
 const ProductContainer = (props)=>{
     useEffect(()=>{
         let id = props.match.params.id;
-        props.getProductThunkCreator(id);
+        props.fetchProductActionCreator(id);
         return ()=>props.setInitialActionCreator();
         // eslint-disable-next-line
     },[]);
@@ -33,8 +33,7 @@ export default connect(state=>({
     error:state.product.error,
     isFetching:state.product.isFetching,
     role:state.auth.role}), {
-    getProductThunkCreator,
+    fetchProductActionCreator,
     setInitialActionCreator,
-    addCommentThunkCreator,
-    appendCommentsThunkCreator,
-    appendProductThunkCreator})(ProductContainer);
+    fetchNextCommentsActionCreator,
+    appendProductCartActionCreator})(ProductContainer);

@@ -1,7 +1,8 @@
 import axios from 'axios'
 import config from '../config/config';
-import {NewUserValues} from "../store/thunk-creators/user-thunks";
+
 import {User} from "../store/types/user";
+import {NewUserValues} from "../store/reducers/user-reducer";
 
 const instance = axios.create({
     baseURL: `${config.apiUrl}api/user`,

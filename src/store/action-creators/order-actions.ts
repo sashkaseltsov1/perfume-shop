@@ -1,4 +1,6 @@
 import {
+    FETCH_ORDER,
+    FetchOrderAction,
     OrderAction,
     OrderErrorAction,
     OrderInitialAction,
@@ -8,6 +10,13 @@ import {
 } from "../reducers/order-reducer";
 import {OrderWithFullInfo} from "../types/order";
 
+
+export const fetchOrderActionCreator = (id:string):FetchOrderAction=>{
+    return {
+        type:FETCH_ORDER,
+        id:id
+    }
+};
 export const setOrderActionCreator = (order:OrderWithFullInfo):OrderAction=>{
     return {
         type:SET_ORDER,

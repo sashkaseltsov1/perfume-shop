@@ -1,16 +1,63 @@
 import {
-    Filters, FiltersAction, FiltersActiveAction,
+    ABORT_ACTIVE_FILTER,
+    AbortActiveFilterAction,
+    APPLY_FILTERS,
+    APPLY_SORT_FILTER,
+    ApplyFiltersAction,
+    ApplySortFilterAction,
+    CANCEL_ALL_FILTERS,
+    CancelAllFiltersAction,
+    FETCH_FILTERS,
+    FetchFiltersAction,
+    Filters,
+    FiltersAction,
+    FiltersActiveAction,
     FiltersInitialAction,
-    FiltersOptionAction, FiltersRangeAction, FiltersResetAction, FiltersSearchAction, FiltersSortAction,
+    FiltersOptionAction,
+    FiltersRangeAction,
+    FiltersResetAction,
+    FiltersSearchAction,
+    FiltersSortAction,
     GET_FILTERS,
     RESET_FILTERS,
-    SET_ACTIVE_FILTERS, SET_INITIAL,
+    SET_ACTIVE_FILTERS,
+    SET_INITIAL,
     SET_OPTION,
-    SET_RANGE, SET_SEARCH,
+    SET_RANGE,
+    SET_SEARCH,
     SET_SORT
 } from "../reducers/filter-reducer";
 import {ActiveFilter, RangeFilter} from "../types/filters";
 
+export const abortActiveFilterActionCreator = (category:string, optionId:string, state:boolean):AbortActiveFilterAction=>{
+    return {
+        type:ABORT_ACTIVE_FILTER,
+        category:category,
+        optionId:optionId,
+        state:state
+    }
+};
+export const applyFiltersActionCreator = ():ApplyFiltersAction=>{
+    return {
+        type:APPLY_FILTERS,
+    }
+};
+export const applySortFilterActionCreator = (value:string):ApplySortFilterAction=>{
+    return {
+        type:APPLY_SORT_FILTER,
+        value:value
+    }
+};
+export const cancelAllFiltersActionCreator = ():CancelAllFiltersAction=>{
+    return {
+        type:CANCEL_ALL_FILTERS,
+    }
+};
+export const fetchFiltersActionCreator = ():FetchFiltersAction=>{
+    return {
+        type:FETCH_FILTERS,
+    }
+};
 export const setInitialFilterActionCreator = ():FiltersInitialAction=>{
     return {
         type:SET_INITIAL,

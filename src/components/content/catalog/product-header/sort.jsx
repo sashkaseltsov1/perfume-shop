@@ -1,14 +1,14 @@
 import styles from "./product-header.module.css";
 import {connect} from "react-redux";
 import React from "react";
-import {setSortFilterThunkCreator} from "../../../../store/thunk-creators/filter-thunks";
+import {applySortFilterActionCreator} from "../../../../store/action-creators/filter-actions";
 
 
-const SortByPrise = ({state, setSortFilterThunkCreator})=>{
+const SortByPrise = ({state, applySortFilterActionCreator})=>{
     const clickHandler = ()=>{
-        state==='dec' && setSortFilterThunkCreator(null);
-        !state && setSortFilterThunkCreator('inc');
-        state==='inc' && setSortFilterThunkCreator('dec');
+        state==='dec' && applySortFilterActionCreator(null);
+        !state && applySortFilterActionCreator('inc');
+        state==='inc' && applySortFilterActionCreator('dec');
     };
     return(
         <div className={styles.costSort} onClick={clickHandler}>
@@ -18,4 +18,5 @@ const SortByPrise = ({state, setSortFilterThunkCreator})=>{
         </div>
     )
 };
-export default connect((state)=>({state:state.filters.sortFilter}), {setSortFilterThunkCreator})(SortByPrise);
+export default connect((state)=>({state:state.filters.sortFilter}),
+    {applySortFilterActionCreator})(SortByPrise);

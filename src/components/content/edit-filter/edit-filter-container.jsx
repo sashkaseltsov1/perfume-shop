@@ -4,17 +4,16 @@ import EmptyPage from "../../templates/empty-page/empty-page";
 import AccessError from "../../templates/private-routes/access-error";
 import {connect} from "react-redux";
 import {
-    addFilterThunkCreator,
-    getFilterThunkCreator,
-    removeFilterThunkCreator
-} from "../../../store/thunk-creators/edit-filter-thunks";
-import {setInitialActionCreator} from "../../../store/action-creators/edit-filter-actions";
+    addFilterActionCreator,
+    fetchSingleFilterActionCreator, removeFilterActionCreator,
+    setInitialActionCreator
+} from "../../../store/action-creators/edit-filter-actions";
 import EditFilter from "./edit-filter";
 
 const EditFilterContainer = ({filter,role, ...props})=>{
     useEffect(()=>{
         let category = props.match.params.category;
-        props.getFilterThunkCreator(category);
+        props.fetchSingleFilterActionCreator(category);
         return ()=>{
             props.setInitialActionCreator();
         }
@@ -33,8 +32,8 @@ const EditFilterContainer = ({filter,role, ...props})=>{
 
 export default connect(state=>({filter:state.editFilter, role:state.auth.role}),
     {
-        getFilterThunkCreator,
+        fetchSingleFilterActionCreator,
         setInitialActionCreator,
-        addFilterThunkCreator,
-        removeFilterThunkCreator
+        addFilterActionCreator,
+        removeFilterActionCreator
     })(EditFilterContainer);

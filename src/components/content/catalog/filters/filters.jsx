@@ -29,13 +29,13 @@ const Filters = (props)=>{
             <div className={styles.button}>
                 <Button title={'Фильтровать'} callback={() => {
                     props.isTabletOrMobile && props.setFilterState(true);
-                    props.filterThunkCreator()
+                    props.applyFiltersActionCreator()
                 }}/>
             </div>
 
             <div className={styles.reset} onClick={()=>{
                 props.isTabletOrMobile && props.setFilterState(true);
-                props.resetFiltersThunkCreator()}}>
+                props.cancelAllFiltersActionCreator()}}>
                 Сбросить фильтры
             </div>
 

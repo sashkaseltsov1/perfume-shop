@@ -63,6 +63,10 @@
     grid-column-start: 1;
     grid-column-end: 3;
 }
+.showNextButton{
+    width: 50%;
+    margin: 0 auto;
+}
 .description{
     font-size: small;
     width: 100%;
@@ -106,19 +110,7 @@
     position: absolute;
     background-color: seagreen;
 }
-.next{
-    margin: 0 auto;
-    width: 50%;
-    height: 40px;
-    background-color: cornflowerblue;
-    color: white;
-    line-height: 40px;
-    text-align: center;
-    position: relative;
-}
-.next:hover{
-    cursor: pointer;
-}
+
 .edit{
     color: cornflowerblue;
     line-height: 30px;
@@ -136,7 +128,8 @@
         grid-column-start: 1;
         grid-column-end: 1;
     }
-    .next{
+    .showNextButton{
         width: 100%;
+
     }
 }

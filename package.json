@@ -31,8 +31,8 @@
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-form": "^8.3.5",
+    "redux-form-submit-saga": "^1.2.1",
     "redux-saga": "^1.1.3",
-    "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "swiper": "^5.3.8",
     "typescript": "^3.9.5"

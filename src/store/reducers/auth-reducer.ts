@@ -1,5 +1,8 @@
 export const SIGN_IN = 'auth/SIGN_IN';
 export const SIGN_OUT = 'auth/SIGN_OUT';
+export const AUTHENTICATE = 'auth/AUTHENTICATE';
+export const TRY_SIGN_OUT = 'auth/TRY_SIGN_OUT';
+
 
 export interface UserData{
     address?: string
@@ -10,7 +13,9 @@ export interface UserData{
     tokenType?:'access'|'refresh'
     _id?:string
 }
-
+export interface AuthenticateAction{
+    type: typeof AUTHENTICATE
+}
 export interface SignInAction{
     type: typeof SIGN_IN
     payload:UserData
@@ -20,6 +25,9 @@ export interface SignOutAction {
     type: typeof SIGN_OUT
 }
 
+export interface TrySignOutAction {
+    type: typeof TRY_SIGN_OUT
+}
 const initialState:Auth = {
     isAuthorized:undefined,
     address:undefined,

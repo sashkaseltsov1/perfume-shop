@@ -4,11 +4,10 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {connect} from "react-redux";
 import Filters from "./filters";
 import {
-    filterThunkCreator,
-    getFiltersThunkCreator,
-    resetFiltersThunkCreator
-} from "../../../../store/thunk-creators/filter-thunks";
-import {setInitialFilterActionCreator} from "../../../../store/action-creators/filter-actions";
+    applyFiltersActionCreator, cancelAllFiltersActionCreator,
+    fetchFiltersActionCreator,
+    setInitialFilterActionCreator
+} from "../../../../store/action-creators/filter-actions";
 
 const FiltersContainer = (props)=>{
     const  handleMediaQueryChange  = () => {!isTabletOrMobile && props.setFilterState(true)};
@@ -23,18 +22,16 @@ const FiltersContainer = (props)=>{
     }, [props.filterState]);
 
     useEffect(() => {
-        props.getFiltersThunkCreator();
+        props.fetchFiltersActionCreator();
         return props.history.listen((location) => {
             location.pathname==='/shop/catalog' && props.setInitialFilterActionCreator();
-            location.pathname==='/shop/catalog' && props.getFiltersThunkCreator();
+            location.pathname==='/shop/catalog' && props.fetchFiltersActionCreator();
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     useEffect(() => {
-        props.getFiltersThunkCreator();
         return () => {
             props.history.location.pathname!=='/shop/catalog' && props.setInitialFilterActionCreator();
-
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
@@ -42,12 +39,12 @@ const FiltersContainer = (props)=>{
                       isTabletOrMobile={isTabletOrMobile}
                       filterState={props.filterState}
                       setFilterState={props.setFilterState}
-                      filterThunkCreator={props.filterThunkCreator}
-                      resetFiltersThunkCreator={props.resetFiltersThunkCreator}
+                      applyFiltersActionCreator={props.applyFiltersActionCreator}
+                      cancelAllFiltersActionCreator={props.cancelAllFiltersActionCreator}
     />)
 };
 
-export default connect(null,{getFiltersThunkCreator,
-    filterThunkCreator,
-    resetFiltersThunkCreator,
+export default connect(null,{fetchFiltersActionCreator,
+    applyFiltersActionCreator,
+    cancelAllFiltersActionCreator,
     setInitialFilterActionCreator}) (FiltersContainer);

@@ -22,7 +22,39 @@ export const SET_GENDER = 'product/SET_GENDER';
 export const SET_TYPE = 'product/SET_TYPE';
 export const SET_IMAGE = 'product/SET_IMAGE';
 export const SET_TEMPLATE = 'product/SET_TEMPLATE';
+export const FETCH_PRODUCT = 'product/FETCH_PRODUCT';
+export const FETCH_NEXT_COMMENTS = 'product/FETCH_NEXT_COMMENTS';
+export const CHANGE_COMMENT_STATE = 'product/CHANGE_COMMENT_STATE';
+export const CREATE_PRODUCT = 'product/CREATE_PRODUCT';
+export const UPDATE_PRODUCT = 'product/UPDATE_PRODUCT';
+export const REMOVE_PRODUCT = 'product/REMOVE_PRODUCT';
 
+export interface RemoveProductAction {
+    type: typeof REMOVE_PRODUCT
+    id:string
+}
+export interface UpdateProductAction {
+    type: typeof UPDATE_PRODUCT
+    file:File
+}
+export interface CreateProductAction {
+    type: typeof CREATE_PRODUCT
+    file:File
+}
+export interface ChangeCommentStateAction {
+    type: typeof CHANGE_COMMENT_STATE
+    productId:string
+    commentId:string
+    isRemoved:boolean
+}
+export interface FetchNextCommentsAction {
+    type: typeof FETCH_NEXT_COMMENTS
+    id:string
+}
+export interface FetchProductAction {
+    type: typeof FETCH_PRODUCT
+    id:string
+}
 export interface ProductAction {
     type: typeof SET_PRODUCT
     product:ProductWithFullInfo

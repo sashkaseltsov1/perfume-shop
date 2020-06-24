@@ -2,11 +2,17 @@ import {OrderWithFullInfo} from "../types/order";
 export const SET_ORDER = 'order/SET_ORDER';
 export const SET_ERROR = 'order/SET_ERROR';
 export const SET_INITIAL = 'order/SET_INITIAL';
+export const FETCH_ORDER = 'order/FETCH_ORDER';
 
 export interface OrderAction{
     type: typeof SET_ORDER
     order:OrderWithFullInfo
 }
+export interface FetchOrderAction{
+    type: typeof FETCH_ORDER
+    id:string
+}
+
 export interface OrderErrorAction{
     type: typeof SET_ERROR
     error:string

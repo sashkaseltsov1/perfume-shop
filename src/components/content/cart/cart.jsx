@@ -17,7 +17,7 @@ const Cart = (props)=>{
             {props.products && props.products.length>0 &&
                 <Button title={'Очистить корзину'} callback={()=>{
                     localStorage.removeItem('cart');
-                    props.setCartThunkCreator();
+                    props.initCartActionCreator();
                 }} style={{
                     backgroundColor:'#c12020',
                     borderRadius:'2px',
@@ -37,7 +37,7 @@ const Cart = (props)=>{
                 </div>
                 <div className={styles.remove}>
                     <img src={close} alt={close}
-                         onClick={()=>props.removeProductThunkCreator(product)}/>
+                         onClick={()=>props.removeProductCartActionCreator(product)}/>
                 </div>
             </div>)}
             {props.products && props.products.length>0 &&<div>
@@ -50,7 +50,7 @@ const Cart = (props)=>{
                     <span >{' '+parseInt(props.totalPrise).toLocaleString('ru-RU')} руб.</span>
                 </div>
             </div>}
-            {props.products && props.products.length>0 &&<AddOrder/>}
+            {props.products && props.products.length>0 &&<AddOrder initCartActionCreator={props.initCartActionCreator}/>}
         </div>
     )
 };

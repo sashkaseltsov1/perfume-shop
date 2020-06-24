@@ -1,15 +1,14 @@
 import React, {useEffect} from "react";
 import Order from "./order";
 import {connect} from "react-redux";
-import {getOrderThunkCreator} from "../../../store/thunk-creators/order-thunks";
 import EmptyPage from "../../templates/empty-page/empty-page";
 import PageNotFound from "../page-not-found/page-not-found";
-import {setInitialActionCreator} from "../../../store/action-creators/order-actions";
+import {fetchOrderActionCreator, setInitialActionCreator} from "../../../store/action-creators/order-actions";
 
 const OrderContainer = (props)=>{
     useEffect(()=>{
         let id = props.match.params.id;
-        props.getOrderThunkCreator(id);
+        props.fetchOrderActionCreator(id);
         return ()=>props.setInitialActionCreator();
         // eslint-disable-next-line
     },[]);
@@ -23,4 +22,4 @@ const OrderContainer = (props)=>{
 };
 
 export default connect(state=>state.orderPage,
-    {getOrderThunkCreator, setInitialActionCreator})(OrderContainer);
+    {fetchOrderActionCreator, setInitialActionCreator})(OrderContainer);

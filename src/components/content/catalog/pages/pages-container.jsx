@@ -1,7 +1,7 @@
 import React from "react";
 import Pages from "./pages";
 import {connect} from "react-redux";
-import {getProductsThunkCreator} from "../../../../store/thunk-creators/catalog-thunks";
+import {fetchProductsActionCreator} from "../../../../store/action-creators/catalog-actions";
 
 
 
@@ -12,4 +12,4 @@ const PagesContainer = (props)=>{
 export default connect((state)=>({
     page:state.products.page,
     pageCount:state.products.pageCount,
-}), {getProductsThunkCreator})(PagesContainer);
+}), {fetchProductsActionCreator})(PagesContainer);
