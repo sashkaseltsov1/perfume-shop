@@ -5,10 +5,6 @@ import normalizeNumber from "./normalize-number";
 import Image from "../../templates/image/image";
 import Checkboxes from "./checkboxes/checkboxes";
 
-
-
-
-
 const EditProduct = ({product,isEdit,isFetching, ...props}) => {
 
     const [file, setFile]=useState({
@@ -35,6 +31,7 @@ const EditProduct = ({product,isEdit,isFetching, ...props}) => {
                 <div className={styles.left}>
                     <div>
                         <div className={styles.title}>Загрузить изображение:</div>
+                        <div style={{color:'#9a9a9a', fontSize:'small', marginBottom:'5px'}}>Рекомендуемый размер: 360х430px</div>
                         <input type={'file'} onChange={handleImageChange} style={{marginBottom:'10px'}}/>
                     </div>
                     <div className={styles.image}>
