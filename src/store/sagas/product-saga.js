@@ -5,7 +5,7 @@ import {
     appendCommentsActionCreator, removeOrRestoreCommentActionCreator,
     setErrorActionCreator,
     setIsFetchingActionCreator,
-    setProductActionCreator, setTemplateActionCreator
+    setProductActionCreator
 } from "../action-creators/product-actions";
 import {
     CHANGE_COMMENT_STATE,
@@ -91,7 +91,6 @@ export function* createProduct({file}) {
     yield put(setIsFetchingActionCreator(true));
     try {
         yield call(productsApi.createProduct, bodyFormData);
-        yield put(setTemplateActionCreator());
         alert('Продукт успешно добавлен!')
     }catch (e) {
         alert(e.response.data.message);
