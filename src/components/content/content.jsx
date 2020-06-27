@@ -1,28 +1,28 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import wrap from '../wrapper.module.css'
 import Main from "./main/main";
 import {Route, Switch} from "react-router-dom";
 import Catalog from "./catalog/catalog";
 import Authentication from "./authentificatin/authentication";
 import PrivateRouteWithRedirect from "../templates/private-routes/route-with-redirect";
-import ProfileContainer from "./profile/profile-container";
 import RouteWithAccessError from "../templates/private-routes/route-with-access-error";
-import OrderContainer from "./order/order-container";
 import ProductContainer from "./product/product-container";
 import CartContainer from "./cart/cart-container";
 import Success from "./success/success";
-import PageNotFound from "./page-not-found/page-not-found";
 import Delivery from "./delivery/delivery";
 import Payment from "./payment/payment";
 import Info from "./info/info";
 import Contacts from "./contacts/contacts";
-import EditProductContainer from "./edit-product/edit-product-container";
-import EditFilterContainer from "./edit-filter/edit-filter-container";
-
-
+import EmptyPage from "../templates/empty-page/empty-page";
+const EditProductContainer = React.lazy(() => import('./edit-product/edit-product-container'));
+const EditFilterContainer = React.lazy(() => import('./edit-filter/edit-filter-container'));
+const OrderContainer = React.lazy(() => import('./order/order-container'));
+const ProfileContainer = React.lazy(() => import('./profile/profile-container'));
+const PageNotFound = React.lazy(() => import('./page-not-found/page-not-found'));
 
 const Content = ()=>{
     return <div className={wrap.wrapper}>
+        <Suspense fallback={<EmptyPage/>}>
         <Switch >
             <Route path='/' component={Main} exact />
             <Route path={'/delivery'} component={Delivery} exact/>
@@ -42,6 +42,7 @@ const Content = ()=>{
             <RouteWithAccessError path='/orders/:id' component={OrderContainer} isInvert={false} exact/>
             <Route component={PageNotFound}/>
         </Switch>
+        </Suspense>
     </div>
 };
 

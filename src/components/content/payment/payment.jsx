@@ -1,17 +1,19 @@
 import React from "react";
 import styles from './payment.module.css';
 import TextWithLine from "../../templates/text-with-line/text-with-line";
-import config from "../../../config/config";
 import MainBanner from "../../templates/main-banner/main-banner";
 import SimpleSwiper from "../../templates/swiper/swiper";
 import success from "../../../images/success.svg";
+import b1 from '../../../images/banners/banner1.jpg';
+import b2 from '../../../images/banners/banner2.jpg';
+
 const slides = [
     {
-        image:`${config.apiUrl}banners/banner2.jpg`,
+        image:b2,
         path:'../shop/catalog'
     },
     {
-        image:`${config.apiUrl}banners/banner1.jpg`,
+        image:b1,
         path:'../shop/catalog'
     },
 ];

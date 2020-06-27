@@ -4,6 +4,7 @@ import Button from "../../templates/button/button";
 import normalizeNumber from "./normalize-number";
 import Image from "../../templates/image/image";
 import Checkboxes from "./checkboxes/checkboxes";
+import emptyImage from '../../../images/loading-image.jpg';
 
 const EditProduct = ({product,isEdit,isFetching, ...props}) => {
 
@@ -35,7 +36,7 @@ const EditProduct = ({product,isEdit,isFetching, ...props}) => {
                         <input type={'file'} onChange={handleImageChange} style={{marginBottom:'10px'}}/>
                     </div>
                     <div className={styles.image}>
-                        <Image image={product.image}/>
+                        {product.image? <Image image={product.image}/>:<Image image={emptyImage}/>}
                     </div>
                 </div>
 

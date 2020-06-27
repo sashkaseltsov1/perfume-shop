@@ -2,28 +2,32 @@ import React, {useEffect} from "react";
 import TextWithLine from "../../templates/text-with-line/text-with-line";
 import {connect, useDispatch} from "react-redux";
 import SwiperContainer from "../../templates/swiper/swiper-container";
-import config from "../../../config/config";
 import MainBanner from "../../templates/main-banner/main-banner";
 import SimpleSwiper from "../../templates/swiper/swiper";
 import CategoriesContainer from "./categories/categories-container";
 import { fetchProductsForSlidersActionCreator,
     setInitialActionCreator
 } from "../../../store/action-creators/main-page-actions";
+import b6 from '../../../images/banners/banner6.jpg';
+import b7 from '../../../images/banners/banner7.jpg';
+import b5 from '../../../images/banners/banner5.jpg';
+import b3 from '../../../images/banners/banner3.jpg';
+
 const slides = [
     {
-        image:`${config.apiUrl}banners/banner6.jpg`,
+        image:b6,
         path:'../shop/catalog'
     },
     {
-        image:`${config.apiUrl}banners/banner7.jpg`,
+        image:b7,
         path:'../shop/catalog'
     },
     {
-        image:`${config.apiUrl}banners/banner5.jpg`,
+        image:b5,
         path:'../shop/catalog'
     },
     {
-        image:`${config.apiUrl}banners/banner3.jpg`,
+        image:b3,
         path:'../shop/catalog'
     }
 ];

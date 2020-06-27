@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import styles from './delivery.module.css';
 import MainBanner from "../../templates/main-banner/main-banner";
-import config from '../../../config/config';
 import success from '../../../images/success.svg';
 import cn from 'classnames';
 import './delivery.css';
 import {CSSTransition} from "react-transition-group";
+import b4 from '../../../images/banners/banner4.jpg';
 
 const array=[
     {
@@ -106,7 +106,7 @@ const Delivery =()=>{
 
     return (
         <div className={styles.delivery}>
-            <MainBanner image={`${config.apiUrl}banners/banner4.jpg`} path={''}/>
+            <MainBanner image={b4} path={''}/>
             <div className={styles.info}>
                 <div><img src={success} alt={success}/>Доставка осуществляется в пределах административных границ городов.</div>
                 <div><img src={success} alt={success}/>Бесплатная доставка при сумме заказа от 1000 рублей кроме Дальнего Востока.</div>
