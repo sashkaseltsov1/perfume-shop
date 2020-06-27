@@ -94,8 +94,8 @@ export function* createProduct({file}) {
         alert('Продукт успешно добавлен!')
     }catch (e) {
         alert(e.response.data.message);
-        yield put(setIsFetchingActionCreator(false));
     }
+    yield put(setIsFetchingActionCreator(false));
 }
 export function* updateProduct({file}) {
     let state = yield select();
