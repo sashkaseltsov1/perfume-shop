@@ -22,7 +22,6 @@ import EditFilterContainer from "./edit-filter/edit-filter-container";
 
 
 const Content = ()=>{
-
     return <div className={wrap.wrapper}>
         <Switch >
             <Route path='/' component={Main} exact />

@@ -7,7 +7,7 @@ const MainBanner = ({image, path})=>{
     return(
         <div className={styles.banner}>
             <NavLink to={path}>
-                <img src={image} alt={image}/>
+                <img src={image} alt={'banner'}/>
             </NavLink>
         </div>
     )

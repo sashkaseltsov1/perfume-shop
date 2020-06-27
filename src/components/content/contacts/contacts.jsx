@@ -10,27 +10,22 @@ import Image from "../../templates/image/image";
 export const contacts=[
     {
         name:'vk.com/perfume_shop',
-        link:'https://vk.com/perfume_shop',
         image:vk
     },
     {
         name:'instagram.com/perfume_shop',
-        link:'https://www.instagram.com/perfume_shop',
         image:inst
     },
     {
         name:'twitter.com/perfume_shop',
-        link:'https://twitter.com/perfume_shop',
         image:twitter
     },
     {
         name:'telegram.im/perfume_shop',
-        link:'https://telegram.im/perfume_shop',
         image:telegram
     },
     {
         name:'facebook.com/perfume_shop',
-        link:'https://facebook.com/perfume_shop',
         image:facebook
     },
 ];
@@ -39,7 +34,7 @@ const Contacts = ()=>{
     return (
         <div className={styles.contacts}>
             <div className={styles.title}><h3>Мы в социальных сетях:</h3></div>
-            {contacts.map(contact=><a key={contact.name} href={contact.link}>
+            {contacts.map(contact=><a key={contact.name} href={'/'}>
                 <div className={styles.contact}>
                     <div className={styles.img}>
                         <Image image={contact.image}/>

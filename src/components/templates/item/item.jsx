@@ -14,7 +14,7 @@ const Item = (props)=>{
             </div>
             <div className={styles.itemImg} >
                 <NavLink to={'/shop/catalog/'+props.item._id}>
-                    <img src={props.item.image} alt={props.item.img}/>
+                    <img src={props.item.image} alt={'item'}/>
                 </NavLink>
             </div>
             <div className={styles.itemTitle}>
