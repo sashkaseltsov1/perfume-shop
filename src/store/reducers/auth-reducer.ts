@@ -28,7 +28,7 @@ export interface SignOutAction {
 export interface TrySignOutAction {
     type: typeof TRY_SIGN_OUT
 }
-const initialState:Auth = {
+export const initialState:Auth = {
     isAuthorized:undefined,
     address:undefined,
     exp:undefined,
@@ -43,7 +43,7 @@ interface Auth extends UserData{
 }
 type ActionTypes = SignInAction|SignOutAction
 
-const AuthReducer = (state=initialState, action:ActionTypes):Auth=>{
+export const AuthReducer = (state=initialState, action:ActionTypes):Auth=>{
     switch (action.type) {
         case SIGN_IN:
             return {...action.payload, isAuthorized: true};

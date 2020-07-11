@@ -44,7 +44,7 @@ const getInitialItems = ():Array<InitialItem>=>{
     return items;
 };
 
-const initialState = {
+export const initialState = {
     isLoading:true,
     count:undefined as number|undefined,
     error:undefined as string|undefined,
@@ -57,7 +57,7 @@ export type Catalog = typeof initialState;
 
 type ActionTypes = CatalogProductsAction|CatalogLoaderAction|CatalogErrorAction|CatalogInitialAction
 
-const CatalogReducer = (state=initialState, action:ActionTypes):Catalog=>{
+export const CatalogReducer = (state=initialState, action:ActionTypes):Catalog=>{
     switch (action.type) {
         case SET_INITIAL_PRODUCTS:
             return initialState;

@@ -25,7 +25,7 @@ export const initialState = {
     totalCount:0,
     totalPrise:0
 };
-const CartReducer = (state=initialState, action:CartAction):Cart=>{
+export const CartReducer = (state=initialState, action:CartAction):Cart=>{
     switch (action.type) {
         case SET_CART:
                 return {...action.cart};
